@@ -1,45 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
+import '../introduction_controller.dart';
 
-Widget nextButton(bool onLastPage) {
-  return onLastPage
-      ? SizedBox(
-          height: 50,
-          width: 200,
-          child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              enableFeedback: false,
-              foregroundColor: Colors.white,
-              backgroundColor: AppColors.dotColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-            child: const Text(
-              'Hadi Başlayalım',
-              style: TextStyle(fontSize: 21, fontWeight: FontWeight.w500),
-            ),
-          ),
-        )
-      : SizedBox(
-          height: 40,
-          width: 100,
-          child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              enableFeedback: false,
-              foregroundColor: Colors.white,
-              backgroundColor: AppColors.dotColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-            child: const Text(
-              DefaultTexts.next,
-              style: TextStyle(fontSize: 21, fontWeight: FontWeight.w500),
-            ),
-          ),
-        );
+Widget nextButton(bool onLastPage, IntroductionController controller) {
+  return SizedBox(
+    height: onLastPage ? 50 : 40,
+    width: onLastPage ? 200 : 100,
+    child: ElevatedButton(
+      onPressed: () {
+        onLastPage ? {} : controller.currentIndex.value++;
+        controller.pageController.nextPage(
+            duration: const Duration(milliseconds: 500), curve: Curves.ease);
+      },
+      style: buttonStyle(),
+      child: Text(
+        onLastPage ? DefaultTexts.letsBegin : DefaultTexts.next,
+        style: buttonTextStyle(),
+      ),
+    ),
+  );
+}
+
+ButtonStyle buttonStyle() {
+  return ElevatedButton.styleFrom(
+    enableFeedback: false,
+    foregroundColor: Colors.white,
+    backgroundColor: AppColors.dotColor,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10),
+    ),
+  );
+}
+
+TextStyle buttonTextStyle() {
+  return const TextStyle(fontSize: 21, fontWeight: FontWeight.w500);
 }

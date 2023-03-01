@@ -23,4 +23,5 @@ class IntroductionText {
 class DefaultTexts {
   static const String next = "İleri";
   static const String andMore = 've dahası..';
+  static const String letsBegin = 'Hadi Başlayalım';
 }

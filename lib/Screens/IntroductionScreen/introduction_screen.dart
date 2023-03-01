@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:kai/Screens/IntroductionScreen/introduction_controller.dart';
 import 'package:kai/Utils/app_texts.dart';
 import 'Widgets/introduction_dots_column.dart';
 import 'Widgets/introduction_pages.dart';
@@ -11,8 +13,7 @@ class IntroductionPage extends StatefulWidget {
 }
 
 class _IntroductionPageState extends State<IntroductionPage> {
-  final PageController _pageController = PageController();
-  bool onLastPage = false;
+  final IntroductionController _controller = Get.put(IntroductionController());
 
   @override
   Widget build(BuildContext context) {
@@ -20,13 +21,12 @@ class _IntroductionPageState extends State<IntroductionPage> {
       body: Stack(
         children: [
           PageView(
-            controller: _pageController,
+            controller: _controller.pageController,
             onPageChanged: (index) {
-              setState(() {
-                onLastPage = index == 2;
-              });
+              _controller.currentIndex.value = index;
+              _controller.onLastPage.value = index == 2;
             },
-            // physics: const NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             children: [
               pageOneThird(
                   ImagesPath.carboonFootprint, IntroductionText.descriptionOne),
@@ -39,7 +39,8 @@ class _IntroductionPageState extends State<IntroductionPage> {
               bottom: 30,
               right: 0,
               left: 0,
-              child: buttonDotsColumn(_pageController, onLastPage))
+              child: Obx(() => buttonDotsColumn(_controller.pageController,
+                  _controller.onLastPage.value, _controller)))
         ],
       ),
     );
