@@ -18,6 +18,7 @@ class IntroductionText {
   static const String fuelConsumption = "Yakıt tüketimi";
   static const String foodConsumption = "Yiyecek tüketimi";
   static const String waterConsumption = "Su tüketimi";
+  static const String isIntroShown = "isIntroShown";
 }
 
 class DefaultTexts {
