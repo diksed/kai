@@ -6,6 +6,11 @@ class ImagesPath {
   static const String fuelConsumption = 'assets/images/fuel_consumption.png';
   static const String waterConsumption = 'assets/images/water_consumption.png';
   static const String saveWorld = 'assets/images/save_world.png';
+  static const String menuBackground = 'assets/images/menu_background.png';
+  static const String calculateKai = 'assets/images/calculate_kai.png';
+  static const String kaiLogo = 'assets/images/kai_logo.png';
+  static const String donate = 'assets/images/donate.png';
+  static const String facts = 'assets/images/facts.png';
 }
 
 class IntroductionText {
@@ -25,4 +30,10 @@ class DefaultTexts {
   static const String next = "İleri";
   static const String andMore = 've dahası..';
   static const String letsBegin = 'Hadi Başlayalım';
+}
+
+class MenuTexts {
+  static const String kaiCalculate = 'kai\nHesapla';
+  static const String donate = 'Fidan\nBağışla';
+  static const String facts = 'İlginç\nBilgiler';
 }
