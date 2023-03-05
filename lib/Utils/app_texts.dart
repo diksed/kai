@@ -28,6 +28,7 @@ class IntroductionText {
 
 class DefaultTexts {
   static const String next = "İleri";
+  static const String back = "Geri";
   static const String andMore = 've dahası..';
   static const String letsBegin = 'Hadi Başlayalım';
 }
@@ -36,4 +37,10 @@ class MenuTexts {
   static const String kaiCalculate = 'kai\nHesapla';
   static const String donate = 'Fidan\nBağışla';
   static const String facts = 'İlginç\nBilgiler';
+}
+
+class RoutesTexts {
+  static const String introduction = '/introduction';
+  static const String menu = '/menu';
+  static const String calculation = '/calculation';
 }

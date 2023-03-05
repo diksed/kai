@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      getPages: AppPages.routes,
+      getPages: appRoutes(),
       home: isIntroShown == null || isIntroShown == true
           ? const IntroductionPage()
           : const MenuPage(),

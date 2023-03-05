@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
 
@@ -25,7 +26,9 @@ class MenuPage extends StatelessWidget {
                   MenuButton(
                       image: ImagesPath.calculateKai,
                       text: MenuTexts.kaiCalculate,
-                      onTap: () {}),
+                      onTap: () {
+                        Get.toNamed('/calculation');
+                      }),
                   const SizedBox(height: 60),
                   MenuButton(
                     image: ImagesPath.facts,

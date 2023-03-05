@@ -1,26 +1,24 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kai/Screens/MenuScreen/menu_screen.dart';
 
-import '../Screens/IntroductionScreen/introduction_controller.dart';
+import '../Screens/CalculationScreen/calculation_screen.dart';
 import '../Screens/IntroductionScreen/introduction_screen.dart';
+import '../Utils/app_texts.dart';
 
-abstract class Routes {
-  static const introduction = "/introduction";
-  static const menu = "/menu";
-}
-
-abstract class AppPages {
-  static String initial = Routes.introduction;
-
-  static final routes = [
-    GetPage(
-        name: Routes.introduction,
-        page: () => const IntroductionPage(),
-        binding: BindingsBuilder.put(() => IntroductionController())),
-    GetPage(
-        name: Routes.menu,
-        page: () => const MenuPage(),
-        binding: BindingsBuilder.put(() => MenuController())),
-  ];
-}
+appRoutes() => [
+      GetPage(
+          name: RoutesTexts.introduction,
+          page: () => const IntroductionPage(),
+          transition: Transition.fade,
+          transitionDuration: const Duration(milliseconds: 600)),
+      GetPage(
+          name: RoutesTexts.menu,
+          page: () => const MenuPage(),
+          transition: Transition.fade,
+          transitionDuration: const Duration(milliseconds: 600)),
+      GetPage(
+          name: RoutesTexts.calculation,
+          page: () => const CalculationPage(),
+          transition: Transition.fade,
+          transitionDuration: const Duration(milliseconds: 600)),
+    ];

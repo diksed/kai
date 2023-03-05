@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
 import 'package:kai/Utils/get_storage.dart';
-import '../../../Routes/routes.dart';
 import '../introduction_controller.dart';
 
 Widget nextButton(bool onLastPage, IntroductionController controller) {
@@ -15,7 +14,7 @@ Widget nextButton(bool onLastPage, IntroductionController controller) {
         onLastPage
             ? {
                 await isShown.write(IntroductionText.isIntroShown, false),
-                Get.toNamed(Routes.menu)
+                Get.toNamed('/menu')
               }
             : controller.currentIndex.value++;
         controller.pageController.nextPage(
