@@ -13,6 +13,7 @@ Widget backNextButton(
           Get.back();
         } else {
           controller.currentIndex.value--;
+          controller.indicatorIndex.value -= 75;
           controller.calculationPageController.previousPage(
               duration: const Duration(milliseconds: 500), curve: Curves.ease);
         }
@@ -23,6 +24,12 @@ Widget backNextButton(
                 Get.delete<CalculationController>()
               }
             : controller.currentIndex.value++;
+        if (controller.currentIndex.value == 4) {
+          controller.indicatorIndex.value = 300;
+        } else {
+          controller.indicatorIndex.value += 75;
+        }
+
         controller.calculationPageController.nextPage(
             duration: const Duration(milliseconds: 500), curve: Curves.ease);
       }
@@ -31,11 +38,7 @@ Widget backNextButton(
       child: Row(
         children: [
           whichButton == DefaultTexts.back
-              ? const Padding(
-                  padding: EdgeInsets.only(left: 20),
-                  child:
-                      Icon(Icons.arrow_back_ios, color: Colors.white, size: 12),
-                )
+              ? const Icon(Icons.arrow_back_ios, color: Colors.white, size: 12)
               : const SizedBox(),
           Text(onLastPage ? '' : whichButton, style: bodyStyle),
           whichButton == DefaultTexts.back

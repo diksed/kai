@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kai/Screens/CalculationScreen/Widgets/calculation_indicator.dart';
 import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
+import 'package:kai/Screens/CalculationScreen/electric_calculation_screen.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
 
+import '../../Utils/app_logo.dart';
 import 'Widgets/next_back_button.dart';
 
 class CalculationPage extends StatefulWidget {
@@ -33,24 +36,52 @@ class CalculationPageState extends State<CalculationPage> {
                   onPageChanged: (index) {
                     _controller.currentIndex.value = index;
                     _controller.onLastPage.value = index == 4;
+                    if (index == 0) {
+                      _controller.indicatorIndex.value = 75;
+                    } else {
+                      _controller.indicatorIndex.value = (index + 1) * 75;
+                    }
                   },
                   children: [
-                    Container(color: Colors.red),
+                    electricCalculationScreen(),
                     Container(color: Colors.blue),
                     Container(color: Colors.green),
                     Container(color: Colors.yellow),
                     Container(color: Colors.purple),
                   ],
                 ),
-                Positioned(
-                    top: 15,
-                    child: backNextButton(_controller,
-                        _controller.onLastPage.value, DefaultTexts.back)),
-                Positioned(
-                    top: 15,
-                    right: 17,
-                    child: Obx(() => backNextButton(_controller,
-                        _controller.onLastPage.value, DefaultTexts.next))),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          backNextButton(_controller,
+                              _controller.onLastPage.value, DefaultTexts.back),
+                          Obx(
+                            () => Padding(
+                              padding: EdgeInsets.only(
+                                  top: 20,
+                                  right: _controller.onLastPage.value ? 25 : 0),
+                              child: appLogo(),
+                            ),
+                          ),
+                          Obx(
+                            () => backNextButton(
+                                _controller,
+                                _controller.onLastPage.value,
+                                DefaultTexts.next),
+                          ),
+                        ],
+                      ),
+                      Obx(() => calculationIndicator(
+                          _controller.indicatorIndex.value,
+                          _controller.onLastPage.value))
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
