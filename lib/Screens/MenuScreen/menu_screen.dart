@@ -27,7 +27,7 @@ class MenuPage extends StatelessWidget {
                       image: ImagesPath.calculateKai,
                       text: MenuTexts.kaiCalculate,
                       onTap: () {
-                        Get.toNamed('/calculation');
+                        Get.toNamed(RoutesTexts.calculation);
                       }),
                   const SizedBox(height: 60),
                   MenuButton(
@@ -43,7 +43,8 @@ class MenuPage extends StatelessWidget {
                 ]),
               ),
               const Align(
-                  alignment: Alignment.bottomCenter, child: BackgroundImage()),
+                  alignment: Alignment.bottomCenter,
+                  child: BackgroundImage(imagePath: ImagesPath.menuBackground)),
             ],
           ),
         ),

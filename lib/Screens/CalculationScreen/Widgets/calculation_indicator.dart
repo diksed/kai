@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kai/Utils/app_colors.dart';
 
 import 'inner_shadow_effect.dart';
 
@@ -8,7 +9,7 @@ Stack calculationIndicator(int indicatorIndex, bool onLastPage) {
       Container(
         height: onLastPage ? 0 : 30,
         width: onLastPage ? 0 : 300,
-        decoration: innerShadowEffect(),
+        decoration: innerShadowEffect(AppColors.indicatorBackground),
       ),
       Container(
         height: onLastPage ? 0 : 30,

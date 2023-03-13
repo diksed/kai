@@ -3,14 +3,11 @@ import 'package:flutter/material.dart';
 import '../../../Utils/image_opacity.dart';
 
 class BackgroundImage extends StatelessWidget {
-  const BackgroundImage({super.key});
+  const BackgroundImage({super.key, required this.imagePath});
+  final String imagePath;
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        imageOpacity('assets/images/menu_background.png', opacity: 0.03),
-      ],
-    );
+    return imageOpacity(imagePath, opacity: 0.03);
   }
 }

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import '../../../Utils/app_colors.dart';
 
-BoxDecoration innerShadowEffect() {
+BoxDecoration innerShadowEffect(Color color) {
   return BoxDecoration(
     borderRadius: BorderRadius.circular(15),
     boxShadow: [
       BoxShadow(color: Colors.black.withOpacity(0.7)),
-      const BoxShadow(
-        offset: Offset(0, 3),
-        color: AppColors.indicatorBackground,
+      BoxShadow(
+        offset: const Offset(0, 3),
+        color: color,
         spreadRadius: 0,
         blurRadius: 15,
       ),

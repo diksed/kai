@@ -36,15 +36,18 @@ class CalculationPageState extends State<CalculationPage> {
                   onPageChanged: (index) {
                     _controller.currentIndex.value = index;
                     _controller.onLastPage.value = index == 4;
-                    if (index == 0) {
-                      _controller.indicatorIndex.value = 75;
-                    } else {
-                      _controller.indicatorIndex.value = (index + 1) * 75;
-                    }
+                    // if (int.parse(_controller.electricController.text) != 0) {
+                    //   _controller.indicatorIndex.value = 75;
+                    // }
+                    // if (index == 0) {
+                    //   _controller.indicatorIndex.value = 75;
+                    // } else {
+                    //   _controller.indicatorIndex.value = (index + 1) * 75;
+                    // }
                   },
                   children: [
-                    electricCalculationScreen(),
-                    Container(color: Colors.blue),
+                    electricCalculationScreen(_controller),
+                    Container(color: Colors.red),
                     Container(color: Colors.green),
                     Container(color: Colors.yellow),
                     Container(color: Colors.purple),

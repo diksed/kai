@@ -19,10 +19,10 @@ class IntroductionText {
   static const String descriptionTwo =
       "Uygulamamızı kullanarak kolayca karbon ayak izinizi hesaplayabilir ve azaltmak için neler yapabileceğinizi öğrenebilirsiniz.";
   static const String titleSecond = "Karbon Ayak İzini\nEtkileyen Faktörler";
-  static const String electricConsumption = "Elektrik tüketimi";
-  static const String fuelConsumption = "Yakıt tüketimi";
-  static const String foodConsumption = "Yiyecek tüketimi";
-  static const String waterConsumption = "Su tüketimi";
+  static const String electricConsumption = "Elektrik Tüketimi";
+  static const String fuelConsumption = "Yakıt Tüketimi";
+  static const String foodConsumption = "Yiyecek Tüketimi";
+  static const String waterConsumption = "Su Tüketimi";
   static const String isIntroShown = "isIntroShown";
 }
 
@@ -37,10 +37,16 @@ class MenuTexts {
   static const String kaiCalculate = 'kai\nHesapla';
   static const String donate = 'Fidan\nBağışla';
   static const String facts = 'İlginç\nBilgiler';
+  static const String totalConsumption = 'Yıllık Toplam Tüketim';
 }
 
 class RoutesTexts {
   static const String introduction = '/introduction';
   static const String menu = '/menu';
   static const String calculation = '/calculation';
+}
+
+class DescriptionTexts {
+  static const String electricConsumption =
+      "Evinde kullandığın ürünlerin ve ampullerin enerji dostu olması doğa için çok faydalıdır.";
 }
