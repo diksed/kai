@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kai/Screens/CalculationScreen/CalculationScreens/calculation_screen_scaffold.dart';
 import 'package:kai/Screens/CalculationScreen/Widgets/calculation_indicator.dart';
 import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
-import 'package:kai/Screens/CalculationScreen/electric_calculation_screen.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
 
 import '../../Utils/app_logo.dart';
+import 'CalculationScreens/calculation_input_container.dart';
+import 'CalculationScreens/warming_input.dart';
 import 'Widgets/next_back_button.dart';
 
 class CalculationPage extends StatefulWidget {
@@ -46,8 +48,20 @@ class CalculationPageState extends State<CalculationPage> {
                     // }
                   },
                   children: [
-                    electricCalculationScreen(_controller),
-                    Container(color: Colors.red),
+                    calculationScreen(
+                        ImagesPath.electricConsumption,
+                        130,
+                        310,
+                        IntroductionText.electricConsumption,
+                        DescriptionTexts.electricConsumption,
+                        calculationInputContainer(_controller)),
+                    calculationScreen(
+                        ImagesPath.warmingConsumption,
+                        140,
+                        320,
+                        IntroductionText.warmingValues,
+                        DescriptionTexts.warmingConsumption,
+                        warmingInput(_controller)),
                     Container(color: Colors.green),
                     Container(color: Colors.yellow),
                     Container(color: Colors.purple),
