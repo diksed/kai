@@ -7,6 +7,7 @@ class ImagesPath {
   static const String waterConsumption = 'assets/images/water_consumption.png';
   static const String warmingConsumption =
       'assets/images/warming_consumption.png';
+  static const String vehicleUse = 'assets/images/vehicle_use.png';
   static const String saveWorld = 'assets/images/save_world.png';
   static const String menuBackground = 'assets/images/menu_background.png';
   static const String calculateKai = 'assets/images/calculate_kai.png';
@@ -25,6 +26,7 @@ class IntroductionText {
   static const String warmingValues = "Isınma Değerleri";
   static const String fuelConsumption = "Yakıt Tüketimi";
   static const String foodConsumption = "Yiyecek Tüketimi";
+  static const String vehicleUse = "Bireysel Araç Kullanımı";
   static const String waterConsumption = "Su Tüketimi";
   static const String isIntroShown = "isIntroShown";
 }
@@ -54,4 +56,6 @@ class DescriptionTexts {
       "Evinde kullandığın ürünlerin ve ampullerin enerji dostu olması doğa için çok faydalıdır.";
   static const String warmingConsumption =
       "Evinde kullandığın ısıtma cihazlarını ne kadar az veya verimli kullanırsan küresel ısınma o kadar az etkilenir.";
+  static const String vehicleUse =
+      "Arabayı hızlı kullanmamak; hem daha az yakıt harcamak, hem de doğaya az zarar vermek demektir.";
 }

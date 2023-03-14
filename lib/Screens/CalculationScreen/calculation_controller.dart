@@ -12,7 +12,13 @@ class CalculationController extends GetxController {
   var electricSelectedType = 'kWh'.obs;
   var warmingfuelType = 'Doğalgaz'.obs;
   var warmingfuelUnit = 'm³'.obs;
-  final List<String> fuelTypes = ['Doğalgaz', 'LPG', 'Fuel-Oil', 'Kömür'];
+  final List<String> carFuelTypes = ['Benzin', 'Dizel', 'LPG'];
+  final List<String> warmingFuelTypes = [
+    'Doğalgaz',
+    'LPG',
+    'Fuel-Oil',
+    'Kömür'
+  ];
   final Map<String, List<String>> fuelUnits = {
     'Doğalgaz': ['m³', 'TL'],
     'LPG': ['Lt.', 'TL'],

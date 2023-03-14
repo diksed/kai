@@ -34,7 +34,7 @@ class WarmingDropdownMenu extends StatelessWidget {
             controller.warmingfuelType.value = newValue!;
             controller.updateSelectedFuelType(newValue);
           },
-          items: controller.fuelTypes
+          items: controller.warmingFuelTypes
               .map<DropdownMenuItem<String>>((String value) {
             return DropdownMenuItem(
               value: value,
