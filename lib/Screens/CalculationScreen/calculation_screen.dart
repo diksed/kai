@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kai/Screens/CalculationScreen/CalculationScreens/calculation_screen_scaffold.dart';
-import 'package:kai/Screens/CalculationScreen/Widgets/calculation_indicator.dart';
+import 'package:kai/Screens/CalculationScreen/Widgets/Common/calculation_screen_scaffold.dart';
+import 'package:kai/Screens/CalculationScreen/Widgets/Common/calculation_indicator.dart';
+import 'package:kai/Screens/CalculationScreen/Widgets/VehicleUse/vehicle_use_dropdown_menu.dart';
+import 'package:kai/Screens/CalculationScreen/Widgets/Warming/warming_dropdown_menu.dart';
 import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
-
 import '../../Utils/app_logo.dart';
-import 'CalculationScreens/calculation_input_container.dart';
-import 'CalculationScreens/warming_input.dart';
-import 'Widgets/next_back_button.dart';
+import 'Widgets/Electric/electric_text_field_container.dart';
+import 'Widgets/VehicleUse/value_dropdown_menu.dart';
+import 'Widgets/Warming/value_dropdown_menu.dart';
+import 'Widgets/Common/input_sized_box.dart';
+import 'Widgets/Common/next_back_button.dart';
 
 class CalculationPage extends StatefulWidget {
   const CalculationPage({super.key});
@@ -54,21 +57,34 @@ class CalculationPageState extends State<CalculationPage> {
                         310,
                         IntroductionText.electricConsumption,
                         DescriptionTexts.electricConsumption,
-                        calculationInputContainer(_controller)),
+                        inputSizedBox(_controller,
+                            electricTextFieldContainer(_controller))),
                     calculationScreen(
                         ImagesPath.warmingConsumption,
                         140,
                         320,
                         IntroductionText.warmingValues,
                         DescriptionTexts.warmingConsumption,
-                        warmingInput(_controller)),
+                        inputSizedBox(
+                            _controller,
+                            textFieldContainerRow(
+                                _controller,
+                                _controller.warmingController,
+                                WarmingDropdownMenu(controller: _controller),
+                                warmingValueDropdownMenu(_controller)))),
                     calculationScreen(
                         ImagesPath.vehicleUse,
                         140,
                         310,
                         IntroductionText.vehicleUse,
                         DescriptionTexts.vehicleUse,
-                        warmingInput(_controller)),
+                        inputSizedBox(
+                            _controller,
+                            textFieldContainerRow(
+                                _controller,
+                                _controller.vehicleUseController,
+                                VehicleUseDropdownMenu(controller: _controller),
+                                vehicleUseValueDropdownMenu(_controller)))),
                     Container(color: Colors.yellow),
                     Container(color: Colors.purple),
                   ],

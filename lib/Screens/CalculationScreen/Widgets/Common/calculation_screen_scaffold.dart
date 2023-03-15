@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../Utils/app_colors.dart';
-import '../../IntroductionScreen/Widgets/introduction_pages.dart';
-import '../../MenuScreen/Widgets/menu_background_image.dart';
+import '../../../../Utils/app_colors.dart';
+import '../../../IntroductionScreen/Widgets/introduction_pages.dart';
+import '../../../MenuScreen/Widgets/menu_background_image.dart';
 
 Widget calculationScreen(String imagePath, double sizedBoxHeight,
     double sizedBoxWidth, String title, String description, Widget input) {

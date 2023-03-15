@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
+import '../../../../Utils/app_colors.dart';
 
-import '../../../Utils/app_colors.dart';
-
-class WarmingDropdownMenu extends StatelessWidget {
-  const WarmingDropdownMenu({super.key, required this.controller});
-  final CalculationController controller;
+class ElectricDropdownMenu extends StatelessWidget {
+  const ElectricDropdownMenu({super.key, required this.electricSelectedType});
+  final RxString electricSelectedType;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 60,
-      width: 115,
+      width: 80,
       child: Obx(
         () => DropdownButton(
           icon:
@@ -23,18 +21,12 @@ class WarmingDropdownMenu extends StatelessWidget {
           underline: Container(height: 0),
           dropdownColor: AppColors.indicatorBackground,
           borderRadius: BorderRadius.circular(15),
-          alignment: Alignment.center,
           itemHeight: 60,
-          hint: Text(
-            controller.warmingfuelType.value,
-            style: const TextStyle(color: Colors.white, fontSize: 20),
-          ),
-          value: controller.warmingfuelType.value,
+          value: electricSelectedType.value,
           onChanged: (newValue) {
-            controller.warmingfuelType.value = newValue!;
-            controller.updateSelectedFuelType(newValue);
+            electricSelectedType.value = newValue!;
           },
-          items: controller.warmingFuelTypes
+          items: <String>['kWh', 'TL']
               .map<DropdownMenuItem<String>>((String value) {
             return DropdownMenuItem(
               value: value,

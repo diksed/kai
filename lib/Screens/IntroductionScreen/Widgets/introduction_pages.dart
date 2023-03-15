@@ -47,11 +47,11 @@ Widget pageOneThird(String image, String text) {
 }
 
 Widget pageTwo() {
-  return Scaffold(
+  return const Scaffold(
     backgroundColor: AppColors.backgroundColor,
     body: Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
+      children: [
         Text(IntroductionText.titleSecond,
             style: titleStyle, textAlign: TextAlign.center),
         SizedBox(height: 40),
