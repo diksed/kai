@@ -3,9 +3,11 @@ import 'package:get/get.dart';
 
 class CalculationController extends GetxController {
   final PageController calculationPageController = PageController();
+  var isVisible = true.obs;
   var onLastPage = false.obs;
   var currentIndex = 0.obs;
   var indicatorIndex = 0.obs;
+  var isVehicleUsed = false.obs;
 
   final TextEditingController electricController = TextEditingController();
   final TextEditingController warmingController = TextEditingController();
@@ -15,7 +17,7 @@ class CalculationController extends GetxController {
   var vehicleUseUnit = 'Lt.'.obs;
   var warmingfuelType = 'Doğalgaz'.obs;
   var warmingfuelUnit = 'm³'.obs;
-  final List<String> carFuelTypes = ['Benzin', 'Dizel', 'LPG'];
+  final List<String> vehicleFuelTypes = ['Benzin', 'Dizel', 'LPG'];
   final Map<String, List<String>> vehicleFuelUnits = {
     'Benzin': ['Lt.', 'TL'],
     'Dizel': ['Lt.', 'TL'],

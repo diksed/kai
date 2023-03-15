@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kai/Screens/CalculationScreen/Widgets/Common/text_field.dart';
+import 'package:kai/Screens/CalculationScreen/Widgets/VehicleUse/not_using_vehicle_checkbox.dart';
 import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
 
 import '../../../../Utils/app_colors.dart';
@@ -7,15 +8,20 @@ import '../../../../Utils/app_texts.dart';
 import '../../../IntroductionScreen/Widgets/introduction_pages.dart';
 import 'inner_shadow_effect.dart';
 
-Widget inputSizedBox(CalculationController controller, Container rowContainer) {
+Widget inputSizedBox(
+    CalculationController controller, Container rowContainer, String whichOne) {
   return SizedBox(
-    height: 115,
+    height: 145,
     width: 310,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         const Text(MenuTexts.totalConsumption, style: titleStyle),
         rowContainer,
+        if (whichOne == 'vehicleUse')
+          NotUsingVehicleCheckbox(controller: controller)
+        else
+          const SizedBox()
       ],
     ),
   );

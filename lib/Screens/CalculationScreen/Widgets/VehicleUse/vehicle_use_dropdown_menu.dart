@@ -34,7 +34,7 @@ class VehicleUseDropdownMenu extends StatelessWidget {
             controller.vehicleUseType.value = newValue!;
             controller.updateSelectedFuelType(newValue, 'vehicleUse');
           },
-          items: controller.carFuelTypes
+          items: controller.vehicleFuelTypes
               .map<DropdownMenuItem<String>>((String value) {
             return DropdownMenuItem(
               value: value,

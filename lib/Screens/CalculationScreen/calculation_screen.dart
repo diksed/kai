@@ -58,7 +58,7 @@ class CalculationPageState extends State<CalculationPage> {
                         IntroductionText.electricConsumption,
                         DescriptionTexts.electricConsumption,
                         inputSizedBox(_controller,
-                            electricTextFieldContainer(_controller))),
+                            electricTextFieldContainer(_controller), '')),
                     calculationScreen(
                         ImagesPath.warmingConsumption,
                         140,
@@ -71,7 +71,8 @@ class CalculationPageState extends State<CalculationPage> {
                                 _controller,
                                 _controller.warmingController,
                                 WarmingDropdownMenu(controller: _controller),
-                                warmingValueDropdownMenu(_controller)))),
+                                warmingValueDropdownMenu(_controller)),
+                            '')),
                     calculationScreen(
                         ImagesPath.vehicleUse,
                         140,
@@ -84,7 +85,8 @@ class CalculationPageState extends State<CalculationPage> {
                                 _controller,
                                 _controller.vehicleUseController,
                                 VehicleUseDropdownMenu(controller: _controller),
-                                vehicleUseValueDropdownMenu(_controller)))),
+                                vehicleUseValueDropdownMenu(_controller)),
+                            'vehicleUse')),
                     Container(color: Colors.yellow),
                     Container(color: Colors.purple),
                   ],
