@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
 import 'package:kai/Screens/IntroductionScreen/Widgets/introduction_pages.dart';
+import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
 
 Widget backNextButton(
@@ -34,8 +35,21 @@ Widget backNextButton(
             duration: const Duration(milliseconds: 500), curve: Curves.ease);
       }
     },
-    child: SizedBox(
+    child: Container(
+      height: 40,
+      width: 70,
+      decoration: const BoxDecoration(
+          color: AppColors.indicatorBackground,
+          boxShadow: [
+            BoxShadow(
+                color: Colors.black12,
+                offset: Offset(0, 3),
+                blurRadius: 6,
+                spreadRadius: 0)
+          ],
+          borderRadius: BorderRadius.all(Radius.circular(10))),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           whichButton == DefaultTexts.back
               ? const Icon(Icons.arrow_back_ios, color: Colors.white, size: 12)

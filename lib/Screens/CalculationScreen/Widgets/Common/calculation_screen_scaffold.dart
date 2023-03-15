@@ -13,27 +13,30 @@ Widget calculationScreen(String imagePath, double sizedBoxHeight,
           Align(
               alignment: Alignment.bottomCenter,
               child: BackgroundImage(imagePath: imagePath)),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 60),
-                  child: SizedBox(
-                    height: sizedBoxHeight,
-                    width: sizedBoxWidth,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text(title, style: titleStyle),
-                        Text(description,
-                            style: bodyStyle, textAlign: TextAlign.center)
-                      ],
+          Padding(
+            padding: const EdgeInsets.only(bottom: 70),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 20),
+                    child: SizedBox(
+                      height: sizedBoxHeight,
+                      width: sizedBoxWidth,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(title, style: titleStyle),
+                          Text(description,
+                              style: bodyStyle, textAlign: TextAlign.center)
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                input
-              ],
+                  input
+                ],
+              ),
             ),
           ),
         ],
