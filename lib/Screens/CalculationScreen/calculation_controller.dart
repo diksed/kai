@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kai/Utils/app_colors.dart';
 
 class CalculationController extends GetxController {
   final PageController calculationPageController = PageController();
+  final messengerKey = GlobalKey<ScaffoldMessengerState>();
+
   var isVisible = true.obs;
   var onLastPage = false.obs;
   var currentIndex = 0.obs;
@@ -77,5 +80,25 @@ class CalculationController extends GetxController {
         indicatorIndex.value = 300;
       }
     }
+  }
+
+  showSnackBar() {
+    Get.snackbar(
+      'Hata',
+      'Lütfen tüm alanları doldurunuz!',
+      backgroundColor: AppColors.snackBarColor,
+      boxShadows: [
+        const BoxShadow(
+            color: Colors.black12,
+            offset: Offset(0, 3),
+            blurRadius: 2,
+            spreadRadius: 2)
+      ],
+      colorText: Colors.white,
+      messageText: const Text(
+        'Lütfen tüm alanları doldurunuz!',
+        style: TextStyle(color: Colors.white),
+      ),
+    );
   }
 }

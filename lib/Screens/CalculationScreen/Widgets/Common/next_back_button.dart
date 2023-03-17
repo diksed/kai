@@ -14,25 +14,47 @@ Widget backNextButton(
           Get.back();
         } else {
           controller.currentIndex.value--;
-          controller.indicatorIndex.value -= 75;
+          // controller.indicatorIndex.value -= 75;
           controller.calculationPageController.previousPage(
               duration: const Duration(milliseconds: 500), curve: Curves.ease);
         }
       } else {
-        onLastPage
-            ? {
-                Get.toNamed(RoutesTexts.menu),
-                Get.delete<CalculationController>()
-              }
-            : controller.currentIndex.value++;
-        if (controller.currentIndex.value == 4) {
-          controller.indicatorIndex.value = 300;
+        if (onLastPage) {
+          Get.toNamed(RoutesTexts.menu);
+          Get.delete<CalculationController>();
         } else {
-          controller.indicatorIndex.value += 75;
+          if (controller.currentIndex.value == 0) {
+            if (controller.electricController.text.isEmpty) {
+              controller.showSnackBar();
+            } else {
+              nextPageMethod(controller);
+            }
+          } else if (controller.currentIndex.value == 1) {
+            if (controller.warmingController.text.isEmpty) {
+              controller.showSnackBar();
+            } else {
+              nextPageMethod(controller);
+            }
+          } else if (controller.currentIndex.value == 2) {
+            if (controller.isVehicleUsed.value == false) {
+              if (controller.vehicleUseController.text.isEmpty) {
+                controller.showSnackBar();
+              } else {
+                nextPageMethod(controller);
+              }
+            } else {
+              nextPageMethod(controller);
+            }
+          } else if (controller.currentIndex.value == 3) {
+            if (controller.meatController.text.isEmpty ||
+                controller.milkController.text.isEmpty ||
+                controller.greengroceryController.text.isEmpty) {
+              controller.showSnackBar();
+            } else {
+              nextPageMethod(controller);
+            }
+          }
         }
-
-        controller.calculationPageController.nextPage(
-            duration: const Duration(milliseconds: 500), curve: Curves.ease);
       }
     },
     child: Container(
@@ -63,4 +85,9 @@ Widget backNextButton(
       ),
     ),
   );
+}
+
+void nextPageMethod(CalculationController controller) {
+  controller.calculationPageController.nextPage(
+      duration: const Duration(milliseconds: 500), curve: Curves.ease);
 }
