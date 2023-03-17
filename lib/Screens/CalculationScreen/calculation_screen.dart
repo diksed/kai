@@ -9,7 +9,8 @@ import 'package:kai/Utils/app_logo.dart';
 import 'package:kai/Utils/app_texts.dart';
 import 'Widgets/Common/calculation_indicator.dart';
 import 'Widgets/Common/next_back_button.dart';
-import 'Widgets/Electric/electric_text_field_container.dart';
+import 'Widgets/Electric/one_text_field_container.dart';
+import 'Widgets/Food/food_input_sized_box.dart';
 import 'Widgets/VehicleUse/value_dropdown_menu.dart';
 import 'Widgets/Warming/value_dropdown_menu.dart';
 import 'Widgets/Common/input_sized_box.dart';
@@ -50,8 +51,17 @@ class CalculationPageState extends State<CalculationPage> {
                         310,
                         IntroductionText.electricConsumption,
                         DescriptionTexts.electricConsumption,
-                        inputSizedBox(_controller,
-                            electricTextFieldContainer(_controller), '')),
+                        inputSizedBox(
+                            _controller,
+                            oneTextFieldContainer(
+                                _controller,
+                                _controller.electricController,
+                                true,
+                                height: 60,
+                                width: 250,
+                                padding: 0,
+                                ''),
+                            '')),
                     calculationScreen(
                         ImagesPath.warmingConsumption,
                         140,
@@ -80,7 +90,14 @@ class CalculationPageState extends State<CalculationPage> {
                                 VehicleUseDropdownMenu(controller: _controller),
                                 vehicleUseValueDropdownMenu(_controller)),
                             'vehicleUse')),
-                    Container(color: Colors.yellow),
+                    calculationScreen(
+                        ImagesPath.foodConsumption,
+                        160,
+                        310,
+                        IntroductionText.foodConsumption,
+                        DescriptionTexts.foodConsumption,
+                        foodInputSizedBox(_controller),
+                        padding: 0),
                     Container(color: Colors.purple),
                   ],
                 ),
@@ -96,7 +113,7 @@ class CalculationPageState extends State<CalculationPage> {
                   ),
                 ),
                 Positioned(
-                  bottom: 200,
+                  bottom: 100,
                   left: 0,
                   right: 0,
                   child: Row(

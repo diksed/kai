@@ -9,6 +9,9 @@ class CalculationController extends GetxController {
   var indicatorIndex = 0.obs;
   var isVehicleUsed = false.obs;
 
+  final TextEditingController meatController = TextEditingController();
+  final TextEditingController milkController = TextEditingController();
+  final TextEditingController greengroceryController = TextEditingController();
   final TextEditingController electricController = TextEditingController();
   final TextEditingController warmingController = TextEditingController();
   final TextEditingController vehicleUseController = TextEditingController();

@@ -4,7 +4,8 @@ import '../../../IntroductionScreen/Widgets/introduction_pages.dart';
 import '../../../MenuScreen/Widgets/menu_background_image.dart';
 
 Widget calculationScreen(String imagePath, double sizedBoxHeight,
-    double sizedBoxWidth, String title, String description, Widget input) {
+    double sizedBoxWidth, String title, String description, Widget input,
+    {double padding = 70}) {
   return Scaffold(
     backgroundColor: AppColors.backgroundColor,
     body: Center(
@@ -14,7 +15,7 @@ Widget calculationScreen(String imagePath, double sizedBoxHeight,
               alignment: Alignment.bottomCenter,
               child: BackgroundImage(imagePath: imagePath)),
           Padding(
-            padding: const EdgeInsets.only(bottom: 70),
+            padding: EdgeInsets.only(bottom: padding),
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

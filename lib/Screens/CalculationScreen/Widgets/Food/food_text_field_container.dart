@@ -4,9 +4,9 @@ import '../../../../Utils/app_colors.dart';
 import '../../calculation_controller.dart';
 import '../Common/inner_shadow_effect.dart';
 import '../Common/text_field.dart';
-import 'electric_dropdown_menu.dart';
+import '../Electric/electric_dropdown_menu.dart';
 
-Container electricTextFieldContainer(CalculationController controller) {
+Container foodTextFieldContainer(CalculationController controller) {
   return Container(
       height: 60,
       width: 250,

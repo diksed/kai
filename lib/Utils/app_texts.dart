@@ -58,4 +58,6 @@ class DescriptionTexts {
       "Evinde kullandığın ısıtma cihazlarını ne kadar az veya verimli kullanırsan küresel ısınma o kadar az etkilenir.";
   static const String vehicleUse =
       "Arabayı hızlı kullanmamak; hem daha az yakıt harcamak, hem de doğaya az zarar vermek demektir.";
+  static const String foodConsumption =
+      "Tüketilen gıdaların kaynaklarına ve üretim süreçlerine dikkat etmek, et tüketimini azaltmak ve gıda israfını önlemek önemlidir.";
 }

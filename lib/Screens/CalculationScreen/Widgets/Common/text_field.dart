@@ -6,9 +6,10 @@ Widget customTextField(
     CalculationController controller,
     TextEditingController textEditingController,
     double sizedBoxWidth,
-    int maxLength) {
+    int maxLength,
+    {double sizedBoxHeight = 60}) {
   return SizedBox(
-    height: 60,
+    height: sizedBoxHeight,
     width: sizedBoxWidth,
     child: Padding(
       padding: const EdgeInsets.only(top: 5),
