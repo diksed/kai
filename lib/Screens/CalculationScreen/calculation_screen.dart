@@ -11,6 +11,7 @@ import 'Widgets/Common/calculation_indicator.dart';
 import 'Widgets/Common/next_back_button.dart';
 import 'Widgets/Electric/one_text_field_container.dart';
 import 'Widgets/Food/food_input_sized_box.dart';
+import 'Widgets/Result/result_input.dart';
 import 'Widgets/VehicleUse/value_dropdown_menu.dart';
 import 'Widgets/Warming/value_dropdown_menu.dart';
 import 'Widgets/Common/input_sized_box.dart';
@@ -95,13 +96,19 @@ class CalculationPageState extends State<CalculationPage> {
                               'vehicleUse')),
                       calculationScreen(
                           ImagesPath.foodConsumption,
-                          160,
-                          310,
+                          150,
+                          360,
                           IntroductionText.foodConsumption,
                           DescriptionTexts.foodConsumption,
                           foodInputSizedBox(_controller),
                           padding: 0),
-                      Container(color: Colors.purple),
+                      calculationScreen(
+                          ImagesPath.saveWorld,
+                          140,
+                          360,
+                          IntroductionText.result,
+                          DescriptionTexts.resultDescription,
+                          resultInput())
                     ],
                   ),
                   Center(

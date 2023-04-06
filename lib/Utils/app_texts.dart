@@ -29,6 +29,7 @@ class IntroductionText {
   static const String vehicleUse = "Bireysel Araç Kullanımı";
   static const String waterConsumption = "Su Tüketimi";
   static const String isIntroShown = "isIntroShown";
+  static const String result = "Sonuçlar";
 }
 
 class DefaultTexts {
@@ -60,4 +61,6 @@ class DescriptionTexts {
       "Arabayı hızlı kullanmamak; hem daha az yakıt harcamak, hem de doğaya az zarar vermek demektir.";
   static const String foodConsumption =
       "Tüketilen gıdaların kaynaklarına ve üretim süreçlerine dikkat etmek, et tüketimini azaltmak ve gıda israfını önlemek önemlidir.";
+  static const String resultDescription =
+      "Yıllık karbon ayak izi miktarını oluşturan sera gazı salımı toplamınız aşağıda belirtilmiştir.";
 }
