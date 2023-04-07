@@ -20,19 +20,30 @@ class CircleGraphicState extends State {
         child: Row(
           children: [
             Expanded(
-              child: AspectRatio(
-                aspectRatio: 1,
-                child: PieChart(
-                  PieChartData(
-                    borderData: FlBorderData(
-                      show: false,
+              child: Stack(
+                children: [
+                  const Center(
+                      child: Text('2.5\nTon',
+                          style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                          textAlign: TextAlign.center)),
+                  AspectRatio(
+                    aspectRatio: 1,
+                    child: PieChart(
+                      PieChartData(
+                        borderData: FlBorderData(
+                          show: false,
+                        ),
+                        startDegreeOffset: 120,
+                        sectionsSpace: 0,
+                        centerSpaceRadius: 40,
+                        sections: showingSections(),
+                      ),
                     ),
-                    startDegreeOffset: 120,
-                    sectionsSpace: 0,
-                    centerSpaceRadius: 30,
-                    sections: showingSections(),
                   ),
-                ),
+                ],
               ),
             ),
             const SizedBox(width: 20),

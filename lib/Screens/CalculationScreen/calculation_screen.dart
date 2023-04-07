@@ -102,13 +102,16 @@ class CalculationPageState extends State<CalculationPage> {
                           DescriptionTexts.foodConsumption,
                           foodInputSizedBox(_controller),
                           padding: 0),
-                      calculationScreen(
-                          ImagesPath.saveWorld,
-                          140,
-                          360,
-                          IntroductionText.result,
-                          DescriptionTexts.resultDescription,
-                          resultInput())
+                      Padding(
+                        padding: const EdgeInsets.only(top: 100),
+                        child: calculationScreen(
+                            ImagesPath.saveWorld,
+                            140,
+                            360,
+                            IntroductionText.result,
+                            DescriptionTexts.resultDescription,
+                            resultInput()),
+                      )
                     ],
                   ),
                   Center(
@@ -122,21 +125,25 @@ class CalculationPageState extends State<CalculationPage> {
                       ),
                     ),
                   ),
-                  Positioned(
-                    bottom: 100,
-                    left: 0,
-                    right: 0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        backNextButton(_controller,
-                            _controller.onLastPage.value, DefaultTexts.back),
-                        Obx(
-                          () => backNextButton(_controller,
-                              _controller.onLastPage.value, DefaultTexts.next),
-                        ),
-                      ],
+                  Obx(
+                    () => Positioned(
+                      bottom: _controller.onLastPage.value ? 30 : 100,
+                      left: 0,
+                      right: 0,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          backNextButton(_controller,
+                              _controller.onLastPage.value, DefaultTexts.back),
+                          Obx(
+                            () => backNextButton(
+                                _controller,
+                                _controller.onLastPage.value,
+                                DefaultTexts.next),
+                          ),
+                        ],
+                      ),
                     ),
                   )
                 ],

@@ -30,6 +30,7 @@ class IntroductionText {
   static const String waterConsumption = "Su Tüketimi";
   static const String isIntroShown = "isIntroShown";
   static const String result = "Sonuçlar";
+  static const String totalco2 = "Toplam CO2 Salınımı";
 }
 
 class DefaultTexts {
