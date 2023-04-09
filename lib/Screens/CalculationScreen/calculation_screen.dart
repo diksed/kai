@@ -4,6 +4,7 @@ import 'package:kai/Screens/CalculationScreen/Widgets/Common/calculation_screen_
 import 'package:kai/Screens/CalculationScreen/Widgets/VehicleUse/vehicle_use_dropdown_menu.dart';
 import 'package:kai/Screens/CalculationScreen/Widgets/Warming/warming_dropdown_menu.dart';
 import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
+import 'package:kai/Screens/CalculationScreen/result_controller.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_logo.dart';
 import 'package:kai/Utils/app_texts.dart';
@@ -25,6 +26,7 @@ class CalculationPage extends StatefulWidget {
 
 class CalculationPageState extends State<CalculationPage> {
   final CalculationController _controller = Get.put(CalculationController());
+  final ResultController _resultController = Get.put(ResultController());
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +112,15 @@ class CalculationPageState extends State<CalculationPage> {
                             360,
                             IntroductionText.result,
                             DescriptionTexts.resultDescription,
-                            resultInput()),
+                            Obx(
+                              () => (resultInput(
+                                  _resultController.electricResultValue
+                                      .toStringAsFixed(1),
+                                  _resultController.warmingResultValue
+                                      .toStringAsFixed(1),
+                                  _resultController.fuelResultValue
+                                      .toStringAsFixed(1))),
+                            )),
                       )
                     ],
                   ),
@@ -134,13 +144,17 @@ class CalculationPageState extends State<CalculationPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          backNextButton(_controller,
-                              _controller.onLastPage.value, DefaultTexts.back),
+                          backNextButton(
+                              _controller,
+                              _controller.onLastPage.value,
+                              DefaultTexts.back,
+                              _resultController),
                           Obx(
                             () => backNextButton(
                                 _controller,
                                 _controller.onLastPage.value,
-                                DefaultTexts.next),
+                                DefaultTexts.next,
+                                _resultController),
                           ),
                         ],
                       ),

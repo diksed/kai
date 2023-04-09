@@ -1,6 +1,8 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../result_controller.dart';
 import 'circle_indicator.dart';
 import 'circle_text_style.dart';
 
@@ -12,6 +14,8 @@ class CircleGraphic extends StatefulWidget {
 }
 
 class CircleGraphicState extends State {
+  final ResultController _resultController = Get.put(ResultController());
+
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -23,24 +27,25 @@ class CircleGraphicState extends State {
               child: Stack(
                 children: [
                   const Center(
-                      child: Text('2.5\nTon',
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
-                          textAlign: TextAlign.center)),
+                    child: Text('3',
+                        // '${_resultController.totalResult.value.toStringAsFixed(1)}\nTon',
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                        textAlign: TextAlign.center),
+                  ),
                   AspectRatio(
                     aspectRatio: 1,
                     child: PieChart(
                       PieChartData(
-                        borderData: FlBorderData(
-                          show: false,
-                        ),
-                        startDegreeOffset: 120,
-                        sectionsSpace: 0,
-                        centerSpaceRadius: 40,
-                        sections: showingSections(),
-                      ),
+                          borderData: FlBorderData(
+                            show: false,
+                          ),
+                          startDegreeOffset: 120,
+                          sectionsSpace: 0,
+                          centerSpaceRadius: 40,
+                          sections: showingSections(1.0, 1.0, 1.0, 3.0)),
                     ),
                   ),
                 ],
@@ -66,36 +71,37 @@ class CircleGraphicState extends State {
     );
   }
 
-  List<PieChartSectionData> showingSections() {
+  List<PieChartSectionData> showingSections(
+      double electric, double warming, double fuel, double food) {
     return List.generate(4, (i) {
       switch (i) {
         case 0:
           return PieChartSectionData(
             color: Colors.yellow[700],
-            value: 40,
-            title: '40%',
+            value: electric,
+            title: '%${electric.toStringAsFixed(0)}',
             radius: 50,
             titleStyle: circleTextStyle(),
           );
         case 1:
           return PieChartSectionData(
               color: Colors.blue[700],
-              value: 30,
-              title: '30%',
+              value: warming,
+              title: '%${warming.toStringAsFixed(0)}',
               radius: 50,
               titleStyle: circleTextStyle());
         case 2:
           return PieChartSectionData(
               color: Colors.red[700],
-              value: 15,
-              title: '15%',
+              value: fuel,
+              title: '%${fuel.toStringAsFixed(0)}',
               radius: 50,
               titleStyle: circleTextStyle());
         case 3:
           return PieChartSectionData(
               color: Colors.green[700],
-              value: 15,
-              title: '15%',
+              value: food,
+              title: '%${food.toStringAsFixed(0)}',
               radius: 50,
               titleStyle: circleTextStyle());
         default:

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
+import 'package:kai/Screens/CalculationScreen/result_controller.dart';
 import 'package:kai/Screens/IntroductionScreen/Widgets/introduction_pages.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
 
-Widget backNextButton(
-    CalculationController controller, bool onLastPage, String whichButton) {
+Widget backNextButton(CalculationController controller, bool onLastPage,
+    String whichButton, ResultController resultController) {
   return GestureDetector(
     onTap: () async {
       if (whichButton == DefaultTexts.back) {
@@ -27,12 +28,16 @@ Widget backNextButton(
             if (controller.electricController.text.isEmpty) {
               controller.showSnackBar();
             } else {
+              resultController.electricResultValue.value =
+                  (double.parse(controller.electricController.text) * 0.641);
               nextPageMethod(controller);
             }
           } else if (controller.currentIndex.value == 1) {
             if (controller.warmingController.text.isEmpty) {
               controller.showSnackBar();
             } else {
+              resultController.warmingResultValue.value =
+                  double.parse(controller.warmingController.text);
               nextPageMethod(controller);
             }
           } else if (controller.currentIndex.value == 2) {
@@ -40,9 +45,12 @@ Widget backNextButton(
               if (controller.vehicleUseController.text.isEmpty) {
                 controller.showSnackBar();
               } else {
+                resultController.fuelResultValue.value =
+                    double.parse(controller.vehicleUseController.text);
                 nextPageMethod(controller);
               }
             } else {
+              resultController.fuelResultValue.value = 0;
               nextPageMethod(controller);
             }
           } else if (controller.currentIndex.value == 3) {

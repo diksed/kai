@@ -4,7 +4,11 @@ import 'package:kai/Utils/app_texts.dart';
 
 import 'circle_chart.dart';
 
-Widget resultInput() {
+Widget resultInput(
+  var electricResult,
+  var warmingResult,
+  var fuelResult,
+) {
   return SizedBox(
     height: 420,
     width: 310,
@@ -13,19 +17,19 @@ Widget resultInput() {
         const CircleGraphic(),
         const SizedBox(height: 20),
         resultContainer(ImagesPath.electricConsumption,
-            IntroductionText.electricConsumption, 456, 'Kg'),
+            IntroductionText.electricConsumption, electricResult, 'Kg'),
         const SizedBox(height: 10),
         resultContainer(ImagesPath.warmingConsumption,
-            IntroductionText.warmingValues, 456, 'Kg'),
+            IntroductionText.warmingValues, warmingResult, 'Kg'),
         const SizedBox(height: 10),
         resultContainer(ImagesPath.fuelConsumption,
-            IntroductionText.fuelConsumption, 456, 'Kg'),
+            IntroductionText.fuelConsumption, fuelResult, 'Kg'),
         const SizedBox(height: 10),
         resultContainer(ImagesPath.foodConsumption,
-            IntroductionText.foodConsumption, 456, 'Kg'),
+            IntroductionText.foodConsumption, 2, 'Kg'),
         const SizedBox(height: 10),
         resultContainer(
-            ImagesPath.carboonFootprint, IntroductionText.totalco2, 456, 'Ton'),
+            ImagesPath.carboonFootprint, IntroductionText.totalco2, 3, 'Ton'),
       ],
     ),
   );

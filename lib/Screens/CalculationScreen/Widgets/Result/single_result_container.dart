@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kai/Screens/CalculationScreen/Widgets/Common/inner_shadow_effect.dart';
 import 'package:kai/Utils/app_colors.dart';
 
-Widget resultContainer(String imagePath, String text, int result, String unit) {
+Widget resultContainer(String imagePath, String text, var result, String unit) {
   return Container(
     decoration: innerShadowEffect(AppColors.inputBackground),
     height: 40,
