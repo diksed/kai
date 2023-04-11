@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:kai/Screens/MenuScreen/menu_screen.dart';
-
 import '../Screens/CalculationScreen/calculation_screen.dart';
 import '../Screens/IntroductionScreen/introduction_screen.dart';
 import '../Utils/app_texts.dart';

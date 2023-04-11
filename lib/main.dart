@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:kai/Routes/routes.dart';
+import 'package:kai/Screens/MenuScreen/menu_screen.dart';
 import 'package:kai/Utils/app_texts.dart';
 import 'package:kai/Utils/get_storage.dart';
 import 'Screens/IntroductionScreen/introduction_screen.dart';
-import 'Screens/MenuScreen/menu_screen.dart';
 
 void main() async {
   await GetStorage.init();
