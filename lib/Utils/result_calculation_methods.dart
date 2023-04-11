@@ -74,3 +74,48 @@ void coalCalculationMethod(
     nextPageMethod(controller);
   }
 }
+
+void gasolineCalculationMethod(
+    CalculationController controller,
+    ResultController resultController,
+    FirestoreController firestoreController) {
+  if (controller.vehicleUseUnit.value == "TL") {
+    resultController.fuelResultValue.value =
+        (double.parse(controller.vehicleUseController.text) /
+            firestoreController.benzinTl.value *
+            2.3);
+  } else {
+    resultController.fuelResultValue.value =
+        (double.parse(controller.vehicleUseController.text) * 2.3);
+  }
+}
+
+void dieselCalculationMethod(
+    CalculationController controller,
+    ResultController resultController,
+    FirestoreController firestoreController) {
+  if (controller.vehicleUseUnit.value == "TL") {
+    resultController.fuelResultValue.value =
+        (double.parse(controller.vehicleUseController.text) /
+            firestoreController.benzinTl.value *
+            2.7);
+  } else {
+    resultController.fuelResultValue.value =
+        (double.parse(controller.vehicleUseController.text) * 2.7);
+  }
+}
+
+void lpgCalculationMethod(
+    CalculationController controller,
+    ResultController resultController,
+    FirestoreController firestoreController) {
+  if (controller.vehicleUseUnit.value == "TL") {
+    resultController.fuelResultValue.value =
+        (double.parse(controller.vehicleUseController.text) /
+            firestoreController.benzinTl.value *
+            1.5);
+  } else {
+    resultController.fuelResultValue.value =
+        (double.parse(controller.vehicleUseController.text) * 1.5);
+  }
+}

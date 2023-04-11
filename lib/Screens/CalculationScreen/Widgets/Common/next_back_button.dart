@@ -54,9 +54,16 @@ Widget backNextButton(
               if (controller.vehicleUseController.text.isEmpty) {
                 controller.showSnackBar();
               } else {
-                resultController.fuelResultValue.value =
-                    double.parse(controller.vehicleUseController.text);
-                nextPageMethod(controller);
+                if (controller.vehicleUseType.value == "Benzin") {
+                  gasolineCalculationMethod(
+                      controller, resultController, firestoreController);
+                } else if (controller.vehicleUseType.value == "Dizel") {
+                  dieselCalculationMethod(
+                      controller, resultController, firestoreController);
+                } else {
+                  lpgCalculationMethod(
+                      controller, resultController, firestoreController);
+                }
               }
             } else {
               resultController.fuelResultValue.value = 0;
