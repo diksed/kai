@@ -29,15 +29,9 @@ class CalculationController extends GetxController {
     'Dizel': ['Lt.', 'TL'],
     'LPG': ['Lt.', 'TL'],
   };
-  final List<String> warmingFuelTypes = [
-    'Doğalgaz',
-    'LPG',
-    'Fuel-Oil',
-    'Kömür'
-  ];
+  final List<String> warmingFuelTypes = ['Doğalgaz', 'Fuel-Oil', 'Kömür'];
   final Map<String, List<String>> warmingFuelUnits = {
     'Doğalgaz': ['m³', 'TL'],
-    'LPG': ['Lt.', 'TL'],
     'Fuel-Oil': ['Lt.', 'TL'],
     'Kömür': ['Kg', 'TL'],
   };

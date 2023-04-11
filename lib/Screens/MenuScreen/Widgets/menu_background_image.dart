@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../Utils/image_opacity.dart';
+import '../../../Utils/Widgets/image_opacity.dart';
 
 class BackgroundImage extends StatelessWidget {
   const BackgroundImage({super.key, required this.imagePath});

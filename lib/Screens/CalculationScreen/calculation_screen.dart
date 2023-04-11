@@ -5,8 +5,9 @@ import 'package:kai/Screens/CalculationScreen/Widgets/VehicleUse/vehicle_use_dro
 import 'package:kai/Screens/CalculationScreen/Widgets/Warming/warming_dropdown_menu.dart';
 import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
 import 'package:kai/Screens/CalculationScreen/result_controller.dart';
+import 'package:kai/Utils/Firebase/firestore_controller.dart';
 import 'package:kai/Utils/app_colors.dart';
-import 'package:kai/Utils/app_logo.dart';
+import 'package:kai/Utils/Widgets/app_logo.dart';
 import 'package:kai/Utils/app_texts.dart';
 import 'Widgets/Common/calculation_indicator.dart';
 import 'Widgets/Common/next_back_button.dart';
@@ -27,6 +28,8 @@ class CalculationPage extends StatefulWidget {
 class CalculationPageState extends State<CalculationPage> {
   final CalculationController _controller = Get.put(CalculationController());
   final ResultController _resultController = Get.put(ResultController());
+  final FirestoreController _firestoreController =
+      Get.put(FirestoreController());
 
   @override
   Widget build(BuildContext context) {
@@ -148,13 +151,15 @@ class CalculationPageState extends State<CalculationPage> {
                               _controller,
                               _controller.onLastPage.value,
                               DefaultTexts.back,
-                              _resultController),
+                              _resultController,
+                              _firestoreController),
                           Obx(
                             () => backNextButton(
                                 _controller,
                                 _controller.onLastPage.value,
                                 DefaultTexts.next,
-                                _resultController),
+                                _resultController,
+                                _firestoreController),
                           ),
                         ],
                       ),

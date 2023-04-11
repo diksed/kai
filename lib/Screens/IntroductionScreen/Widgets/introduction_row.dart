@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../Utils/image_opacity.dart';
+import '../../../Utils/Widgets/image_opacity.dart';
 import 'introduction_pages.dart';
 
 class IntroductionRow extends StatelessWidget {

@@ -1,8 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import '../../result_controller.dart';
 import 'circle_indicator.dart';
 import 'circle_text_style.dart';
 
@@ -14,8 +12,6 @@ class CircleGraphic extends StatefulWidget {
 }
 
 class CircleGraphicState extends State {
-  final ResultController _resultController = Get.put(ResultController());
-
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
