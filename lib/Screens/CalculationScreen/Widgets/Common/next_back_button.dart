@@ -44,10 +44,10 @@ Widget backNextButton(
               } else if (controller.warmingfuelType.value == "Fuel-Oil") {
                 fuelOilCalculationMethod(
                     controller, resultController, firestoreController);
+              } else {
+                coalCalculationMethod(
+                    controller, resultController, firestoreController);
               }
-              resultController.warmingResultValue.value =
-                  double.parse(controller.warmingController.text);
-              nextPageMethod(controller);
             }
           } else if (controller.currentIndex.value == 2) {
             if (controller.isVehicleUsed.value == false) {

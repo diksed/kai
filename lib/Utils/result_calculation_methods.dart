@@ -57,3 +57,20 @@ void fuelOilCalculationMethod(
     nextPageMethod(controller);
   }
 }
+
+void coalCalculationMethod(
+    CalculationController controller,
+    ResultController resultController,
+    FirestoreController firestoreController) {
+  if (controller.warmingfuelUnit.value == "TL") {
+    resultController.warmingResultValue.value =
+        (double.parse(controller.warmingController.text) /
+            firestoreController.komurTl.value *
+            2.86);
+    nextPageMethod(controller);
+  } else {
+    resultController.warmingResultValue.value =
+        (double.parse(controller.warmingController.text) * 2.86);
+    nextPageMethod(controller);
+  }
+}
