@@ -84,9 +84,11 @@ void gasolineCalculationMethod(
         (double.parse(controller.vehicleUseController.text) /
             firestoreController.benzinTl.value *
             2.3);
+    nextPageMethod(controller);
   } else {
     resultController.fuelResultValue.value =
         (double.parse(controller.vehicleUseController.text) * 2.3);
+    nextPageMethod(controller);
   }
 }
 
@@ -99,9 +101,11 @@ void dieselCalculationMethod(
         (double.parse(controller.vehicleUseController.text) /
             firestoreController.benzinTl.value *
             2.7);
+    nextPageMethod(controller);
   } else {
     resultController.fuelResultValue.value =
         (double.parse(controller.vehicleUseController.text) * 2.7);
+    nextPageMethod(controller);
   }
 }
 
@@ -114,8 +118,23 @@ void lpgCalculationMethod(
         (double.parse(controller.vehicleUseController.text) /
             firestoreController.benzinTl.value *
             1.5);
+    nextPageMethod(controller);
   } else {
     resultController.fuelResultValue.value =
         (double.parse(controller.vehicleUseController.text) * 1.5);
+    nextPageMethod(controller);
   }
+}
+
+void foodCalculationMethod(
+    CalculationController controller,
+    ResultController resultController,
+    FirestoreController firestoreController) {
+  resultController.foodResultValue.value +=
+      (double.parse(controller.meatController.text) * 27.5);
+  resultController.foodResultValue.value +=
+      (double.parse(controller.milkController.text) * 1.2);
+  resultController.foodResultValue.value +=
+      (double.parse(controller.greengroceryController.text) * 0.2);
+  nextPageMethod(controller);
 }

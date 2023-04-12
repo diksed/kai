@@ -117,11 +117,13 @@ class CalculationPageState extends State<CalculationPage> {
                             DescriptionTexts.resultDescription,
                             Obx(
                               () => (resultInput(
-                                  _resultController.electricResultValue
+                                  (_resultController.electricResultValue)
                                       .toStringAsFixed(1),
-                                  _resultController.warmingResultValue
+                                  (_resultController.warmingResultValue)
                                       .toStringAsFixed(1),
-                                  _resultController.fuelResultValue
+                                  (_resultController.fuelResultValue)
+                                      .toStringAsFixed(1),
+                                  (_resultController.foodResultValue)
                                       .toStringAsFixed(1))),
                             )),
                       )

@@ -21,9 +21,9 @@ class FirestoreController extends GetxController {
       await firestore.collection("data").doc("isinma").get().then((value) {
         dogalgazTl.value = value.data()!["dogalgaz"];
       });
-    } else if (specific == "fuelloil") {
+    } else if (specific == "fueloil") {
       await firestore.collection("data").doc("isinma").get().then((value) {
-        fueloilTl.value = value.data()!["fuelloil"];
+        fueloilTl.value = value.data()!["fueloil"];
       });
     } else if (specific == "komur") {
       await firestore.collection("data").doc("isinma").get().then((value) {
@@ -47,7 +47,12 @@ class FirestoreController extends GetxController {
   @override
   void onInit() {
     getSpecificData("elektrik");
-
+    getSpecificData("dogalgaz");
+    getSpecificData("fueloil");
+    getSpecificData("komur");
+    getSpecificData("benzin");
+    getSpecificData("dizel");
+    getSpecificData("aracLpg");
     super.onInit();
   }
 }

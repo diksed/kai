@@ -75,7 +75,8 @@ Widget backNextButton(
                 controller.greengroceryController.text.isEmpty) {
               controller.showSnackBar();
             } else {
-              nextPageMethod(controller);
+              foodCalculationMethod(
+                  controller, resultController, firestoreController);
             }
           }
         }
