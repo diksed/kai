@@ -24,6 +24,8 @@ void calculationMethod(
         nextPageMethod(controller);
       }
     }
+    resultController.totalCo2.value +=
+        resultController.electricResultValue.value;
   } else if (type == "naturalGas") {
     if (controller.warmingfuelUnit.value == "TL") {
       resultController.warmingResultValue.value =
@@ -36,6 +38,8 @@ void calculationMethod(
           (double.parse(controller.warmingController.text) * 2.27);
       nextPageMethod(controller);
     }
+    resultController.totalCo2.value +=
+        resultController.warmingResultValue.value;
   } else if (type == "fuelOil") {
     if (controller.warmingfuelUnit.value == "TL") {
       resultController.warmingResultValue.value =
@@ -48,6 +52,8 @@ void calculationMethod(
           (double.parse(controller.warmingController.text) * 2.6);
       nextPageMethod(controller);
     }
+    resultController.totalCo2.value +=
+        resultController.warmingResultValue.value;
   } else if (type == "coal") {
     if (controller.warmingfuelUnit.value == "TL") {
       resultController.warmingResultValue.value =
@@ -60,6 +66,8 @@ void calculationMethod(
           (double.parse(controller.warmingController.text) * 2.86);
       nextPageMethod(controller);
     }
+    resultController.totalCo2.value +=
+        resultController.warmingResultValue.value;
   } else if (type == "gasoline") {
     if (controller.vehicleUseUnit.value == "TL") {
       resultController.fuelResultValue.value =
@@ -72,6 +80,7 @@ void calculationMethod(
           (double.parse(controller.vehicleUseController.text) * 2.3);
       nextPageMethod(controller);
     }
+    resultController.totalCo2.value += resultController.fuelResultValue.value;
   } else if (type == "diesel") {
     if (controller.vehicleUseUnit.value == "TL") {
       resultController.fuelResultValue.value =
@@ -84,6 +93,7 @@ void calculationMethod(
           (double.parse(controller.vehicleUseController.text) * 2.7);
       nextPageMethod(controller);
     }
+    resultController.totalCo2.value += resultController.fuelResultValue.value;
   } else if (type == "lpg") {
     if (controller.vehicleUseUnit.value == "TL") {
       resultController.fuelResultValue.value =
@@ -96,6 +106,7 @@ void calculationMethod(
           (double.parse(controller.vehicleUseController.text) * 1.5);
       nextPageMethod(controller);
     }
+    resultController.totalCo2.value += resultController.fuelResultValue.value;
   } else if (type == "food") {
     resultController.foodResultValue.value +=
         (double.parse(controller.meatController.text) * 27.5);
@@ -104,5 +115,6 @@ void calculationMethod(
     resultController.foodResultValue.value +=
         (double.parse(controller.greengroceryController.text) * 0.2);
     nextPageMethod(controller);
+    resultController.totalCo2.value += resultController.foodResultValue.value;
   }
 }

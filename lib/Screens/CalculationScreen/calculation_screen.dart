@@ -124,7 +124,9 @@ class CalculationPageState extends State<CalculationPage> {
                                   (_resultController.fuelResultValue)
                                       .toStringAsFixed(1),
                                   (_resultController.foodResultValue)
-                                      .toStringAsFixed(1))),
+                                      .toStringAsFixed(1),
+                                  (_resultController.totalCo2 / 1000)
+                                      .toStringAsFixed(2))),
                             )),
                       )
                     ],

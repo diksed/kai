@@ -4,8 +4,8 @@ import 'package:kai/Utils/app_texts.dart';
 
 import 'circle_chart.dart';
 
-Widget resultInput(
-    var electricResult, var warmingResult, var fuelResult, var foodResult) {
+Widget resultInput(var electricResult, var warmingResult, var fuelResult,
+    var foodResult, var totalCo2) {
   return SizedBox(
     height: 420,
     width: 310,
@@ -25,8 +25,8 @@ Widget resultInput(
         resultContainer(ImagesPath.foodConsumption,
             IntroductionText.foodConsumption, foodResult, 'Kg'),
         const SizedBox(height: 10),
-        resultContainer(
-            ImagesPath.carboonFootprint, IntroductionText.totalco2, 3, 'Ton'),
+        resultContainer(ImagesPath.carboonFootprint, IntroductionText.totalco2,
+            totalCo2, 'Ton'),
       ],
     ),
   );
