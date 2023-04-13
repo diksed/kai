@@ -32,21 +32,21 @@ Widget backNextButton(
           Get.delete<CalculationController>();
         } else {
           if (controller.currentIndex.value == 0) {
-            electricCalculationMethod(
-                controller, resultController, firestoreController);
+            calculationMethod(
+                controller, resultController, firestoreController, "electric");
           } else if (controller.currentIndex.value == 1) {
             if (controller.warmingController.text.isEmpty) {
               controller.showSnackBar();
             } else {
               if (controller.warmingfuelType.value == "Doğalgaz") {
-                naturalGazCalculationMethod(
-                    controller, resultController, firestoreController);
+                calculationMethod(controller, resultController,
+                    firestoreController, "naturalGas");
               } else if (controller.warmingfuelType.value == "Fuel-Oil") {
-                fuelOilCalculationMethod(
-                    controller, resultController, firestoreController);
+                calculationMethod(controller, resultController,
+                    firestoreController, "fuelOil");
               } else {
-                coalCalculationMethod(
-                    controller, resultController, firestoreController);
+                calculationMethod(
+                    controller, resultController, firestoreController, "coal");
               }
             }
           } else if (controller.currentIndex.value == 2) {
@@ -55,14 +55,14 @@ Widget backNextButton(
                 controller.showSnackBar();
               } else {
                 if (controller.vehicleUseType.value == "Benzin") {
-                  gasolineCalculationMethod(
-                      controller, resultController, firestoreController);
+                  calculationMethod(controller, resultController,
+                      firestoreController, "gasoline");
                 } else if (controller.vehicleUseType.value == "Dizel") {
-                  dieselCalculationMethod(
-                      controller, resultController, firestoreController);
+                  calculationMethod(controller, resultController,
+                      firestoreController, "diesel");
                 } else {
-                  lpgCalculationMethod(
-                      controller, resultController, firestoreController);
+                  calculationMethod(
+                      controller, resultController, firestoreController, "lpg");
                 }
               }
             } else {
@@ -75,8 +75,8 @@ Widget backNextButton(
                 controller.greengroceryController.text.isEmpty) {
               controller.showSnackBar();
             } else {
-              foodCalculationMethod(
-                  controller, resultController, firestoreController);
+              calculationMethod(
+                  controller, resultController, firestoreController, "food");
             }
           }
         }
