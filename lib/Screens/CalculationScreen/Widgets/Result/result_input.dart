@@ -11,7 +11,7 @@ Widget resultInput(var electricResult, var warmingResult, var fuelResult,
     width: 310,
     child: Column(
       children: [
-        const CircleGraphic(),
+        CircleGraphic(totalCo2: totalCo2),
         const SizedBox(height: 20),
         resultContainer(ImagesPath.electricConsumption,
             IntroductionText.electricConsumption, electricResult, 'Kg'),

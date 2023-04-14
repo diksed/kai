@@ -5,13 +5,14 @@ import 'circle_indicator.dart';
 import 'circle_text_style.dart';
 
 class CircleGraphic extends StatefulWidget {
-  const CircleGraphic({super.key});
+  const CircleGraphic({super.key, required this.totalCo2});
 
   @override
   State<StatefulWidget> createState() => CircleGraphicState();
+  final String totalCo2;
 }
 
-class CircleGraphicState extends State {
+class CircleGraphicState extends State<CircleGraphic> {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
@@ -22,10 +23,9 @@ class CircleGraphicState extends State {
             Expanded(
               child: Stack(
                 children: [
-                  const Center(
-                    child: Text('3',
-                        // '${_resultController.totalResult.value.toStringAsFixed(1)}\nTon',
-                        style: TextStyle(
+                  Center(
+                    child: Text('${widget.totalCo2}\nTon',
+                        style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
