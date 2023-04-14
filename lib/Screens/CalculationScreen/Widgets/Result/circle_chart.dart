@@ -5,11 +5,21 @@ import 'circle_indicator.dart';
 import 'circle_text_style.dart';
 
 class CircleGraphic extends StatefulWidget {
-  const CircleGraphic({super.key, required this.totalCo2});
+  const CircleGraphic(
+      {super.key,
+      required this.totalCo2,
+      required this.electricResult,
+      required this.warmingResult,
+      required this.fuelResult,
+      required this.foodResult});
 
   @override
   State<StatefulWidget> createState() => CircleGraphicState();
-  final String totalCo2;
+  final double totalCo2;
+  final double electricResult;
+  final double warmingResult;
+  final double fuelResult;
+  final double foodResult;
 }
 
 class CircleGraphicState extends State<CircleGraphic> {
@@ -24,7 +34,8 @@ class CircleGraphicState extends State<CircleGraphic> {
               child: Stack(
                 children: [
                   Center(
-                    child: Text('${widget.totalCo2}\nTon',
+                    child: Text(
+                        '${(widget.totalCo2 / 1000).toStringAsFixed(2)}\nTon',
                         style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
@@ -41,7 +52,11 @@ class CircleGraphicState extends State<CircleGraphic> {
                           startDegreeOffset: 120,
                           sectionsSpace: 0,
                           centerSpaceRadius: 40,
-                          sections: showingSections(1.0, 1.0, 1.0, 3.0)),
+                          sections: showingSections(
+                              (widget.electricResult * 100 / widget.totalCo2),
+                              (widget.warmingResult * 100 / widget.totalCo2),
+                              (widget.fuelResult * 100 / widget.totalCo2),
+                              (widget.foodResult * 100 / widget.totalCo2))),
                     ),
                   ),
                 ],

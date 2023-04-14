@@ -117,16 +117,11 @@ class CalculationPageState extends State<CalculationPage> {
                             DescriptionTexts.resultDescription,
                             Obx(
                               () => (resultInput(
-                                  (_resultController.electricResultValue)
-                                      .toStringAsFixed(1),
-                                  (_resultController.warmingResultValue)
-                                      .toStringAsFixed(1),
-                                  (_resultController.fuelResultValue)
-                                      .toStringAsFixed(1),
-                                  (_resultController.foodResultValue)
-                                      .toStringAsFixed(1),
-                                  (_resultController.totalCo2 / 1000)
-                                      .toStringAsFixed(2))),
+                                  (_resultController.electricResultValue.value),
+                                  (_resultController.warmingResultValue.value),
+                                  (_resultController.fuelResultValue.value),
+                                  (_resultController.foodResultValue.value),
+                                  (_resultController.totalCo2.value))),
                             )),
                       )
                     ],
