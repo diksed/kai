@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:kai/Screens/IntroductionScreen/introduction_controller.dart';
 import 'package:kai/Utils/app_texts.dart';
 import 'Widgets/introduction_dots_column.dart';
@@ -14,6 +15,7 @@ class IntroductionPage extends StatefulWidget {
 
 class _IntroductionPageState extends State<IntroductionPage> {
   final IntroductionController _controller = Get.put(IntroductionController());
+  final box = GetStorage();
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,7 @@ class _IntroductionPageState extends State<IntroductionPage> {
               right: 0,
               left: 0,
               child: Obx(() => buttonDotsColumn(_controller.pageController,
-                  _controller.onLastPage.value, _controller)))
+                  _controller.onLastPage.value, _controller, box)))
         ],
       ),
     );

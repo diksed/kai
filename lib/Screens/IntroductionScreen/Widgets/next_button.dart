@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
-import 'package:kai/Utils/get_storage.dart';
 import '../introduction_controller.dart';
 
-Widget nextButton(bool onLastPage, IntroductionController controller) {
+Widget nextButton(
+    bool onLastPage, IntroductionController controller, GetStorage box) {
   return SizedBox(
     height: onLastPage ? 50 : 40,
     width: onLastPage ? 200 : 100,
@@ -13,7 +14,7 @@ Widget nextButton(bool onLastPage, IntroductionController controller) {
       onPressed: () async {
         onLastPage
             ? {
-                await isShown.write(IntroductionText.isIntroShown, false),
+                await box.write(IntroductionText.isIntroShown, true),
                 Get.toNamed('/menu')
               }
             : controller.currentIndex.value++;
