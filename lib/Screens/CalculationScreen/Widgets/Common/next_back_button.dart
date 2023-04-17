@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
 import 'package:kai/Screens/CalculationScreen/result_controller.dart';
-import 'package:kai/Screens/IntroductionScreen/Widgets/introduction_pages.dart';
 import 'package:kai/Utils/Firebase/firestore_controller.dart';
-import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
 
 import '../../../../Utils/result_calculation_methods.dart';
+import 'home_button.dart';
 
 Widget backNextButton(
     CalculationController controller,
@@ -30,6 +29,7 @@ Widget backNextButton(
         if (onLastPage) {
           Get.toNamed(RoutesTexts.menu);
           Get.delete<CalculationController>();
+          Get.delete<ResultController>();
         } else {
           if (controller.currentIndex.value == 0) {
             calculationMethod(
@@ -82,33 +82,7 @@ Widget backNextButton(
         }
       }
     },
-    child: Container(
-      height: 40,
-      width: 70,
-      decoration: const BoxDecoration(
-          color: AppColors.indicatorBackground,
-          boxShadow: [
-            BoxShadow(
-                color: Colors.black12,
-                offset: Offset(0, 3),
-                blurRadius: 6,
-                spreadRadius: 0)
-          ],
-          borderRadius: BorderRadius.all(Radius.circular(10))),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          whichButton == DefaultTexts.back
-              ? const Icon(Icons.arrow_back_ios, color: Colors.white, size: 12)
-              : const SizedBox(),
-          Text(onLastPage ? '' : whichButton, style: bodyStyle),
-          whichButton == DefaultTexts.back
-              ? const SizedBox()
-              : Icon(onLastPage ? Icons.home : Icons.arrow_forward_ios,
-                  color: Colors.white, size: onLastPage ? 20 : 12),
-        ],
-      ),
-    ),
+    child: HomeButton(whichButton: whichButton, onLastPage: onLastPage),
   );
 }
 
