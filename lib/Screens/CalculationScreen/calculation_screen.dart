@@ -28,9 +28,7 @@ class CalculationPage extends StatefulWidget {
 class CalculationPageState extends State<CalculationPage> {
   final CalculationController _controller = Get.put(CalculationController());
   final ResultController _resultController = Get.put(ResultController());
-  final FirestoreController _firestoreController =
-      Get.put(FirestoreController());
-
+  final FirestoreController _firestoreController = Get.find();
   @override
   Widget build(BuildContext context) {
     return ScaffoldMessenger(

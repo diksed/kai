@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       getPages: appRoutes(),
       home: isIntroShown == null || isIntroShown == true
           ? const IntroductionPage()
-          : const MenuPage(),
+          : MenuPage(),
     );
   }
 }

@@ -12,7 +12,7 @@ appRoutes() => [
           transitionDuration: const Duration(milliseconds: 600)),
       GetPage(
           name: RoutesTexts.menu,
-          page: () => const MenuPage(),
+          page: () => MenuPage(),
           transition: Transition.fade,
           transitionDuration: const Duration(milliseconds: 600)),
       GetPage(

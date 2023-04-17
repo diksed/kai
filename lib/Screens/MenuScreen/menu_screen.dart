@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
+import '../../Utils/Firebase/firestore_controller.dart';
 import '../../Utils/Widgets/app_logo.dart';
 import 'Widgets/menu_background_image.dart';
 import 'Widgets/menu_button.dart';
 
 class MenuPage extends StatelessWidget {
-  const MenuPage({super.key});
+  MenuPage({super.key});
+  final FirestoreController firestoreController =
+      Get.put(FirestoreController());
 
   @override
   Widget build(BuildContext context) {
