@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
 import 'package:kai/Screens/CalculationScreen/result_controller.dart';
+import 'package:kai/Screens/RecordScreen/record_controller.dart';
 import 'package:kai/Utils/Firebase/firestore_controller.dart';
 import 'package:kai/Utils/app_texts.dart';
 
@@ -13,7 +14,8 @@ Widget backNextButton(
     bool onLastPage,
     String whichButton,
     ResultController resultController,
-    FirestoreController firestoreController) {
+    FirestoreController firestoreController,
+    RecordController recordController) {
   return GestureDetector(
     onTap: () async {
       if (whichButton == DefaultTexts.back) {
@@ -76,7 +78,8 @@ Widget backNextButton(
               controller.showSnackBar();
             } else {
               calculationMethod(
-                  controller, resultController, firestoreController, "food");
+                  controller, resultController, firestoreController, "food",
+                  recordController: recordController);
             }
           }
         }

@@ -1,3 +1,5 @@
+import 'package:kai/Screens/RecordScreen/record_controller.dart';
+
 import '../Screens/CalculationScreen/Widgets/Common/next_back_button.dart';
 import '../Screens/CalculationScreen/calculation_controller.dart';
 import '../Screens/CalculationScreen/result_controller.dart';
@@ -7,7 +9,8 @@ void calculationMethod(
     CalculationController controller,
     ResultController resultController,
     FirestoreController firestoreController,
-    String type) {
+    String type,
+    {RecordController? recordController}) {
   if (type == "electric") {
     if (controller.electricController.text.isEmpty) {
       controller.showSnackBar();
@@ -116,5 +119,6 @@ void calculationMethod(
         (double.parse(controller.greengroceryController.text) * 0.2);
     nextPageMethod(controller);
     resultController.totalCo2.value += resultController.foodResultValue.value;
+    recordController!.addRecord(resultController.totalCo2.value);
   }
 }

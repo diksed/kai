@@ -39,6 +39,7 @@ class DefaultTexts {
   static const String back = "Geri";
   static const String andMore = 've dahası..';
   static const String letsBegin = 'Hadi Başlayalım';
+  static const String recordKey = 'past_records';
 }
 
 class MenuTexts {
@@ -53,6 +54,7 @@ class RoutesTexts {
   static const String introduction = '/introduction';
   static const String menu = '/menu';
   static const String calculation = '/calculation';
+  static const String pastRecords = '/records';
 }
 
 class DescriptionTexts {

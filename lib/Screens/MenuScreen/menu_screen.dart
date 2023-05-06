@@ -23,6 +23,9 @@ class MenuPage extends StatelessWidget {
         child: Center(
           child: Stack(
             children: [
+              const Align(
+                  alignment: Alignment.bottomCenter,
+                  child: BackgroundImage(imagePath: ImagesPath.menuBackground)),
               Center(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -43,14 +46,14 @@ class MenuPage extends StatelessWidget {
                       MenuButton(
                           image: ImagesPath.pastRecords,
                           text: MenuTexts.pastRecords,
-                          onTap: () {}),
+                          onTap: () {
+                            Get.toNamed(RoutesTexts.pastRecords);
+                            Get.delete<MenuPageController>();
+                          }),
                       Obx(() =>
                           InfoMessage(text: menuController.infoMessage.value)),
                     ]),
               ),
-              const Align(
-                  alignment: Alignment.bottomCenter,
-                  child: BackgroundImage(imagePath: ImagesPath.menuBackground)),
             ],
           ),
         ),
