@@ -36,13 +36,13 @@ class MenuPage extends StatelessWidget {
                             Get.delete<MenuPageController>();
                           }),
                       MenuButton(
-                        image: ImagesPath.facts,
-                        text: MenuTexts.facts,
+                        image: ImagesPath.donate,
+                        text: MenuTexts.donate,
                         onTap: () {},
                       ),
                       MenuButton(
-                          image: ImagesPath.donate,
-                          text: MenuTexts.donate,
+                          image: ImagesPath.pastRecords,
+                          text: MenuTexts.pastRecords,
                           onTap: () {}),
                       Obx(() =>
                           InfoMessage(text: menuController.infoMessage.value)),

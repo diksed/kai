@@ -17,7 +17,9 @@ class MenuPageController extends GetxController {
       final fields = data.values.toList();
       final randomIndex = Random().nextInt(fields.length);
       infoMessage.value = fields[randomIndex];
-    } catch (e) {}
+    } catch (e) {
+      infoMessage.value = "Bir hata oluştu.";
+    }
   }
 
   @override

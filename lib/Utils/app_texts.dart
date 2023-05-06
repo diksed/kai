@@ -14,6 +14,7 @@ class ImagesPath {
   static const String kaiLogo = 'assets/images/kai_logo.png';
   static const String donate = 'assets/images/donate.png';
   static const String facts = 'assets/images/facts.png';
+  static const String pastRecords = 'assets/images/past_records.png';
 }
 
 class IntroductionText {
@@ -44,6 +45,7 @@ class MenuTexts {
   static const String kaiCalculate = 'kai\nHesapla';
   static const String donate = 'Fidan\nBağışla';
   static const String facts = 'İlginç\nBilgiler';
+  static const String pastRecords = 'Geçmiş\nKayıtlar';
   static const String totalConsumption = 'Yıllık Toplam Tüketim';
 }
 
