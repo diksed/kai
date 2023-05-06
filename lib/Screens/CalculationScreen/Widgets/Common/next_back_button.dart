@@ -18,7 +18,7 @@ Widget backNextButton(
     onTap: () async {
       if (whichButton == DefaultTexts.back) {
         if (controller.currentIndex.value == 0) {
-          Get.back();
+          Get.offAndToNamed(RoutesTexts.menu);
         } else {
           controller.currentIndex.value--;
           // controller.indicatorIndex.value -= 75;
