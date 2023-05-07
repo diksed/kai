@@ -7,14 +7,24 @@ class RecordController extends GetxController {
 
   void addRecord(double co2Total) {
     final today = DateTime.now();
-    final record = {
-      'date': "${today.day}/${today.month}/${today.year}",
-      'totalCo2': co2Total,
-    };
-
     final List<dynamic> pastRecords =
         recordBox.read(DefaultTexts.recordKey) ?? [];
-    pastRecords.add(record);
+    if (today.day < 10) {
+      final record = {
+        'dateDay': "0${today.day}",
+        'dateMonth': '${today.month}',
+        'totalCo2': co2Total,
+      };
+      pastRecords.add(record);
+    } else {
+      final record = {
+        'dateDay': "${today.day}",
+        'dateMonth': '${today.month}',
+        'totalCo2': co2Total,
+      };
+      pastRecords.add(record);
+    }
+
     recordBox.write(DefaultTexts.recordKey, pastRecords);
   }
 }

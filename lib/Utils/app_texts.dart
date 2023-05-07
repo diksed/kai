@@ -15,6 +15,8 @@ class ImagesPath {
   static const String donate = 'assets/images/donate.png';
   static const String facts = 'assets/images/facts.png';
   static const String pastRecords = 'assets/images/past_records.png';
+  static const String pastRecordsBackground =
+      'assets/images/past_records_background.png';
 }
 
 class IntroductionText {
@@ -32,6 +34,7 @@ class IntroductionText {
   static const String isIntroShown = "isIntroShown";
   static const String result = "Sonuçlar";
   static const String totalco2 = "Toplam CO2 Salınımı";
+  static const String pastRecords = "Geçmiş Kayıtlar";
 }
 
 class DefaultTexts {
@@ -69,3 +72,18 @@ class DescriptionTexts {
   static const String resultDescription =
       "Yıllık karbon ayak izi miktarını oluşturan sera gazı salımı toplamınız aşağıda belirtilmiştir.";
 }
+
+final List<List<String>> months = [
+  ['Ocak', '1'],
+  ['Şubat', '2'],
+  ['Mart', '3'],
+  ['Nisan', '4'],
+  ['Mayıs', '5'],
+  ['Haziran', '6'],
+  ['Temmuz', '7'],
+  ['Ağustos', '8'],
+  ['Eylül', '9'],
+  ['Ekim', '10'],
+  ['Kasım', '11'],
+  ['Aralık', '12']
+];
