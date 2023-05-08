@@ -17,6 +17,7 @@ class ImagesPath {
   static const String pastRecords = 'assets/images/past_records.png';
   static const String pastRecordsBackground =
       'assets/images/past_records_background.png';
+  static const String co2Icon = 'assets/images/co2_icon.png';
 }
 
 class IntroductionText {

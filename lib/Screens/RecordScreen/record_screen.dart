@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kai/Screens/CalculationScreen/Widgets/Common/home_button.dart';
 import 'package:kai/Screens/RecordScreen/Widgets/Timeline/timeline.dart';
 import 'package:kai/Screens/RecordScreen/record_controller.dart';
 import 'package:kai/Utils/app_texts.dart';
@@ -41,9 +42,22 @@ class _PastRecordsState extends State<PastRecords> {
                       const Text(IntroductionText.pastRecords,
                           style: titleStyle, textAlign: TextAlign.center),
                       SizedBox(
-                        height: Get.height / 1.5,
-                        child: timelineStyle(_recordController),
+                        height: Get.height / 1.7,
+                        child: ScrollConfiguration(
+                          behavior: const ScrollBehavior()
+                              .copyWith(overscroll: false),
+                          child: ListView(
+                            children: [timelineStyle(_recordController)],
+                          ),
+                        ),
                       ),
+                      const SizedBox(height: 10),
+                      GestureDetector(
+                          child: const HomeButton(
+                              whichButton: '', onLastPage: true),
+                          onTap: () {
+                            Get.offAndToNamed(RoutesTexts.menu);
+                          })
                     ],
                   ),
                 ),

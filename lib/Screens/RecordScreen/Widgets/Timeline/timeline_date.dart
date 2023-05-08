@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../Utils/app_texts.dart';
 
-Widget timelineDate(String dateDay, String dateMonth) {
+Widget timelineDate(int index, List<dynamic> pastRecords) {
   return Column(
     children: [
       Container(
@@ -10,19 +10,31 @@ Widget timelineDate(String dateDay, String dateMonth) {
         height: 40,
         decoration: BoxDecoration(
           color: Colors.transparent,
-          border: Border.all(color: Colors.white, width: 2),
+          border: Border.all(
+              color: pastRecords[index]['totalCo2'] > 5500
+                  ? Colors.red
+                  : Colors.white,
+              width: 2),
           shape: BoxShape.circle,
         ),
         child: Center(
           child: Text(
-            dateDay.substring(0, 2),
-            style: const TextStyle(color: Colors.white),
+            pastRecords[index]['dateDay'].toString().substring(0, 2),
+            style: TextStyle(
+                color: pastRecords[index]['totalCo2'] > 5500
+                    ? Colors.red
+                    : Colors.white,
+                fontSize: 17),
           ),
         ),
       ),
       Text(
-        months[int.parse(dateMonth) - 1][0],
-        style: const TextStyle(color: Colors.white),
+        months[int.parse(pastRecords[index]['dateMonth']) - 1][0],
+        style: TextStyle(
+            color: pastRecords[index]['totalCo2'] > 5500
+                ? Colors.red
+                : Colors.white,
+            fontSize: 15),
       )
     ],
   );
