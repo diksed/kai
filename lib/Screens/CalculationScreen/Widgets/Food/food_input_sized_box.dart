@@ -14,18 +14,18 @@ Widget foodInputSizedBox(CalculationController controller) {
       children: [
         const Text(MenuTexts.totalMeatConsumption, style: bodyStyle),
         const SizedBox(height: 5),
-        oneTextFieldContainer(
-            controller, controller.meatController, false, KeyTexts.kg),
+        oneTextFieldContainer(controller, controller.meatController, false,
+            KeyTexts.kg, TextInputAction.next),
         const SizedBox(height: 10),
         const Text(MenuTexts.totalMilkConsumption, style: bodyStyle),
         const SizedBox(height: 5),
-        oneTextFieldContainer(
-            controller, controller.milkController, false, KeyTexts.liter),
+        oneTextFieldContainer(controller, controller.milkController, false,
+            KeyTexts.liter, TextInputAction.next),
         const SizedBox(height: 10),
         const Text(MenuTexts.totalGreengroceryConsumption, style: bodyStyle),
         const SizedBox(height: 5),
-        oneTextFieldContainer(
-            controller, controller.greengroceryController, false, KeyTexts.kg),
+        oneTextFieldContainer(controller, controller.greengroceryController,
+            false, KeyTexts.kg, TextInputAction.done),
       ],
     ),
   );

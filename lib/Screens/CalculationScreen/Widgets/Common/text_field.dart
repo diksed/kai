@@ -7,6 +7,7 @@ Widget customTextField(
     TextEditingController textEditingController,
     double sizedBoxWidth,
     int maxLength,
+    TextInputAction textInputAction,
     {double sizedBoxHeight = 60}) {
   return SizedBox(
     height: sizedBoxHeight,
@@ -14,6 +15,7 @@ Widget customTextField(
     child: Padding(
       padding: const EdgeInsets.only(top: 5),
       child: TextField(
+        textInputAction: textInputAction,
         controller: textEditingController,
         onChanged: controller.onTextChange,
         maxLength: maxLength,

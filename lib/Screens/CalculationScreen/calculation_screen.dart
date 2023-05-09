@@ -62,13 +62,15 @@ class CalculationPageState extends State<CalculationPage> {
                           inputSizedBox(
                               _controller,
                               oneTextFieldContainer(
-                                  _controller,
-                                  _controller.electricController,
-                                  true,
-                                  height: 60,
-                                  width: 250,
-                                  padding: 0,
-                                  ''),
+                                _controller,
+                                _controller.electricController,
+                                true,
+                                '',
+                                TextInputAction.done,
+                                height: 60,
+                                width: 250,
+                                padding: 0,
+                              ),
                               '')),
                       calculationScreen(
                           ImagesPath.warmingConsumption,

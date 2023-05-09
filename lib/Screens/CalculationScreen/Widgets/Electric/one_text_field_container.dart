@@ -7,9 +7,15 @@ import '../Common/inner_shadow_effect.dart';
 import '../Common/text_field.dart';
 import 'electric_dropdown_menu.dart';
 
-Container oneTextFieldContainer(CalculationController controller,
-    TextEditingController textEditingController, bool whichOne, String unit,
-    {double height = 50, double width = 210, double padding = 20}) {
+Container oneTextFieldContainer(
+    CalculationController controller,
+    TextEditingController textEditingController,
+    bool whichOne,
+    String unit,
+    TextInputAction textInputAction,
+    {double height = 50,
+    double width = 210,
+    double padding = 20}) {
   return Container(
       height: height,
       width: width,
@@ -22,7 +28,7 @@ Container oneTextFieldContainer(CalculationController controller,
               Padding(
                 padding: EdgeInsets.only(top: padding),
                 child: customTextField(
-                    controller, textEditingController, 170, 9,
+                    controller, textEditingController, 170, 9, textInputAction,
                     sizedBoxHeight: height),
               ),
               if (whichOne)

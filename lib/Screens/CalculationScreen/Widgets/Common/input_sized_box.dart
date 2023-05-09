@@ -48,7 +48,8 @@ Container textFieldContainerRow(
                 width: 210,
                 child: Row(
                   children: [
-                    customTextField(controller, textEditController, 110, 6),
+                    customTextField(controller, textEditController, 110, 6,
+                        TextInputAction.done),
                     dropdownMenu
                   ],
                 ))),
