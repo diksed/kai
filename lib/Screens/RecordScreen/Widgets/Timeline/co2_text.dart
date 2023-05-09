@@ -11,20 +11,20 @@ Widget co2Text(int index, List<dynamic> pastRecords) {
         children: [
           Image.asset(ImagesPath.co2Icon,
               height: 25,
-              color: pastRecords[index]['totalCo2'] > 5500
+              color: pastRecords[index][KeyTexts.totalCo2] > 5500
                   ? Colors.white
                   : AppColors.backgroundColor),
           const SizedBox(width: 10),
           Text(
-            '${(pastRecords[index]['totalCo2'] / 1000).toString().substring(0, 4)} Ton',
+            '${(pastRecords[index][KeyTexts.totalCo2] / 1000).toString().substring(0, 4)} ${KeyTexts.tonne}',
             style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w500,
-                color: pastRecords[index]['totalCo2'] > 5500
+                color: pastRecords[index][KeyTexts.totalCo2] > 5500
                     ? Colors.white
                     : AppColors.backgroundColor),
           ),
-          pastRecords[index]['totalCo2'] > 5500
+          pastRecords[index][KeyTexts.totalCo2] > 5500
               ? Padding(
                   padding: const EdgeInsets.only(left: 5),
                   child: warningMessage(),
@@ -45,13 +45,10 @@ Widget warningMessage() {
         SizedBox(
           width: 100,
           child: Text(
-            'Ortalamanın çok üzerindesiniz. Geleceğimiz için daha dikkatli olunuz!',
+            WarningMessages.aboveAverage,
             textAlign: TextAlign.start,
             style: TextStyle(
-              color: Colors.white,
-              fontSize: 10,
-              fontWeight: FontWeight.w400,
-            ),
+                color: Colors.white, fontSize: 10, fontWeight: FontWeight.w400),
           ),
         )
       ],

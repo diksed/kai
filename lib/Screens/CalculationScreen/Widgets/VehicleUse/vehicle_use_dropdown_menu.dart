@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kai/Utils/app_texts.dart';
 
 import '../../../../Utils/app_colors.dart';
 import '../../calculation_controller.dart';
@@ -32,7 +33,7 @@ class VehicleUseDropdownMenu extends StatelessWidget {
           value: controller.vehicleUseType.value,
           onChanged: (newValue) {
             controller.vehicleUseType.value = newValue!;
-            controller.updateSelectedFuelType(newValue, 'vehicleUse');
+            controller.updateSelectedFuelType(newValue, KeyTexts.vehicleUse);
           },
           items: controller.vehicleFuelTypes
               .map<DropdownMenuItem<String>>((String value) {

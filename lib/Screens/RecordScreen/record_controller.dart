@@ -11,16 +11,16 @@ class RecordController extends GetxController {
         recordBox.read(DefaultTexts.recordKey) ?? [];
     if (today.day < 10) {
       final record = {
-        'dateDay': "0${today.day}",
-        'dateMonth': '${today.month}',
-        'totalCo2': co2Total,
+        KeyTexts.dateDay: "0${today.day}",
+        KeyTexts.dateMonth: '${today.month}',
+        KeyTexts.totalCo2: co2Total,
       };
       pastRecords.add(record);
     } else {
       final record = {
-        'dateDay': "${today.day}",
-        'dateMonth': '${today.month}',
-        'totalCo2': co2Total,
+        KeyTexts.dateDay: "${today.day}",
+        KeyTexts.dateMonth: '${today.month}',
+        KeyTexts.totalCo2: co2Total,
       };
       pastRecords.add(record);
     }

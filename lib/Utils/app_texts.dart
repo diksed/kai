@@ -44,6 +44,7 @@ class DefaultTexts {
   static const String andMore = 've dahası..';
   static const String letsBegin = 'Hadi Başlayalım';
   static const String recordKey = 'past_records';
+  static const String notUsingVehicle = 'Bireysel Araç Kullanmıyorum';
 }
 
 class MenuTexts {
@@ -52,6 +53,10 @@ class MenuTexts {
   static const String facts = 'İlginç\nBilgiler';
   static const String pastRecords = 'Geçmiş\nKayıtlar';
   static const String totalConsumption = 'Yıllık Toplam Tüketim';
+  static const String totalMeatConsumption = 'Yıllık Toplam Et Tüketimi';
+  static const String totalMilkConsumption = 'Yıllık Toplam Süt Tüketimi';
+  static const String totalGreengroceryConsumption =
+      'Yıllık Toplam Sebze & Meyve Tüketimi';
 }
 
 class RoutesTexts {
@@ -72,6 +77,53 @@ class DescriptionTexts {
       "Tüketilen gıdaların kaynaklarına ve üretim süreçlerine dikkat etmek, et tüketimini azaltmak ve gıda israfını önlemek önemlidir.";
   static const String resultDescription =
       "Yıllık karbon ayak izi miktarını oluşturan sera gazı salımı toplamınız aşağıda belirtilmiştir.";
+}
+
+class WarningMessages {
+  static const String error = 'Hata';
+  static const String fillAllFields = 'Lütfen tüm alanları doldurunuz!';
+  static const String loading = 'Yükleniyor...';
+  static const String anErrorOccurred = 'Bir hata oluştu!';
+  static const String aboveAverage =
+      'Ortalamanın çok üzerindesiniz. Geleceğimiz için daha dikkatli olunuz!';
+}
+
+class FirebaseConnectionTexts {
+  static const String electric = 'elektrik';
+  static const String data = 'data';
+  static const String naturalGas = 'dogalgaz';
+  static const String warming = 'isinma';
+  static const String fuelOil = 'fueloil';
+  static const String coal = 'komur';
+  static const String gasoline = 'benzin';
+  static const String diesel = 'dizel';
+  static const String vehicleLpg = 'aracLpg';
+  static const String lpg = 'lpg';
+  static const String fuel = 'yakit';
+}
+
+class KeyTexts {
+  static const String kWh = 'kWh';
+  static const String gasoline = 'Benzin';
+  static const String diesel = 'Dizel';
+  static const String lpg = 'LPG';
+  static const String liter = 'Lt.';
+  static const String naturalGas = 'Doğalgaz';
+  static const String m3 = 'm³';
+  static const String tl = 'TL';
+  static const String fuelOil = 'Fuel-Oil';
+  static const String coal = 'Kömür';
+  static const String kg = 'Kg.';
+  static const String vehicleUse = 'vehicleUse';
+  static const String warming = 'warming';
+  static const String electric = 'Elektrik';
+  static const String food = 'food';
+  static const String tonne = 'Ton';
+  static const String info = 'info';
+  static const String infoMessages = 'infoMessages';
+  static const String totalCo2 = 'totalCo2';
+  static const String dateDay = 'dateDay';
+  static const String dateMonth = 'dateMonth';
 }
 
 final List<List<String>> months = [

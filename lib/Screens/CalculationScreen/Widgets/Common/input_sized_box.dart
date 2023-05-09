@@ -18,7 +18,7 @@ Widget inputSizedBox(
       children: [
         const Text(MenuTexts.totalConsumption, style: titleStyle),
         rowContainer,
-        if (whichOne == 'vehicleUse')
+        if (whichOne == KeyTexts.vehicleUse)
           NotUsingVehicleCheckbox(controller: controller)
         else
           const SizedBox()

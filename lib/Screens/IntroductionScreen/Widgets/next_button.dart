@@ -15,7 +15,7 @@ Widget nextButton(
         onLastPage
             ? {
                 await box.write(IntroductionText.isIntroShown, true),
-                Get.toNamed('/menu')
+                Get.toNamed(RoutesTexts.menu)
               }
             : controller.currentIndex.value++;
         controller.pageController.nextPage(

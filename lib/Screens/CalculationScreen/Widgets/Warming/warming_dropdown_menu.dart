@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
+import 'package:kai/Utils/app_texts.dart';
 
 import '../../../../Utils/app_colors.dart';
 
@@ -32,7 +33,7 @@ class WarmingDropdownMenu extends StatelessWidget {
           value: controller.warmingfuelType.value,
           onChanged: (newValue) {
             controller.warmingfuelType.value = newValue!;
-            controller.updateSelectedFuelType(newValue, 'warming');
+            controller.updateSelectedFuelType(newValue, KeyTexts.warming);
           },
           items: controller.warmingFuelTypes
               .map<DropdownMenuItem<String>>((String value) {

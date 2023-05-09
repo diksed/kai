@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kai/Utils/app_texts.dart';
 import '../../../../Utils/app_colors.dart';
 
 class ElectricDropdownMenu extends StatelessWidget {
@@ -26,7 +27,7 @@ class ElectricDropdownMenu extends StatelessWidget {
           onChanged: (newValue) {
             electricSelectedType.value = newValue!;
           },
-          items: <String>['kWh', 'TL']
+          items: <String>[KeyTexts.kWh, KeyTexts.tl]
               .map<DropdownMenuItem<String>>((String value) {
             return DropdownMenuItem(
               value: value,

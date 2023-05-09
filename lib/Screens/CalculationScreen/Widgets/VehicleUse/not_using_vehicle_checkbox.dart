@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
 import 'package:kai/Screens/IntroductionScreen/Widgets/introduction_pages.dart';
+import 'package:kai/Utils/app_texts.dart';
 
 class NotUsingVehicleCheckbox extends StatelessWidget {
   const NotUsingVehicleCheckbox({Key? key, required this.controller})
@@ -14,7 +15,7 @@ class NotUsingVehicleCheckbox extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text('Bireysel Araç kullanmıyorum', style: bodyStyle),
+        const Text(DefaultTexts.notUsingVehicle, style: bodyStyle),
         Obx(
           () => Checkbox(
             value: controller.isVehicleUsed.value,

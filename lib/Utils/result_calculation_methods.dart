@@ -1,4 +1,5 @@
 import 'package:kai/Screens/RecordScreen/record_controller.dart';
+import 'package:kai/Utils/app_texts.dart';
 
 import '../Screens/CalculationScreen/Widgets/Common/next_back_button.dart';
 import '../Screens/CalculationScreen/calculation_controller.dart';
@@ -11,11 +12,11 @@ void calculationMethod(
     FirestoreController firestoreController,
     String type,
     {RecordController? recordController}) {
-  if (type == "electric") {
+  if (type == KeyTexts.electric) {
     if (controller.electricController.text.isEmpty) {
       controller.showSnackBar();
     } else {
-      if (controller.electricSelectedType.value == "kWh") {
+      if (controller.electricSelectedType.value == KeyTexts.kWh) {
         resultController.electricResultValue.value =
             (double.parse(controller.electricController.text) * 0.76);
         nextPageMethod(controller);
@@ -29,8 +30,8 @@ void calculationMethod(
     }
     resultController.totalCo2.value +=
         resultController.electricResultValue.value;
-  } else if (type == "naturalGas") {
-    if (controller.warmingfuelUnit.value == "TL") {
+  } else if (type == KeyTexts.naturalGas) {
+    if (controller.warmingfuelUnit.value == KeyTexts.tl) {
       resultController.warmingResultValue.value =
           (double.parse(controller.warmingController.text) /
               firestoreController.dogalgazTl.value *
@@ -43,8 +44,8 @@ void calculationMethod(
     }
     resultController.totalCo2.value +=
         resultController.warmingResultValue.value;
-  } else if (type == "fuelOil") {
-    if (controller.warmingfuelUnit.value == "TL") {
+  } else if (type == KeyTexts.fuelOil) {
+    if (controller.warmingfuelUnit.value == KeyTexts.tl) {
       resultController.warmingResultValue.value =
           (double.parse(controller.warmingController.text) /
               firestoreController.fueloilTl.value *
@@ -57,8 +58,8 @@ void calculationMethod(
     }
     resultController.totalCo2.value +=
         resultController.warmingResultValue.value;
-  } else if (type == "coal") {
-    if (controller.warmingfuelUnit.value == "TL") {
+  } else if (type == KeyTexts.coal) {
+    if (controller.warmingfuelUnit.value == KeyTexts.tl) {
       resultController.warmingResultValue.value =
           (double.parse(controller.warmingController.text) /
               firestoreController.komurTl.value *
@@ -71,8 +72,8 @@ void calculationMethod(
     }
     resultController.totalCo2.value +=
         resultController.warmingResultValue.value;
-  } else if (type == "gasoline") {
-    if (controller.vehicleUseUnit.value == "TL") {
+  } else if (type == KeyTexts.gasoline) {
+    if (controller.vehicleUseUnit.value == KeyTexts.tl) {
       resultController.fuelResultValue.value =
           (double.parse(controller.vehicleUseController.text) /
               firestoreController.benzinTl.value *
@@ -84,8 +85,8 @@ void calculationMethod(
       nextPageMethod(controller);
     }
     resultController.totalCo2.value += resultController.fuelResultValue.value;
-  } else if (type == "diesel") {
-    if (controller.vehicleUseUnit.value == "TL") {
+  } else if (type == KeyTexts.diesel) {
+    if (controller.vehicleUseUnit.value == KeyTexts.tl) {
       resultController.fuelResultValue.value =
           (double.parse(controller.vehicleUseController.text) /
               firestoreController.benzinTl.value *
@@ -97,8 +98,8 @@ void calculationMethod(
       nextPageMethod(controller);
     }
     resultController.totalCo2.value += resultController.fuelResultValue.value;
-  } else if (type == "lpg") {
-    if (controller.vehicleUseUnit.value == "TL") {
+  } else if (type == KeyTexts.lpg) {
+    if (controller.vehicleUseUnit.value == KeyTexts.tl) {
       resultController.fuelResultValue.value =
           (double.parse(controller.vehicleUseController.text) /
               firestoreController.benzinTl.value *
@@ -110,7 +111,7 @@ void calculationMethod(
       nextPageMethod(controller);
     }
     resultController.totalCo2.value += resultController.fuelResultValue.value;
-  } else if (type == "food") {
+  } else if (type == KeyTexts.food) {
     resultController.foodResultValue.value +=
         (double.parse(controller.meatController.text) * 27.5);
     resultController.foodResultValue.value +=

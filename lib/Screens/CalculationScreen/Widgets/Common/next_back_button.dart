@@ -34,21 +34,21 @@ Widget backNextButton(
           Get.delete<ResultController>();
         } else {
           if (controller.currentIndex.value == 0) {
-            calculationMethod(
-                controller, resultController, firestoreController, "electric");
+            calculationMethod(controller, resultController, firestoreController,
+                KeyTexts.electric);
           } else if (controller.currentIndex.value == 1) {
             if (controller.warmingController.text.isEmpty) {
               controller.showSnackBar();
             } else {
-              if (controller.warmingfuelType.value == "Doğalgaz") {
+              if (controller.warmingfuelType.value == KeyTexts.naturalGas) {
                 calculationMethod(controller, resultController,
-                    firestoreController, "naturalGas");
-              } else if (controller.warmingfuelType.value == "Fuel-Oil") {
+                    firestoreController, KeyTexts.naturalGas);
+              } else if (controller.warmingfuelType.value == KeyTexts.fuelOil) {
                 calculationMethod(controller, resultController,
-                    firestoreController, "fuelOil");
+                    firestoreController, KeyTexts.fuelOil);
               } else {
-                calculationMethod(
-                    controller, resultController, firestoreController, "coal");
+                calculationMethod(controller, resultController,
+                    firestoreController, KeyTexts.coal);
               }
             }
           } else if (controller.currentIndex.value == 2) {
@@ -56,15 +56,15 @@ Widget backNextButton(
               if (controller.vehicleUseController.text.isEmpty) {
                 controller.showSnackBar();
               } else {
-                if (controller.vehicleUseType.value == "Benzin") {
+                if (controller.vehicleUseType.value == KeyTexts.gasoline) {
                   calculationMethod(controller, resultController,
-                      firestoreController, "gasoline");
-                } else if (controller.vehicleUseType.value == "Dizel") {
+                      firestoreController, KeyTexts.gasoline);
+                } else if (controller.vehicleUseType.value == KeyTexts.diesel) {
                   calculationMethod(controller, resultController,
-                      firestoreController, "diesel");
+                      firestoreController, KeyTexts.diesel);
                 } else {
-                  calculationMethod(
-                      controller, resultController, firestoreController, "lpg");
+                  calculationMethod(controller, resultController,
+                      firestoreController, KeyTexts.lpg);
                 }
               }
             } else {
@@ -77,8 +77,8 @@ Widget backNextButton(
                 controller.greengroceryController.text.isEmpty) {
               controller.showSnackBar();
             } else {
-              calculationMethod(
-                  controller, resultController, firestoreController, "food",
+              calculationMethod(controller, resultController,
+                  firestoreController, KeyTexts.food,
                   recordController: recordController);
             }
           }

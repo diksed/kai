@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kai/Screens/CalculationScreen/Widgets/Electric/one_text_field_container.dart';
+import 'package:kai/Utils/app_texts.dart';
 
 import '../../../IntroductionScreen/Widgets/introduction_pages.dart';
 import '../../calculation_controller.dart';
@@ -11,32 +12,20 @@ Widget foodInputSizedBox(CalculationController controller) {
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        const Text('Yıllık Toplam Et Tüketimi', style: bodyStyle),
+        const Text(MenuTexts.totalMeatConsumption, style: bodyStyle),
         const SizedBox(height: 5),
         oneTextFieldContainer(
-          controller,
-          controller.meatController,
-          false,
-          'Kg',
-        ),
+            controller, controller.meatController, false, KeyTexts.kg),
         const SizedBox(height: 10),
-        const Text('Yıllık Toplam Süt Tüketimi', style: bodyStyle),
+        const Text(MenuTexts.totalMilkConsumption, style: bodyStyle),
         const SizedBox(height: 5),
         oneTextFieldContainer(
-          controller,
-          controller.milkController,
-          false,
-          'Lt',
-        ),
+            controller, controller.milkController, false, KeyTexts.liter),
         const SizedBox(height: 10),
-        const Text('Yıllık Toplam Sebze & Meyve Tüketimi', style: bodyStyle),
+        const Text(MenuTexts.totalGreengroceryConsumption, style: bodyStyle),
         const SizedBox(height: 5),
         oneTextFieldContainer(
-          controller,
-          controller.greengroceryController,
-          false,
-          'Kg',
-        ),
+            controller, controller.greengroceryController, false, KeyTexts.kg),
       ],
     ),
   );

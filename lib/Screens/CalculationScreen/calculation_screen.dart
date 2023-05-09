@@ -98,7 +98,7 @@ class CalculationPageState extends State<CalculationPage> {
                                   VehicleUseDropdownMenu(
                                       controller: _controller),
                                   vehicleUseValueDropdownMenu(_controller)),
-                              'vehicleUse')),
+                              KeyTexts.vehicleUse)),
                       calculationScreen(
                           ImagesPath.foodConsumption,
                           150,

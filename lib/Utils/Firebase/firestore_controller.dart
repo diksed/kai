@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
+import '../app_texts.dart';
+
 class FirestoreController extends GetxController {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
@@ -13,46 +15,74 @@ class FirestoreController extends GetxController {
   var aracLpgTl = 0.0.obs;
 
   getSpecificData(String specific) async {
-    if (specific == "elektrik") {
-      await firestore.collection("data").doc("elektrik").get().then((value) {
-        electricTl.value = value.data()!["elektrik"];
+    if (specific == FirebaseConnectionTexts.electric) {
+      await firestore
+          .collection(FirebaseConnectionTexts.data)
+          .doc(FirebaseConnectionTexts.electric)
+          .get()
+          .then((value) {
+        electricTl.value = value.data()![FirebaseConnectionTexts.electric];
       });
-    } else if (specific == "dogalgaz") {
-      await firestore.collection("data").doc("isinma").get().then((value) {
-        dogalgazTl.value = value.data()!["dogalgaz"];
+    } else if (specific == FirebaseConnectionTexts.naturalGas) {
+      await firestore
+          .collection(FirebaseConnectionTexts.data)
+          .doc(FirebaseConnectionTexts.warming)
+          .get()
+          .then((value) {
+        dogalgazTl.value = value.data()![FirebaseConnectionTexts.naturalGas];
       });
-    } else if (specific == "fueloil") {
-      await firestore.collection("data").doc("isinma").get().then((value) {
-        fueloilTl.value = value.data()!["fueloil"];
+    } else if (specific == FirebaseConnectionTexts.fuelOil) {
+      await firestore
+          .collection(FirebaseConnectionTexts.data)
+          .doc(FirebaseConnectionTexts.warming)
+          .get()
+          .then((value) {
+        fueloilTl.value = value.data()![FirebaseConnectionTexts.fuelOil];
       });
-    } else if (specific == "komur") {
-      await firestore.collection("data").doc("isinma").get().then((value) {
-        komurTl.value = value.data()!["komur"];
+    } else if (specific == FirebaseConnectionTexts.coal) {
+      await firestore
+          .collection(FirebaseConnectionTexts.data)
+          .doc(FirebaseConnectionTexts.warming)
+          .get()
+          .then((value) {
+        komurTl.value = value.data()![FirebaseConnectionTexts.coal];
       });
-    } else if (specific == "benzin") {
-      await firestore.collection("data").doc("yakit").get().then((value) {
-        benzinTl.value = value.data()!["benzin"];
+    } else if (specific == FirebaseConnectionTexts.gasoline) {
+      await firestore
+          .collection(FirebaseConnectionTexts.data)
+          .doc(FirebaseConnectionTexts.fuel)
+          .get()
+          .then((value) {
+        benzinTl.value = value.data()![FirebaseConnectionTexts.gasoline];
       });
-    } else if (specific == "dizel") {
-      await firestore.collection("data").doc("yakit").get().then((value) {
-        dizelTl.value = value.data()!["dizel"];
+    } else if (specific == FirebaseConnectionTexts.diesel) {
+      await firestore
+          .collection(FirebaseConnectionTexts.data)
+          .doc(FirebaseConnectionTexts.fuel)
+          .get()
+          .then((value) {
+        dizelTl.value = value.data()![FirebaseConnectionTexts.diesel];
       });
-    } else if (specific == "aracLpg") {
-      await firestore.collection("data").doc("yakit").get().then((value) {
-        aracLpgTl.value = value.data()!["lpg"];
+    } else if (specific == FirebaseConnectionTexts.vehicleLpg) {
+      await firestore
+          .collection(FirebaseConnectionTexts.data)
+          .doc(FirebaseConnectionTexts.fuel)
+          .get()
+          .then((value) {
+        aracLpgTl.value = value.data()![FirebaseConnectionTexts.lpg];
       });
     }
   }
 
   @override
   void onInit() {
-    getSpecificData("elektrik");
-    getSpecificData("dogalgaz");
-    getSpecificData("fueloil");
-    getSpecificData("komur");
-    getSpecificData("benzin");
-    getSpecificData("dizel");
-    getSpecificData("aracLpg");
+    getSpecificData(FirebaseConnectionTexts.electric);
+    getSpecificData(FirebaseConnectionTexts.naturalGas);
+    getSpecificData(FirebaseConnectionTexts.fuelOil);
+    getSpecificData(FirebaseConnectionTexts.coal);
+    getSpecificData(FirebaseConnectionTexts.gasoline);
+    getSpecificData(FirebaseConnectionTexts.diesel);
+    getSpecificData(FirebaseConnectionTexts.vehicleLpg);
     super.onInit();
   }
 }

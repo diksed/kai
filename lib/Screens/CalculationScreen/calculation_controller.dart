@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kai/Utils/app_colors.dart';
 
+import '../../Utils/app_texts.dart';
+
 class CalculationController extends GetxController {
   final PageController calculationPageController = PageController();
   final messengerKey = GlobalKey<ScaffoldMessengerState>();
@@ -18,30 +20,38 @@ class CalculationController extends GetxController {
   final TextEditingController electricController = TextEditingController();
   final TextEditingController warmingController = TextEditingController();
   final TextEditingController vehicleUseController = TextEditingController();
-  var electricSelectedType = 'kWh'.obs;
-  var vehicleUseType = 'Benzin'.obs;
-  var vehicleUseUnit = 'Lt.'.obs;
-  var warmingfuelType = 'Doğalgaz'.obs;
-  var warmingfuelUnit = 'm³'.obs;
-  final List<String> vehicleFuelTypes = ['Benzin', 'Dizel', 'LPG'];
+  var electricSelectedType = KeyTexts.kWh.obs;
+  var vehicleUseType = KeyTexts.gasoline.obs;
+  var vehicleUseUnit = KeyTexts.liter.obs;
+  var warmingfuelType = KeyTexts.naturalGas.obs;
+  var warmingfuelUnit = KeyTexts.m3.obs;
+  final List<String> vehicleFuelTypes = [
+    KeyTexts.gasoline,
+    KeyTexts.diesel,
+    KeyTexts.lpg
+  ];
   final Map<String, List<String>> vehicleFuelUnits = {
-    'Benzin': ['Lt.', 'TL'],
-    'Dizel': ['Lt.', 'TL'],
-    'LPG': ['Lt.', 'TL'],
+    KeyTexts.gasoline: [KeyTexts.liter, KeyTexts.tl],
+    KeyTexts.diesel: [KeyTexts.liter, KeyTexts.tl],
+    KeyTexts.lpg: [KeyTexts.liter, KeyTexts.tl],
   };
-  final List<String> warmingFuelTypes = ['Doğalgaz', 'Fuel-Oil', 'Kömür'];
+  final List<String> warmingFuelTypes = [
+    KeyTexts.naturalGas,
+    KeyTexts.fuelOil,
+    KeyTexts.coal
+  ];
   final Map<String, List<String>> warmingFuelUnits = {
-    'Doğalgaz': ['m³', 'TL'],
-    'Fuel-Oil': ['Lt.', 'TL'],
-    'Kömür': ['Kg', 'TL'],
+    KeyTexts.naturalGas: [KeyTexts.m3, KeyTexts.tl],
+    KeyTexts.fuelOil: [KeyTexts.liter, KeyTexts.tl],
+    KeyTexts.coal: [KeyTexts.kg, KeyTexts.tl],
   };
 
   void updateSelectedFuelType(String newType, String whichType) {
-    if (whichType == 'vehicleUse') {
+    if (whichType == KeyTexts.vehicleUse) {
       vehicleUseType.value = newType;
       vehicleUseUnit.value = vehicleFuelUnits[newType]![0];
       update();
-    } else if (whichType == 'warming') {
+    } else if (whichType == KeyTexts.warming) {
       warmingfuelType.value = newType;
       warmingfuelUnit.value = warmingFuelUnits[newType]![0];
       update();
@@ -78,8 +88,8 @@ class CalculationController extends GetxController {
 
   showSnackBar() {
     Get.snackbar(
-      'Hata',
-      'Lütfen tüm alanları doldurunuz!',
+      WarningMessages.error,
+      WarningMessages.fillAllFields,
       backgroundColor: AppColors.snackBarColor,
       boxShadows: [
         const BoxShadow(
@@ -90,7 +100,7 @@ class CalculationController extends GetxController {
       ],
       colorText: Colors.white,
       messageText: const Text(
-        'Lütfen tüm alanları doldurunuz!',
+        WarningMessages.fillAllFields,
         style: TextStyle(color: Colors.white),
       ),
     );

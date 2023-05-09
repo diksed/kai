@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:kai/Utils/app_texts.dart';
 
 import 'circle_indicator.dart';
 import 'circle_text_style.dart';
@@ -67,13 +68,19 @@ class CircleGraphicState extends State<CircleGraphic> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
-                Indicator(color: Colors.yellow, text: 'Elektrik Tüketimi'),
+                Indicator(
+                    color: Colors.yellow,
+                    text: IntroductionText.electricConsumption),
                 SizedBox(height: 4),
-                Indicator(color: Colors.blue, text: 'Isınma Değerleri'),
+                Indicator(
+                    color: Colors.blue, text: IntroductionText.warmingValues),
                 SizedBox(height: 4),
-                Indicator(color: Colors.red, text: 'Yakıt Tüketimi'),
+                Indicator(
+                    color: Colors.red, text: IntroductionText.fuelConsumption),
                 SizedBox(height: 4),
-                Indicator(color: Colors.green, text: 'Yiyecek Tüketimi'),
+                Indicator(
+                    color: Colors.green,
+                    text: IntroductionText.foodConsumption),
               ],
             ),
           ],
