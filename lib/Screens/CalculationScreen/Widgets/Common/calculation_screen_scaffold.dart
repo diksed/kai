@@ -1,46 +1,88 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
+import '../../../../Utils/Firebase/firestore_controller.dart';
+import '../../../../Utils/Widgets/app_logo.dart';
 import '../../../../Utils/app_colors.dart';
+import '../../../../Utils/app_texts.dart';
 import '../../../IntroductionScreen/Widgets/introduction_pages.dart';
 import '../../../MenuScreen/Widgets/menu_background_image.dart';
+import '../../../RecordScreen/record_controller.dart';
+import '../../result_controller.dart';
+import 'calculation_indicator.dart';
+import 'next_back_button.dart';
 
-Widget calculationScreen(String imagePath, double sizedBoxHeight,
-    double sizedBoxWidth, String title, String description, Widget input,
-    {double padding = 70}) {
+Widget calculationScreen(
+    String imagePath,
+    double sizedBoxHeight,
+    double sizedBoxWidth,
+    String title,
+    String description,
+    Widget input,
+    CalculationController calculationController,
+    ResultController resultController,
+    FirestoreController firestoreController,
+    RecordController recordController) {
   return Scaffold(
     backgroundColor: AppColors.backgroundColor,
-    body: Center(
-      child: Stack(
-        children: [
-          Align(
-              alignment: Alignment.bottomCenter,
-              child: BackgroundImage(imagePath: imagePath)),
-          Padding(
-            padding: EdgeInsets.only(bottom: padding),
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 20),
-                    child: SizedBox(
-                      height: sizedBoxHeight,
-                      width: sizedBoxWidth,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Text(title, style: titleStyle),
-                          Text(description,
-                              style: bodyStyle, textAlign: TextAlign.center)
-                        ],
-                      ),
-                    ),
+    body: SingleChildScrollView(
+      child: Center(
+        child: Stack(
+          alignment: Alignment.bottomCenter,
+          children: [
+            Align(
+                alignment: Alignment.bottomCenter,
+                child: BackgroundImage(imagePath: imagePath)),
+            Column(
+              children: [
+                appLogo(),
+                Obx(
+                  () => calculationIndicator(
+                      calculationController.indicatorIndex.value),
+                ),
+                SizedBox(
+                  height: sizedBoxHeight,
+                  width: sizedBoxWidth,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text(title, style: titleStyle),
+                      Text(description,
+                          style: bodyStyle, textAlign: TextAlign.center)
+                    ],
                   ),
-                  input
-                ],
-              ),
+                ),
+                const SizedBox(height: 20),
+                input,
+                const SizedBox(height: 70),
+                Obx(
+                  () => Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      backNextButton(
+                          calculationController,
+                          calculationController.onLastPage.value,
+                          DefaultTexts.back,
+                          resultController,
+                          firestoreController,
+                          recordController),
+                      Obx(
+                        () => backNextButton(
+                            calculationController,
+                            calculationController.onLastPage.value,
+                            DefaultTexts.next,
+                            resultController,
+                            firestoreController,
+                            recordController),
+                      ),
+                    ],
+                  ),
+                )
+              ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     ),
   );

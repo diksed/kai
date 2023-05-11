@@ -8,12 +8,11 @@ import 'package:kai/Screens/CalculationScreen/result_controller.dart';
 import 'package:kai/Screens/RecordScreen/record_controller.dart';
 import 'package:kai/Utils/Firebase/firestore_controller.dart';
 import 'package:kai/Utils/app_colors.dart';
-import 'package:kai/Utils/Widgets/app_logo.dart';
 import 'package:kai/Utils/app_texts.dart';
-import 'Widgets/Common/calculation_indicator.dart';
-import 'Widgets/Common/next_back_button.dart';
 import 'Widgets/Electric/one_text_field_container.dart';
+import 'Widgets/Food/food_calculation_screen.dart';
 import 'Widgets/Food/food_input_sized_box.dart';
+import 'Widgets/Result/result_calculation_screen.dart';
 import 'Widgets/Result/result_input.dart';
 import 'Widgets/VehicleUse/value_dropdown_menu.dart';
 import 'Widgets/Warming/value_dropdown_menu.dart';
@@ -71,7 +70,11 @@ class CalculationPageState extends State<CalculationPage> {
                                 width: 250,
                                 padding: 0,
                               ),
-                              '')),
+                              ''),
+                          _controller,
+                          _resultController,
+                          _firestoreController,
+                          _recordController),
                       calculationScreen(
                           ImagesPath.warmingConsumption,
                           140,
@@ -85,7 +88,11 @@ class CalculationPageState extends State<CalculationPage> {
                                   _controller.warmingController,
                                   WarmingDropdownMenu(controller: _controller),
                                   warmingValueDropdownMenu(_controller)),
-                              '')),
+                              ''),
+                          _controller,
+                          _resultController,
+                          _firestoreController,
+                          _recordController),
                       calculationScreen(
                           ImagesPath.vehicleUse,
                           140,
@@ -100,74 +107,42 @@ class CalculationPageState extends State<CalculationPage> {
                                   VehicleUseDropdownMenu(
                                       controller: _controller),
                                   vehicleUseValueDropdownMenu(_controller)),
-                              KeyTexts.vehicleUse)),
-                      calculationScreen(
+                              KeyTexts.vehicleUse),
+                          _controller,
+                          _resultController,
+                          _firestoreController,
+                          _recordController),
+                      foodCalculationScreen(
                           ImagesPath.foodConsumption,
                           150,
                           360,
                           IntroductionText.foodConsumption,
                           DescriptionTexts.foodConsumption,
                           foodInputSizedBox(_controller),
-                          padding: 0),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 100),
-                        child: calculationScreen(
-                            ImagesPath.saveWorld,
-                            140,
-                            360,
-                            IntroductionText.result,
-                            DescriptionTexts.resultDescription,
-                            Obx(
-                              () => (resultInput(
-                                  (_resultController.electricResultValue.value),
-                                  (_resultController.warmingResultValue.value),
-                                  (_resultController.fuelResultValue.value),
-                                  (_resultController.foodResultValue.value),
-                                  (_resultController.totalCo2.value))),
-                            )),
-                      )
+                          _controller,
+                          _resultController,
+                          _firestoreController,
+                          _recordController),
+                      resultCalculationScreen(
+                          ImagesPath.saveWorld,
+                          140,
+                          360,
+                          IntroductionText.result,
+                          DescriptionTexts.resultDescription,
+                          Obx(
+                            () => (resultInput(
+                                (_resultController.electricResultValue.value),
+                                (_resultController.warmingResultValue.value),
+                                (_resultController.fuelResultValue.value),
+                                (_resultController.foodResultValue.value),
+                                (_resultController.totalCo2.value))),
+                          ),
+                          _controller,
+                          _resultController,
+                          _firestoreController,
+                          _recordController)
                     ],
                   ),
-                  Center(
-                    child: Obx(
-                      () => Column(
-                        children: [
-                          appLogo(),
-                          calculationIndicator(_controller.indicatorIndex.value,
-                              _controller.onLastPage.value)
-                        ],
-                      ),
-                    ),
-                  ),
-                  Obx(
-                    () => Positioned(
-                      bottom: _controller.onLastPage.value ? 30 : 100,
-                      left: 0,
-                      right: 0,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          backNextButton(
-                              _controller,
-                              _controller.onLastPage.value,
-                              DefaultTexts.back,
-                              _resultController,
-                              _firestoreController,
-                              _recordController),
-                          Obx(
-                            () => backNextButton(
-                                _controller,
-                                _controller.onLastPage.value,
-                                DefaultTexts.next,
-                                _resultController,
-                                _firestoreController,
-                                _recordController),
-                          ),
-                        ],
-                      ),
-                    ),
-                  )
                 ],
               ),
             ),
