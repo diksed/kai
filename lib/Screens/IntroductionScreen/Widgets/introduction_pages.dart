@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
 
@@ -27,10 +28,10 @@ Widget pageOneThird(String image, String text) {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset(image,
-              height: 250.0,
+              height: Get.height / 2.688,
               color: Colors.white.withOpacity(0.4),
               colorBlendMode: BlendMode.modulate),
-          const SizedBox(height: 50),
+          SizedBox(height: Get.height / 13.44),
           Center(
             child: SizedBox(
               width: 340,
@@ -41,7 +42,7 @@ Widget pageOneThird(String image, String text) {
               ),
             ),
           ),
-          const SizedBox(height: 50),
+          SizedBox(height: Get.height / 13.44),
         ],
       ));
 }
@@ -51,27 +52,27 @@ Widget pageTwo() {
     backgroundColor: AppColors.backgroundColor,
     body: Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        Text(IntroductionText.titleSecond,
+      children: [
+        const Text(IntroductionText.titleSecond,
             style: titleStyle, textAlign: TextAlign.center),
-        SizedBox(height: 40),
-        IntroductionRow(
+        SizedBox(height: Get.height / 16.8),
+        const IntroductionRow(
             image: ImagesPath.electricConsumption,
             text: IntroductionText.electricConsumption),
-        SizedBox(height: 20),
-        IntroductionRow(
+        SizedBox(height: Get.height / 33.6),
+        const IntroductionRow(
             image: ImagesPath.fuelConsumption,
             text: IntroductionText.fuelConsumption),
-        SizedBox(height: 20),
-        IntroductionRowWater(
+        SizedBox(height: Get.height / 33.6),
+        const IntroductionRowWater(
             image: ImagesPath.waterConsumption,
             text: IntroductionText.waterConsumption),
-        SizedBox(height: 20),
-        IntroductionRow(
+        SizedBox(height: Get.height / 33.6),
+        const IntroductionRow(
             image: ImagesPath.foodConsumption,
             text: IntroductionText.foodConsumption),
-        SizedBox(height: 20),
-        Text(DefaultTexts.andMore, style: bodyStyle),
+        SizedBox(height: Get.height / 33.6),
+        const Text(DefaultTexts.andMore, style: bodyStyle),
       ],
     ),
   );

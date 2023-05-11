@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
 
 Widget co2Text(int index, List<dynamic> pastRecords) {
   return SizedBox(
-    height: 60,
+    height: Get.height / 11.2,
     child: Center(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Image.asset(ImagesPath.co2Icon,
-              height: 25,
+              height: Get.height / 26.88,
               color: pastRecords[index][KeyTexts.totalCo2] > 5500
                   ? Colors.white
                   : AppColors.backgroundColor),
@@ -38,7 +39,7 @@ Widget co2Text(int index, List<dynamic> pastRecords) {
 
 Widget warningMessage() {
   return SizedBox(
-    height: 60,
+    height: Get.height / 11.2,
     child: Row(
       children: const [
         Icon(Icons.warning_amber_rounded, color: Colors.white),

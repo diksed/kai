@@ -51,7 +51,7 @@ class _PastRecordsState extends State<PastRecords> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 10),
+                      SizedBox(height: Get.height / 67.2),
                       GestureDetector(
                           child: const HomeButton(
                               whichButton: '', onLastPage: true),

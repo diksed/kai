@@ -12,7 +12,7 @@ class VehicleUseDropdownMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 60,
+      height: Get.height / 11.2,
       width: 115,
       child: Obx(
         () => DropdownButton(
@@ -25,7 +25,7 @@ class VehicleUseDropdownMenu extends StatelessWidget {
           dropdownColor: AppColors.indicatorBackground,
           borderRadius: BorderRadius.circular(15),
           alignment: Alignment.center,
-          itemHeight: 60,
+          itemHeight: Get.height / 11.2,
           hint: Text(
             controller.vehicleUseType.value,
             style: const TextStyle(color: Colors.white, fontSize: 20),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../Utils/app_colors.dart';
 import '../../../../Utils/app_texts.dart';
@@ -16,7 +17,7 @@ class HomeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
+      height: Get.height / 16.8,
       width: 70,
       decoration: const BoxDecoration(
           color: AppColors.indicatorBackground,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:kai/Utils/app_colors.dart';
 
 class MenuButton extends StatelessWidget {
@@ -18,7 +19,7 @@ class MenuButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: 170,
-        height: 60,
+        height: Get.height / 11.2,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: Colors.white,
@@ -34,7 +35,7 @@ class MenuButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Image.asset(image, width: 45, height: 45),
+            Image.asset(image, width: 45, height: Get.height / 14.933),
             Text(
               text,
               style: const TextStyle(

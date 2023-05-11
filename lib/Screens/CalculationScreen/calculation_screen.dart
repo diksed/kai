@@ -66,7 +66,7 @@ class CalculationPageState extends State<CalculationPage> {
                                 true,
                                 '',
                                 TextInputAction.done,
-                                height: 60,
+                                height: Get.height / 11.2,
                                 width: 250,
                                 padding: 0,
                               ),

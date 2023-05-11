@@ -37,7 +37,7 @@ Widget foodCalculationScreen(
                   child: BackgroundImage(imagePath: imagePath)),
               Column(
                 children: [
-                  const SizedBox(height: 5),
+                  SizedBox(height: Get.height / 134.4),
                   appLogo(),
                   Obx(
                     () => calculationIndicator(
@@ -55,9 +55,9 @@ Widget foodCalculationScreen(
                       ],
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: Get.height / 33.6),
                   input,
-                  const SizedBox(height: 20),
+                  SizedBox(height: Get.height / 33.6),
                   Obx(
                     () => Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -82,7 +82,7 @@ Widget foodCalculationScreen(
                       ],
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  SizedBox(height: Get.height / 67.2),
                 ],
               ),
             ],

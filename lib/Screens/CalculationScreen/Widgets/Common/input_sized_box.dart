@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:kai/Screens/CalculationScreen/Widgets/Common/text_field.dart';
 import 'package:kai/Screens/CalculationScreen/Widgets/VehicleUse/not_using_vehicle_checkbox.dart';
 import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
@@ -11,7 +12,7 @@ import 'inner_shadow_effect.dart';
 Widget inputSizedBox(
     CalculationController controller, Container rowContainer, String whichOne) {
   return SizedBox(
-    height: 145,
+    height: Get.height / 4.634,
     width: 310,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,17 +35,17 @@ Container textFieldContainerRow(
     Widget valueDropdownMenu) {
   return Container(
     color: Colors.transparent,
-    height: 60,
+    height: Get.height / 11.2,
     width: 310,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-            height: 60,
+            height: Get.height / 11.2,
             width: 230,
             decoration: innerShadowEffect(AppColors.inputBackground),
             child: SizedBox(
-                height: 60,
+                height: Get.height / 11.2,
                 width: 210,
                 child: Row(
                   children: [
@@ -54,7 +55,7 @@ Container textFieldContainerRow(
                   ],
                 ))),
         Container(
-          height: 60,
+          height: Get.height / 11.2,
           width: 70,
           decoration: innerShadowEffect(AppColors.inputBackground),
           child: Padding(

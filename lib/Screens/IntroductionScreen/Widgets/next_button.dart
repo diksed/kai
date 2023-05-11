@@ -8,7 +8,7 @@ import '../introduction_controller.dart';
 Widget nextButton(
     bool onLastPage, IntroductionController controller, GetStorage box) {
   return SizedBox(
-    height: onLastPage ? 50 : 40,
+    height: onLastPage ? Get.height / 13.44 : Get.height / 16.8,
     width: onLastPage ? 200 : 100,
     child: ElevatedButton(
       onPressed: () async {

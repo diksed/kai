@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:kai/Screens/RecordScreen/Widgets/Timeline/co2_text.dart';
 import 'package:kai/Utils/app_texts.dart';
 
 Widget timelineCo2(int index, List<dynamic> pastRecords) {
   return Container(
-    height: 70,
+    height: Get.height / 9.6,
     width: pastRecords[index][KeyTexts.totalCo2] > 5500 ? 230 : 120,
     decoration: BoxDecoration(
         color: pastRecords[index][KeyTexts.totalCo2] > 5500

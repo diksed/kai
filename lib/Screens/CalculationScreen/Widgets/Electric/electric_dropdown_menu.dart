@@ -10,7 +10,7 @@ class ElectricDropdownMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 60,
+      height: Get.height / 11.2,
       width: 80,
       child: Obx(
         () => DropdownButton(
@@ -22,7 +22,7 @@ class ElectricDropdownMenu extends StatelessWidget {
           underline: Container(height: 0),
           dropdownColor: AppColors.indicatorBackground,
           borderRadius: BorderRadius.circular(15),
-          itemHeight: 60,
+          itemHeight: Get.height / 11.2,
           value: electricSelectedType.value,
           onChanged: (newValue) {
             electricSelectedType.value = newValue!;

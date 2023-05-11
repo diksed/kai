@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../Utils/Widgets/image_opacity.dart';
 import 'introduction_pages.dart';
 
@@ -16,10 +17,11 @@ class IntroductionRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(height: 70, width: 70, child: imageOpacity(image)),
+        SizedBox(
+            height: Get.height / 9.6, width: 70, child: imageOpacity(image)),
         const SizedBox(width: 40),
         SizedBox(
-            height: 30,
+            height: Get.height / 22.4,
             width: 180,
             child: Text(text, style: bodyStyle, textAlign: TextAlign.start)),
       ],
@@ -43,11 +45,12 @@ class IntroductionRowWater extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.only(right: 20),
-          child: SizedBox(height: 70, width: 70, child: imageOpacity(image)),
+          child: SizedBox(
+              height: Get.height / 9.6, width: 70, child: imageOpacity(image)),
         ),
         const SizedBox(width: 20),
         SizedBox(
-            height: 30,
+            height: Get.height / 22.4,
             width: 180,
             child: Text(text, style: bodyStyle, textAlign: TextAlign.start)),
       ],

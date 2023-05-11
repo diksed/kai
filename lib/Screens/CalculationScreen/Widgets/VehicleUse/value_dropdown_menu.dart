@@ -5,7 +5,7 @@ import '../../calculation_controller.dart';
 
 Widget vehicleUseValueDropdownMenu(CalculationController controller) {
   return SizedBox(
-    height: 60,
+    height: Get.height / 11.2,
     width: 50,
     child: Obx(
       () => DropdownButton(
@@ -17,7 +17,7 @@ Widget vehicleUseValueDropdownMenu(CalculationController controller) {
         dropdownColor: AppColors.indicatorBackground,
         borderRadius: BorderRadius.circular(15),
         alignment: Alignment.center,
-        itemHeight: 60,
+        itemHeight: Get.height / 11.2,
         value: controller.vehicleUseUnit.value,
         onChanged: (newValue) {
           controller.vehicleUseUnit.value = newValue!;

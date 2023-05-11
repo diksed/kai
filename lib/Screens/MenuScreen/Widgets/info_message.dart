@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class InfoMessage extends StatelessWidget {
   const InfoMessage({super.key, required this.text});
@@ -11,7 +12,7 @@ class InfoMessage extends StatelessWidget {
         color: Colors.white.withOpacity(0.2),
         borderRadius: BorderRadius.circular(10),
       ),
-      height: 50,
+      height: Get.height / 13.44,
       width: 350,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

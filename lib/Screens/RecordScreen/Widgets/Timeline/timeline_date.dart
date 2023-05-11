@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../Utils/app_texts.dart';
 
@@ -7,7 +8,7 @@ Widget timelineDate(int index, List<dynamic> pastRecords) {
     children: [
       Container(
         width: 40,
-        height: 40,
+        height: Get.height / 16.8,
         decoration: BoxDecoration(
           color: Colors.transparent,
           border: Border.all(

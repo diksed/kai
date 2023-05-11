@@ -52,9 +52,9 @@ Widget calculationScreen(
                     ],
                   ),
                 ),
-                const SizedBox(height: 20),
+                SizedBox(height: Get.height / 33.6),
                 input,
-                const SizedBox(height: 70),
+                SizedBox(height: Get.height / 9.6),
                 Obx(
                   () => Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
