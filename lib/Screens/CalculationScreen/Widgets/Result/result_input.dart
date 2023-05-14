@@ -9,7 +9,7 @@ Widget resultInput(double electricResult, double warmingResult,
     double fuelResult, double foodResult, double totalCo2) {
   return SizedBox(
     height: Get.height / 1.6,
-    width: 310,
+    width: Get.width / 1.161,
     child: Column(
       children: [
         CircleGraphic(

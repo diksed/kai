@@ -38,7 +38,7 @@ class _IntroductionPageState extends State<IntroductionPage> {
             ],
           ),
           Positioned(
-              bottom: 30,
+              bottom: Get.height / 22.4,
               right: 0,
               left: 0,
               child: Obx(() => buttonDotsColumn(_controller.pageController,

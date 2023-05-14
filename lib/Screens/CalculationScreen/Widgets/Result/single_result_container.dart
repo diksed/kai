@@ -7,7 +7,7 @@ Widget resultContainer(String imagePath, String text, var result, String unit) {
   return Container(
     decoration: innerShadowEffect(AppColors.inputBackground),
     height: Get.height / 16.8,
-    width: 310,
+    width: Get.width / 1.161,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [

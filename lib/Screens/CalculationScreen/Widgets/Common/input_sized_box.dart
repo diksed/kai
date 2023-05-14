@@ -13,7 +13,7 @@ Widget inputSizedBox(
     CalculationController controller, Container rowContainer, String whichOne) {
   return SizedBox(
     height: Get.height / 4.634,
-    width: 310,
+    width: Get.width / 1.161,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -36,30 +36,35 @@ Container textFieldContainerRow(
   return Container(
     color: Colors.transparent,
     height: Get.height / 11.2,
-    width: 310,
+    width: Get.width / 1.161,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
             height: Get.height / 11.2,
-            width: 230,
+            width: Get.width / 1.565,
             decoration: innerShadowEffect(AppColors.inputBackground),
             child: SizedBox(
                 height: Get.height / 11.2,
-                width: 210,
+                width: Get.width / 1.714,
                 child: Row(
                   children: [
-                    customTextField(controller, textEditController, 110, 6,
-                        TextInputAction.done),
+                    customTextField(
+                        controller,
+                        textEditController,
+                        Get.width / 3.272,
+                        6,
+                        TextInputAction.done,
+                        Get.height / 11.2),
                     dropdownMenu
                   ],
                 ))),
         Container(
           height: Get.height / 11.2,
-          width: 70,
+          width: Get.width / 5.142,
           decoration: innerShadowEffect(AppColors.inputBackground),
           child: Padding(
-            padding: const EdgeInsets.only(left: 10),
+            padding: EdgeInsets.only(left: Get.width / 36),
             child: valueDropdownMenu,
           ),
         ),

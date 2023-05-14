@@ -34,7 +34,7 @@ Widget pageOneThird(String image, String text) {
           SizedBox(height: Get.height / 13.44),
           Center(
             child: SizedBox(
-              width: 340,
+              width: Get.width / 1.058,
               child: Text(
                 text,
                 style: bodyStyle,

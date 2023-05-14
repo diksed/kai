@@ -51,8 +51,8 @@ class CalculationPageState extends State<CalculationPage> {
               children: [
                 calculationScreen(
                     ImagesPath.electricConsumption,
-                    130,
-                    310,
+                    Get.height / 5.169,
+                    Get.width / 1.161,
                     IntroductionText.electricConsumption,
                     DescriptionTexts.electricConsumption,
                     inputSizedBox(
@@ -63,9 +63,9 @@ class CalculationPageState extends State<CalculationPage> {
                           true,
                           '',
                           TextInputAction.done,
-                          height: Get.height / 11.2,
-                          width: 250,
-                          padding: 0,
+                          Get.height / 11.2,
+                          Get.width / 1.44,
+                          0,
                         ),
                         ''),
                     _controller,
@@ -74,8 +74,8 @@ class CalculationPageState extends State<CalculationPage> {
                     _recordController),
                 calculationScreen(
                     ImagesPath.warmingConsumption,
-                    140,
-                    320,
+                    Get.height / 4.8,
+                    Get.width / 1.125,
                     IntroductionText.warmingValues,
                     DescriptionTexts.warmingConsumption,
                     inputSizedBox(
@@ -92,8 +92,8 @@ class CalculationPageState extends State<CalculationPage> {
                     _recordController),
                 calculationScreen(
                     ImagesPath.vehicleUse,
-                    140,
-                    310,
+                    Get.height / 4.8,
+                    Get.width / 1.161,
                     IntroductionText.vehicleUse,
                     DescriptionTexts.vehicleUse,
                     inputSizedBox(
@@ -110,8 +110,8 @@ class CalculationPageState extends State<CalculationPage> {
                     _recordController),
                 foodCalculationScreen(
                     ImagesPath.foodConsumption,
-                    150,
-                    360,
+                    Get.height / 4.48,
+                    Get.width,
                     IntroductionText.foodConsumption,
                     DescriptionTexts.foodConsumption,
                     foodInputSizedBox(_controller),
@@ -121,8 +121,8 @@ class CalculationPageState extends State<CalculationPage> {
                     _recordController),
                 resultCalculationScreen(
                     ImagesPath.saveWorld,
-                    140,
-                    360,
+                    Get.height / 4.8,
+                    Get.width,
                     IntroductionText.result,
                     DescriptionTexts.resultDescription,
                     Obx(

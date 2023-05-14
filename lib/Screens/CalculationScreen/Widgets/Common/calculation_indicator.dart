@@ -9,7 +9,7 @@ Stack calculationIndicator(int indicatorIndex) {
     children: [
       Container(
           height: Get.height / 22.4,
-          width: 300,
+          width: Get.width / 1.2,
           decoration: innerShadowEffect(AppColors.indicatorBackground)),
       Container(
         height: Get.height / 22.4,

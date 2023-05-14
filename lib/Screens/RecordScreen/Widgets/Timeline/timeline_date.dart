@@ -7,7 +7,7 @@ Widget timelineDate(int index, List<dynamic> pastRecords) {
   return Column(
     children: [
       Container(
-        width: 40,
+        width: Get.width / 9,
         height: Get.height / 16.8,
         decoration: BoxDecoration(
           color: Colors.transparent,
@@ -15,7 +15,7 @@ Widget timelineDate(int index, List<dynamic> pastRecords) {
               color: pastRecords[index][KeyTexts.totalCo2] > 5500
                   ? Colors.red
                   : Colors.white,
-              width: 2),
+              width: Get.width / 180),
           shape: BoxShape.circle,
         ),
         child: Center(

@@ -6,7 +6,9 @@ import 'package:kai/Utils/app_texts.dart';
 Widget timelineCo2(int index, List<dynamic> pastRecords) {
   return Container(
     height: Get.height / 9.6,
-    width: pastRecords[index][KeyTexts.totalCo2] > 5500 ? 230 : 120,
+    width: pastRecords[index][KeyTexts.totalCo2] > 5500
+        ? Get.width / 1.565
+        : Get.width / 3,
     decoration: BoxDecoration(
         color: pastRecords[index][KeyTexts.totalCo2] > 5500
             ? Colors.red

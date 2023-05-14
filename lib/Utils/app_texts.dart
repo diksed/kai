@@ -85,7 +85,7 @@ class WarningMessages {
   static const String loading = 'Yükleniyor...';
   static const String anErrorOccurred = 'Bir hata oluştu!';
   static const String aboveAverage =
-      'Ortalamanın çok üzerindesiniz. Geleceğimiz için daha dikkatli olunuz!';
+      'Ortalamanın üzerindesiniz.\nDaha dikkatli olunuz!';
 }
 
 class FirebaseConnectionTexts {

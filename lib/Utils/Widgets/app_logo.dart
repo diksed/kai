@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 Image appLogo() {
   return Image.asset(
     'assets/images/kai_logo.png',
-    width: 150,
+    width: Get.width / 2.4,
     height: Get.height / 4.48,
   );
 }

@@ -9,7 +9,7 @@ Widget nextButton(
     bool onLastPage, IntroductionController controller, GetStorage box) {
   return SizedBox(
     height: onLastPage ? Get.height / 13.44 : Get.height / 16.8,
-    width: onLastPage ? 200 : 100,
+    width: onLastPage ? Get.width / 1.8 : Get.width / 3.6,
     child: ElevatedButton(
       onPressed: () async {
         onLastPage

@@ -3,9 +3,9 @@ import 'package:get/get.dart';
 import 'package:kai/Screens/CalculationScreen/Widgets/Common/home_button.dart';
 import 'package:kai/Screens/RecordScreen/Widgets/Timeline/timeline.dart';
 import 'package:kai/Screens/RecordScreen/record_controller.dart';
+import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
 import '../../Utils/Widgets/app_logo.dart';
-import '../../Utils/app_colors.dart';
 import '../IntroductionScreen/Widgets/introduction_pages.dart';
 import '../MenuScreen/Widgets/menu_background_image.dart';
 
@@ -24,9 +24,9 @@ class _PastRecordsState extends State<PastRecords> {
     return ScaffoldMessenger(
       child: SafeArea(
         child: Scaffold(
+          backgroundColor: AppColors.backgroundColor,
           resizeToAvoidBottomInset: true,
-          body: Container(
-            color: AppColors.backgroundColor,
+          body: SizedBox(
             height: Get.height,
             width: Get.width,
             child: Stack(
@@ -42,7 +42,7 @@ class _PastRecordsState extends State<PastRecords> {
                       const Text(IntroductionText.pastRecords,
                           style: titleStyle, textAlign: TextAlign.center),
                       SizedBox(
-                        height: Get.height / 1.7,
+                        height: Get.height / 1.8,
                         child: ScrollConfiguration(
                           behavior: const ScrollBehavior()
                               .copyWith(overscroll: false),
@@ -68,8 +68,4 @@ class _PastRecordsState extends State<PastRecords> {
       ),
     );
   }
-}
-
-Widget falan() {
-  return Container();
 }

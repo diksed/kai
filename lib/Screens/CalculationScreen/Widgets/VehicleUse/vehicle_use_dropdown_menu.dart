@@ -13,7 +13,7 @@ class VehicleUseDropdownMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: Get.height / 11.2,
-      width: 115,
+      width: Get.width / 3.130,
       child: Obx(
         () => DropdownButton(
           icon:

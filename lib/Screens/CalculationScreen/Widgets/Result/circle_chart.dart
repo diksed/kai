@@ -64,7 +64,7 @@ class CircleGraphicState extends State<CircleGraphic> {
                 ],
               ),
             ),
-            const SizedBox(width: 20),
+            SizedBox(width: Get.width / 18),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,

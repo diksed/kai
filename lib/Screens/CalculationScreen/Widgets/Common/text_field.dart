@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
 import '../../calculation_controller.dart';
 
 Widget customTextField(
@@ -8,32 +8,34 @@ Widget customTextField(
     double sizedBoxWidth,
     int maxLength,
     TextInputAction textInputAction,
-    {double sizedBoxHeight = 60}) {
+    double sizedBoxHeight) {
   return SizedBox(
     height: sizedBoxHeight,
     width: sizedBoxWidth,
-    child: Padding(
-      padding: const EdgeInsets.only(top: 5),
-      child: TextField(
-        textInputAction: textInputAction,
-        controller: textEditingController,
-        onChanged: controller.onTextChange,
-        maxLength: maxLength,
-        decoration: InputDecoration(
-            border: InputBorder.none,
-            hintText: '0',
-            counterText: '',
-            hintStyle: textFieldTextStyle()),
-        cursorColor: Colors.white,
-        style: textFieldTextStyle(fontSize: 25),
-        textAlign: TextAlign.center,
-        keyboardType: TextInputType.number,
-      ),
+    child: Column(
+      children: [
+        SizedBox(height: Get.height / 96),
+        TextField(
+          textInputAction: textInputAction,
+          controller: textEditingController,
+          onChanged: controller.onTextChange,
+          maxLength: maxLength,
+          decoration: InputDecoration(
+              border: InputBorder.none,
+              hintText: '0',
+              counterText: '',
+              hintStyle: textFieldTextStyle()),
+          cursorColor: Colors.white,
+          style: textFieldTextStyle(),
+          textAlign: TextAlign.center,
+          keyboardType: TextInputType.number,
+        ),
+      ],
     ),
   );
 }
 
-textFieldTextStyle({double fontSize = 30}) {
+textFieldTextStyle() {
   return const TextStyle(
     color: Colors.white,
     fontSize: 25,

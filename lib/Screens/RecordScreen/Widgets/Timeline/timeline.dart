@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:kai/Screens/RecordScreen/Widgets/Timeline/timeline_co2.dart';
 import 'package:kai/Screens/RecordScreen/Widgets/Timeline/timeline_date.dart';
@@ -19,14 +20,15 @@ Widget timelineStyle(RecordController recordController) {
     builder: TimelineTileBuilder.connectedFromStyle(
         contentsAlign: ContentsAlign.basic,
         oppositeContentsBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.only(top: 40, bottom: 8, right: 15),
+              padding:
+                  EdgeInsets.fromLTRB(0, Get.width / 10, Get.width / 36, 0),
               child: timelineDate(index, pastRecords),
             ),
         contentsBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: EdgeInsets.all(Get.width / 24),
               child: timelineCo2(index, pastRecords),
             ),
-        nodePositionBuilder: (context, index) => 0.3,
+        nodePositionBuilder: (context, index) => 0.2,
         connectorStyleBuilder: (context, index) => ConnectorStyle.solidLine,
         indicatorStyleBuilder: (context, index) => IndicatorStyle.dot,
         itemCount: pastRecords.length,

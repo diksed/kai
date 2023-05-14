@@ -11,7 +11,7 @@ class ElectricDropdownMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: Get.height / 11.2,
-      width: 80,
+      width: Get.width / 4.525,
       child: Obx(
         () => DropdownButton(
           icon:

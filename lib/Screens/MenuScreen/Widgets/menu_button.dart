@@ -18,7 +18,7 @@ class MenuButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 170,
+        width: Get.width / 2.117,
         height: Get.height / 11.2,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
@@ -35,7 +35,8 @@ class MenuButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Image.asset(image, width: 45, height: Get.height / 14.933),
+            Image.asset(image,
+                width: Get.width / 8, height: Get.height / 14.933),
             Text(
               text,
               style: const TextStyle(

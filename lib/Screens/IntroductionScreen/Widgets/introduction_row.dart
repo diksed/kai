@@ -18,11 +18,13 @@ class IntroductionRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SizedBox(
-            height: Get.height / 9.6, width: 70, child: imageOpacity(image)),
-        const SizedBox(width: 40),
+            height: Get.height / 9.6,
+            width: Get.width / 5.142,
+            child: imageOpacity(image)),
+        SizedBox(width: Get.width / 9),
         SizedBox(
             height: Get.height / 22.4,
-            width: 180,
+            width: Get.width / 2,
             child: Text(text, style: bodyStyle, textAlign: TextAlign.start)),
       ],
     );
@@ -44,14 +46,16 @@ class IntroductionRowWater extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Padding(
-          padding: const EdgeInsets.only(right: 20),
+          padding: EdgeInsets.only(right: Get.width / 18),
           child: SizedBox(
-              height: Get.height / 9.6, width: 70, child: imageOpacity(image)),
+              height: Get.height / 9.6,
+              width: Get.width / 5.142,
+              child: imageOpacity(image)),
         ),
-        const SizedBox(width: 20),
+        SizedBox(width: Get.width / 18),
         SizedBox(
             height: Get.height / 22.4,
-            width: 180,
+            width: Get.width / 2,
             child: Text(text, style: bodyStyle, textAlign: TextAlign.start)),
       ],
     );

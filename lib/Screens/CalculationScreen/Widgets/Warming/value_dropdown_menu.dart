@@ -7,7 +7,7 @@ import '../../calculation_controller.dart';
 Widget warmingValueDropdownMenu(CalculationController controller) {
   return SizedBox(
     height: Get.height / 11.2,
-    width: 50,
+    width: Get.width / 7.2,
     child: Obx(
       () => DropdownButton(
         icon: const Icon(Icons.keyboard_arrow_down_sharp, color: Colors.white),
