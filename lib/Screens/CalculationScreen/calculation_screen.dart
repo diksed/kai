@@ -37,114 +37,107 @@ class CalculationPageState extends State<CalculationPage> {
       child: SafeArea(
         child: Scaffold(
           resizeToAvoidBottomInset: true,
-          body: SingleChildScrollView(
-            child: Container(
-              color: AppColors.backgroundColor,
-              height: Get.height,
-              width: Get.width,
-              child: Stack(
-                children: [
-                  PageView(
-                    physics: const NeverScrollableScrollPhysics(),
-                    controller: _controller.calculationPageController,
-                    onPageChanged: (index) {
-                      _controller.currentIndex.value = index;
-                      _controller.onLastPage.value = index == 4;
-                    },
-                    children: [
-                      calculationScreen(
-                          ImagesPath.electricConsumption,
-                          130,
-                          310,
-                          IntroductionText.electricConsumption,
-                          DescriptionTexts.electricConsumption,
-                          inputSizedBox(
-                              _controller,
-                              oneTextFieldContainer(
-                                _controller,
-                                _controller.electricController,
-                                true,
-                                '',
-                                TextInputAction.done,
-                                height: Get.height / 11.2,
-                                width: 250,
-                                padding: 0,
-                              ),
-                              ''),
+          body: Container(
+            color: AppColors.backgroundColor,
+            height: Get.height,
+            width: Get.width,
+            child: PageView(
+              physics: const NeverScrollableScrollPhysics(),
+              controller: _controller.calculationPageController,
+              onPageChanged: (index) {
+                _controller.currentIndex.value = index;
+                _controller.onLastPage.value = index == 4;
+              },
+              children: [
+                calculationScreen(
+                    ImagesPath.electricConsumption,
+                    130,
+                    310,
+                    IntroductionText.electricConsumption,
+                    DescriptionTexts.electricConsumption,
+                    inputSizedBox(
+                        _controller,
+                        oneTextFieldContainer(
                           _controller,
-                          _resultController,
-                          _firestoreController,
-                          _recordController),
-                      calculationScreen(
-                          ImagesPath.warmingConsumption,
-                          140,
-                          320,
-                          IntroductionText.warmingValues,
-                          DescriptionTexts.warmingConsumption,
-                          inputSizedBox(
-                              _controller,
-                              textFieldContainerRow(
-                                  _controller,
-                                  _controller.warmingController,
-                                  WarmingDropdownMenu(controller: _controller),
-                                  warmingValueDropdownMenu(_controller)),
-                              ''),
-                          _controller,
-                          _resultController,
-                          _firestoreController,
-                          _recordController),
-                      calculationScreen(
-                          ImagesPath.vehicleUse,
-                          140,
-                          310,
-                          IntroductionText.vehicleUse,
-                          DescriptionTexts.vehicleUse,
-                          inputSizedBox(
-                              _controller,
-                              textFieldContainerRow(
-                                  _controller,
-                                  _controller.vehicleUseController,
-                                  VehicleUseDropdownMenu(
-                                      controller: _controller),
-                                  vehicleUseValueDropdownMenu(_controller)),
-                              KeyTexts.vehicleUse),
-                          _controller,
-                          _resultController,
-                          _firestoreController,
-                          _recordController),
-                      foodCalculationScreen(
-                          ImagesPath.foodConsumption,
-                          150,
-                          360,
-                          IntroductionText.foodConsumption,
-                          DescriptionTexts.foodConsumption,
-                          foodInputSizedBox(_controller),
-                          _controller,
-                          _resultController,
-                          _firestoreController,
-                          _recordController),
-                      resultCalculationScreen(
-                          ImagesPath.saveWorld,
-                          140,
-                          360,
-                          IntroductionText.result,
-                          DescriptionTexts.resultDescription,
-                          Obx(
-                            () => (resultInput(
-                                (_resultController.electricResultValue.value),
-                                (_resultController.warmingResultValue.value),
-                                (_resultController.fuelResultValue.value),
-                                (_resultController.foodResultValue.value),
-                                (_resultController.totalCo2.value))),
-                          ),
-                          _controller,
-                          _resultController,
-                          _firestoreController,
-                          _recordController)
-                    ],
-                  ),
-                ],
-              ),
+                          _controller.electricController,
+                          true,
+                          '',
+                          TextInputAction.done,
+                          height: Get.height / 11.2,
+                          width: 250,
+                          padding: 0,
+                        ),
+                        ''),
+                    _controller,
+                    _resultController,
+                    _firestoreController,
+                    _recordController),
+                calculationScreen(
+                    ImagesPath.warmingConsumption,
+                    140,
+                    320,
+                    IntroductionText.warmingValues,
+                    DescriptionTexts.warmingConsumption,
+                    inputSizedBox(
+                        _controller,
+                        textFieldContainerRow(
+                            _controller,
+                            _controller.warmingController,
+                            WarmingDropdownMenu(controller: _controller),
+                            warmingValueDropdownMenu(_controller)),
+                        ''),
+                    _controller,
+                    _resultController,
+                    _firestoreController,
+                    _recordController),
+                calculationScreen(
+                    ImagesPath.vehicleUse,
+                    140,
+                    310,
+                    IntroductionText.vehicleUse,
+                    DescriptionTexts.vehicleUse,
+                    inputSizedBox(
+                        _controller,
+                        textFieldContainerRow(
+                            _controller,
+                            _controller.vehicleUseController,
+                            VehicleUseDropdownMenu(controller: _controller),
+                            vehicleUseValueDropdownMenu(_controller)),
+                        KeyTexts.vehicleUse),
+                    _controller,
+                    _resultController,
+                    _firestoreController,
+                    _recordController),
+                foodCalculationScreen(
+                    ImagesPath.foodConsumption,
+                    150,
+                    360,
+                    IntroductionText.foodConsumption,
+                    DescriptionTexts.foodConsumption,
+                    foodInputSizedBox(_controller),
+                    _controller,
+                    _resultController,
+                    _firestoreController,
+                    _recordController),
+                resultCalculationScreen(
+                    ImagesPath.saveWorld,
+                    140,
+                    360,
+                    IntroductionText.result,
+                    DescriptionTexts.resultDescription,
+                    Obx(
+                      () => (resultInput(
+                          (_resultController.electricResultValue.value),
+                          (_resultController.warmingResultValue.value),
+                          (_resultController.fuelResultValue.value),
+                          (_resultController.foodResultValue.value),
+                          (_resultController.totalCo2.value))),
+                    ),
+                    _controller,
+                    _resultController,
+                    _firestoreController,
+                    _recordController)
+              ],
             ),
           ),
         ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
+import 'package:kai/Utils/app_colors.dart';
 import '../../../../Utils/Firebase/firestore_controller.dart';
 import '../../../../Utils/Widgets/app_logo.dart';
-import '../../../../Utils/app_colors.dart';
 import '../../../../Utils/app_texts.dart';
 import '../../../IntroductionScreen/Widgets/introduction_pages.dart';
 import '../../../MenuScreen/Widgets/menu_background_image.dart';
@@ -25,11 +25,11 @@ Widget calculationScreen(
     RecordController recordController) {
   return Scaffold(
     backgroundColor: AppColors.backgroundColor,
-    body: SingleChildScrollView(
-      child: Center(
-        child: Stack(
-          alignment: Alignment.bottomCenter,
-          children: [
+    body: ScrollConfiguration(
+      behavior: const ScrollBehavior().copyWith(overscroll: false),
+      child: SingleChildScrollView(
+        child: Center(
+          child: Stack(alignment: Alignment.bottomCenter, children: [
             Align(
                 alignment: Alignment.bottomCenter,
                 child: BackgroundImage(imagePath: imagePath)),
@@ -81,7 +81,7 @@ Widget calculationScreen(
                 )
               ],
             ),
-          ],
+          ]),
         ),
       ),
     ),
