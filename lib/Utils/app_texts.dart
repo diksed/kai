@@ -45,6 +45,11 @@ class DefaultTexts {
   static const String letsBegin = 'Hadi Başlayalım';
   static const String recordKey = 'past_records';
   static const String notUsingVehicle = 'Bireysel Araç Kullanmıyorum';
+  static const String clearRecord = 'Geçmiş Kayıtları Temizle';
+  static const String clearRecordText =
+      'Geçmiş kayıtlarınızı temizlemek istediğinize emin misiniz?';
+  static const String yes = 'Evet';
+  static const String no = 'Hayır';
 }
 
 class MenuTexts {
@@ -85,7 +90,7 @@ class WarningMessages {
   static const String loading = 'Yükleniyor...';
   static const String anErrorOccurred = 'Bir hata oluştu!';
   static const String aboveAverage =
-      'Ortalamanın üzerindesiniz.\nDaha dikkatli olunuz!';
+      'Ortalama üzerindesiniz. Daha dikkatli olunuz!';
 }
 
 class FirebaseConnectionTexts {

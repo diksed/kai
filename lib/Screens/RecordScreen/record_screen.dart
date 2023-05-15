@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kai/Screens/CalculationScreen/Widgets/Common/home_button.dart';
 import 'package:kai/Screens/RecordScreen/Widgets/Timeline/timeline.dart';
+import 'package:kai/Screens/RecordScreen/Widgets/ClearRecord/clear_record_button.dart';
 import 'package:kai/Screens/RecordScreen/record_controller.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
 import '../../Utils/Widgets/app_logo.dart';
 import '../IntroductionScreen/Widgets/introduction_pages.dart';
 import '../MenuScreen/Widgets/menu_background_image.dart';
+import 'Widgets/ClearRecord/clear_record_dialog.dart';
 
 class PastRecords extends StatefulWidget {
   const PastRecords({super.key});
@@ -52,12 +54,22 @@ class _PastRecordsState extends State<PastRecords> {
                         ),
                       ),
                       SizedBox(height: Get.height / 67.2),
-                      GestureDetector(
-                          child: const HomeButton(
-                              whichButton: '', onLastPage: true),
-                          onTap: () {
-                            Get.offAndToNamed(RoutesTexts.menu);
-                          })
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          GestureDetector(
+                              child: const HomeButton(
+                                  whichButton: '', onLastPage: true),
+                              onTap: () {
+                                Get.offAndToNamed(RoutesTexts.menu);
+                              }),
+                          GestureDetector(
+                              child: const ClearRecordButton(),
+                              onTap: () {
+                                clearRecordDialog(_recordController);
+                              }),
+                        ],
+                      )
                     ],
                   ),
                 ),

@@ -27,4 +27,8 @@ class RecordController extends GetxController {
 
     recordBox.write(DefaultTexts.recordKey, pastRecords);
   }
+
+  void clearRecord() {
+    recordBox.remove(DefaultTexts.recordKey);
+  }
 }
