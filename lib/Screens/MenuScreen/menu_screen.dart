@@ -5,6 +5,7 @@ import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
 import '../../Utils/Firebase/firestore_controller.dart';
 import '../../Utils/Widgets/app_logo.dart';
+import '../DonateScreen/donate_screen.dart';
 import 'Widgets/menu_background_image.dart';
 import 'Widgets/menu_button.dart';
 import 'menu_controller.dart';
@@ -41,7 +42,9 @@ class MenuPage extends StatelessWidget {
                       MenuButton(
                         image: ImagesPath.donate,
                         text: MenuTexts.donate,
-                        onTap: () {},
+                        onTap: () {
+                          donateBottomSheet();
+                        },
                       ),
                       MenuButton(
                           image: ImagesPath.pastRecords,

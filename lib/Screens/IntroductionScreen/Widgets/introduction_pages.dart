@@ -21,6 +21,14 @@ const titleStyle = TextStyle(
   letterSpacing: 0.6,
 );
 
+const notWhiteTitleStyle = TextStyle(
+  fontSize: 25.0,
+  color: AppColors.backgroundColor,
+  fontWeight: FontWeight.w600,
+  height: 1.7,
+  letterSpacing: 0.6,
+);
+
 Widget pageOneThird(String image, String text) {
   return Scaffold(
       backgroundColor: AppColors.backgroundColor,
