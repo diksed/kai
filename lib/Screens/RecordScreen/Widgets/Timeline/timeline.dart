@@ -10,7 +10,7 @@ import '../../record_controller.dart';
 Widget timelineStyle(RecordController recordController) {
   final box = GetStorage();
   final List<dynamic> pastRecords =
-      box.read(DefaultTexts.recordKey)?.toList()?.reversed?.toList() ?? [];
+      box.read(KeyTexts.recordKey)?.toList()?.reversed?.toList() ?? [];
 
   return FixedTimeline.tileBuilder(
     theme: TimelineThemeData(

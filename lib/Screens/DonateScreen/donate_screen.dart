@@ -6,6 +6,7 @@ import 'package:kai/Utils/app_colors.dart';
 import '../../Utils/app_texts.dart';
 import '../MenuScreen/Widgets/menu_background_image.dart';
 import '../RecordScreen/record_controller.dart';
+import 'Widgets/bottom_sheet_button.dart';
 
 void donateBottomSheet() {
   final RecordController recordController = Get.put(RecordController());
@@ -19,7 +20,7 @@ void donateBottomSheet() {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           const Center(
-            child: Text('Fidan Bağışla', style: notWhiteTitleStyle),
+            child: Text(DefaultTexts.donateSapling, style: notWhiteTitleStyle),
           ),
           Center(
             child: SizedBox(
@@ -28,7 +29,7 @@ void donateBottomSheet() {
                 textAlign: TextAlign.center,
                 style: const TextStyle(fontSize: 20, color: Colors.black),
                 TextSpan(
-                  text: 'Yaptığınız en son işleme göre doğaya olan borcunuz ',
+                  text: DefaultTexts.lastAction,
                   children: [
                     TextSpan(
                       text: '${recordController.resultTree()}',
@@ -36,10 +37,7 @@ void donateBottomSheet() {
                         color: Colors.red,
                       ),
                     ),
-                    const TextSpan(
-                      text:
-                          ' ağaç.\n\n\n Fidan bağışı yaparak doğaya verdiğiniz zararı denkleştirebilirsiniz.',
-                    ),
+                    const TextSpan(text: DefaultTexts.withDonateSapling),
                   ],
                 ),
               ),
@@ -50,21 +48,17 @@ void donateBottomSheet() {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red[400]),
-                    onPressed: () {
-                      recordController.resultTree();
-                      Get.back();
-                    },
-                    child: const Text('Vazgeç', style: bodyStyle)),
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.backgroundColor),
-                    onPressed: () {
-                      recordController.launchURL();
-                    },
-                    child: const Text('Bağış Yap', style: bodyStyle))
+                BottomSheetButton(
+                  buttonBgColor: Colors.red[400],
+                  buttonText: DefaultTexts.giveUp,
+                  onPressed: () {
+                    Get.back();
+                  },
+                ),
+                BottomSheetButton(
+                    onPressed: () => recordController.launchURL(),
+                    buttonText: DefaultTexts.donate,
+                    buttonBgColor: AppColors.backgroundColor)
               ],
             ),
           ),

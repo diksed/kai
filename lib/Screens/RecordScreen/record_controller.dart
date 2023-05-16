@@ -8,8 +8,7 @@ class RecordController extends GetxController {
 
   void addRecord(double co2Total) {
     final today = DateTime.now();
-    final List<dynamic> pastRecords =
-        recordBox.read(DefaultTexts.recordKey) ?? [];
+    final List<dynamic> pastRecords = recordBox.read(KeyTexts.recordKey) ?? [];
     if (today.day < 10) {
       final record = {
         KeyTexts.dateDay: "0${today.day}",
@@ -26,16 +25,15 @@ class RecordController extends GetxController {
       pastRecords.add(record);
     }
 
-    recordBox.write(DefaultTexts.recordKey, pastRecords);
+    recordBox.write(KeyTexts.recordKey, pastRecords);
   }
 
   void clearRecord() {
-    recordBox.remove(DefaultTexts.recordKey);
+    recordBox.remove(KeyTexts.recordKey);
   }
 
   Map<String, dynamic>? getLastRecord() {
-    final List<dynamic> pastRecords =
-        recordBox.read(DefaultTexts.recordKey) ?? [];
+    final List<dynamic> pastRecords = recordBox.read(KeyTexts.recordKey) ?? [];
     if (pastRecords.isEmpty) {
       return null;
     }
@@ -43,8 +41,7 @@ class RecordController extends GetxController {
   }
 
   dynamic resultTree() {
-    final List<dynamic> pastRecords =
-        recordBox.read(DefaultTexts.recordKey) ?? [];
+    final List<dynamic> pastRecords = recordBox.read(KeyTexts.recordKey) ?? [];
     if (pastRecords.isEmpty) {
       return 0;
     }
@@ -55,12 +52,12 @@ class RecordController extends GetxController {
   }
 
   launchURL() async {
-    const url = 'https://www.tema.org.tr/tek-seferlik-genel-bagis';
+    const url = KeyTexts.url;
     final uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
     } else {
-      throw '$url link çalıştırılamadı.';
+      throw '$url ${WarningMessages.linkNotWorking}';
     }
   }
 }

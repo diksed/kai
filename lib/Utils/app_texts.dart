@@ -43,13 +43,19 @@ class DefaultTexts {
   static const String back = "Geri";
   static const String andMore = 've dahası..';
   static const String letsBegin = 'Hadi Başlayalım';
-  static const String recordKey = 'past_records';
   static const String notUsingVehicle = 'Bireysel Araç Kullanmıyorum';
   static const String clearRecord = 'Geçmiş Kayıtları Temizle';
   static const String clearRecordText =
       'Geçmiş kayıtlarınızı temizlemek istediğinize emin misiniz?';
   static const String yes = 'Evet';
   static const String no = 'Hayır';
+  static const String giveUp = 'Vazgeç';
+  static const String donate = 'Bağış Yap';
+  static const String donateSapling = 'Fidan Bağışla';
+  static const String lastAction =
+      'Yaptığınız en son işleme göre doğaya olan borcunuz ';
+  static const String withDonateSapling =
+      ' ağaç.\n\n\n Fidan bağışı yaparak doğaya verdiğiniz zararı denkleştirebilirsiniz.';
 }
 
 class MenuTexts {
@@ -91,6 +97,7 @@ class WarningMessages {
   static const String anErrorOccurred = 'Bir hata oluştu!';
   static const String aboveAverage =
       'Ortalama üzerindesiniz. Daha dikkatli olunuz!';
+  static const String linkNotWorking = 'link çalıştırılamadı.';
 }
 
 class FirebaseConnectionTexts {
@@ -108,6 +115,7 @@ class FirebaseConnectionTexts {
 }
 
 class KeyTexts {
+  static const String recordKey = 'past_records';
   static const String kWh = 'kWh';
   static const String gasoline = 'Benzin';
   static const String diesel = 'Dizel';
@@ -129,6 +137,7 @@ class KeyTexts {
   static const String totalCo2 = 'totalCo2';
   static const String dateDay = 'dateDay';
   static const String dateMonth = 'dateMonth';
+  static const String url = 'https://www.tema.org.tr/tek-seferlik-genel-bagis';
 }
 
 final List<List<String>> months = [
