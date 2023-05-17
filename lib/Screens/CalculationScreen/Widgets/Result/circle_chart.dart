@@ -36,13 +36,16 @@ class CircleGraphicState extends State<CircleGraphic> {
               child: Stack(
                 children: [
                   Center(
-                    child: Text(
-                        '${(widget.totalCo2 / 1000).toStringAsFixed(2)}\nTon',
-                        style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
-                        textAlign: TextAlign.center),
+                    child: Padding(
+                      padding: EdgeInsets.only(right: Get.width / 78.4),
+                      child: Text(
+                          '${(widget.totalCo2 / 1000).toStringAsFixed(2)}\nTon',
+                          style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white),
+                          textAlign: TextAlign.center),
+                    ),
                   ),
                   AspectRatio(
                     aspectRatio: 1,
@@ -70,17 +73,19 @@ class CircleGraphicState extends State<CircleGraphic> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Indicator(
-                    color: Colors.yellow,
+                    color: Color.fromRGBO(251, 192, 45, 1),
                     text: IntroductionText.electricConsumption),
                 SizedBox(height: Get.height / 168),
                 const Indicator(
-                    color: Colors.blue, text: IntroductionText.warmingValues),
+                    color: Color.fromRGBO(25, 118, 210, 1),
+                    text: IntroductionText.warmingValues),
                 SizedBox(height: Get.height / 168),
                 const Indicator(
-                    color: Colors.red, text: IntroductionText.fuelConsumption),
+                    color: Color.fromRGBO(211, 47, 47, 1),
+                    text: IntroductionText.fuelConsumption),
                 SizedBox(height: Get.height / 168),
                 const Indicator(
-                    color: Colors.green,
+                    color: Color.fromARGB(255, 54, 81, 56),
                     text: IntroductionText.foodConsumption),
               ],
             ),
@@ -96,7 +101,7 @@ class CircleGraphicState extends State<CircleGraphic> {
       switch (i) {
         case 0:
           return PieChartSectionData(
-            color: Colors.yellow[700],
+            color: const Color.fromRGBO(251, 192, 45, 1),
             value: electric,
             title: '%${electric.toStringAsFixed(0)}',
             radius: 50,
@@ -104,21 +109,21 @@ class CircleGraphicState extends State<CircleGraphic> {
           );
         case 1:
           return PieChartSectionData(
-              color: Colors.blue[700],
+              color: const Color.fromRGBO(25, 118, 210, 1),
               value: warming,
               title: '%${warming.toStringAsFixed(0)}',
               radius: 50,
               titleStyle: circleTextStyle());
         case 2:
           return PieChartSectionData(
-              color: Colors.red[700],
+              color: const Color.fromRGBO(211, 47, 47, 1),
               value: fuel,
               title: '%${fuel.toStringAsFixed(0)}',
               radius: 50,
               titleStyle: circleTextStyle());
         case 3:
           return PieChartSectionData(
-              color: Colors.green[700],
+              color: const Color.fromARGB(255, 54, 81, 56),
               value: food,
               title: '%${food.toStringAsFixed(0)}',
               radius: 50,

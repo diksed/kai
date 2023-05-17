@@ -1,11 +1,17 @@
 import 'package:get/get.dart';
 import 'package:kai/Screens/MenuScreen/menu_screen.dart';
 import 'package:kai/Screens/RecordScreen/record_screen.dart';
+import 'package:kai/Screens/SplashScreen/splash_screen.dart';
 import '../Screens/CalculationScreen/calculation_screen.dart';
 import '../Screens/IntroductionScreen/introduction_screen.dart';
 import '../Utils/app_texts.dart';
 
 appRoutes() => [
+      GetPage(
+          name: RoutesTexts.splash,
+          page: () => const SplashPage(),
+          transition: Transition.fade,
+          transitionDuration: const Duration(milliseconds: 600)),
       GetPage(
           name: RoutesTexts.introduction,
           page: () => const IntroductionPage(),

@@ -43,6 +43,7 @@ class MenuPage extends StatelessWidget {
                         image: ImagesPath.donate,
                         text: MenuTexts.donate,
                         onTap: () {
+                          print(Get.width);
                           donateBottomSheet();
                         },
                       ),

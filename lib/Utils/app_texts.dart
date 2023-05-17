@@ -18,6 +18,7 @@ class ImagesPath {
   static const String pastRecordsBackground =
       'assets/images/past_records_background.png';
   static const String co2Icon = 'assets/images/co2_icon.png';
+  static const String splash = 'assets/images/kai_splash.gif';
 }
 
 class IntroductionText {
@@ -75,6 +76,7 @@ class RoutesTexts {
   static const String menu = '/menu';
   static const String calculation = '/calculation';
   static const String pastRecords = '/records';
+  static const String splash = '/splash';
 }
 
 class DescriptionTexts {
