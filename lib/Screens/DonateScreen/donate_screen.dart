@@ -12,61 +12,61 @@ void donateBottomSheet() {
   final RecordController recordController = Get.put(RecordController());
 
   Get.bottomSheet(
-    Stack(children: [
-      const Align(
-          alignment: Alignment.bottomCenter,
-          child: BackgroundImage(imagePath: ImagesPath.menuBackground)),
-      Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const Center(
-            child: Text(DefaultTexts.donateSapling, style: notWhiteTitleStyle),
-          ),
-          Center(
-            child: SizedBox(
-              width: Get.width / 1.2,
-              child: Text.rich(
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 20, color: Colors.black),
-                TextSpan(
-                  text: DefaultTexts.lastAction,
-                  children: [
-                    TextSpan(
-                      text: '${recordController.resultTree()}',
-                      style: const TextStyle(
-                        color: Colors.red,
+    SizedBox(
+      height: Get.height / 2.5,
+      child: Stack(children: [
+        const Align(
+            alignment: Alignment.bottomCenter,
+            child: BackgroundImage(imagePath: ImagesPath.menuBackground)),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Center(
+              child:
+                  Text(DefaultTexts.donateSapling, style: notWhiteTitleStyle),
+            ),
+            Center(
+              child: SizedBox(
+                width: Get.width / 1.2,
+                child: Text.rich(
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontSize: 20, color: Colors.black),
+                  TextSpan(
+                    text: DefaultTexts.lastAction,
+                    children: [
+                      TextSpan(
+                        text: '${recordController.resultTree()}',
+                        style: const TextStyle(color: Colors.red),
                       ),
-                    ),
-                    const TextSpan(text: DefaultTexts.withDonateSapling),
-                  ],
+                      const TextSpan(text: DefaultTexts.withDonateSapling),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                BottomSheetButton(
-                  buttonBgColor: Colors.red[400],
-                  buttonText: DefaultTexts.giveUp,
-                  onPressed: () {
-                    Get.back();
-                  },
-                ),
-                BottomSheetButton(
-                    onPressed: () => recordController.launchURL(),
-                    buttonText: DefaultTexts.donate,
-                    buttonBgColor: AppColors.backgroundColor)
-              ],
+            Padding(
+              padding: EdgeInsets.only(bottom: Get.height / 39.05),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  BottomSheetButton(
+                      buttonBgColor: Colors.red[400],
+                      buttonText: DefaultTexts.giveUp,
+                      onPressed: () {
+                        Get.back();
+                      }),
+                  BottomSheetButton(
+                      onPressed: () => recordController.launchURL(),
+                      buttonText: DefaultTexts.donate,
+                      buttonBgColor: AppColors.backgroundColor)
+                ],
+              ),
             ),
-          ),
-        ],
-      ),
-    ]),
+          ],
+        ),
+      ]),
+    ),
     backgroundColor: Colors.white,
-    elevation: 0,
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
   );
 }

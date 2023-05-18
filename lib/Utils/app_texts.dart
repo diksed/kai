@@ -56,7 +56,7 @@ class DefaultTexts {
   static const String lastAction =
       'Yaptığınız en son işleme göre doğaya olan borcunuz ';
   static const String withDonateSapling =
-      ' ağaç.\n\n\n Fidan bağışı yaparak doğaya verdiğiniz zararı denkleştirebilirsiniz.';
+      ' ağaç.\n\n Fidan bağışı yaparak doğaya verdiğiniz zararı denkleştirebilirsiniz.';
 }
 
 class MenuTexts {
