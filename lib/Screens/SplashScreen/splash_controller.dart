@@ -6,7 +6,7 @@ class SplashController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    Future.delayed(const Duration(seconds: 8), () {
+    Future.delayed(const Duration(seconds: 3), () {
       if (GetStorage().read(IntroductionText.isIntroShown) == null || false) {
         Get.offNamed(RoutesTexts.introduction);
       } else {
