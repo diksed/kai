@@ -12,7 +12,7 @@ Widget co2Text(int index, List<dynamic> pastRecords) {
         children: [
           Image.asset(ImagesPath.co2Icon,
               height: Get.height / 26.88,
-              color: pastRecords[index][KeyTexts.totalCo2] > 5500
+              color: pastRecords[index][KeyTexts.totalCo2] > averageCo2
                   ? Colors.white
                   : AppColors.backgroundColor),
           SizedBox(width: Get.width / 36),
@@ -21,11 +21,11 @@ Widget co2Text(int index, List<dynamic> pastRecords) {
             style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w500,
-                color: pastRecords[index][KeyTexts.totalCo2] > 5500
+                color: pastRecords[index][KeyTexts.totalCo2] > averageCo2
                     ? Colors.white
                     : AppColors.backgroundColor),
           ),
-          pastRecords[index][KeyTexts.totalCo2] > 5500
+          pastRecords[index][KeyTexts.totalCo2] > averageCo2
               ? Padding(
                   padding: const EdgeInsets.only(left: 5),
                   child: warningMessage(),

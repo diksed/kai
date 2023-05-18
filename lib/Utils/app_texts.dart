@@ -156,3 +156,5 @@ final List<List<String>> months = [
   ['Kasım', '11'],
   ['Aralık', '12']
 ];
+
+const int averageCo2 = 6300;

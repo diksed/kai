@@ -12,7 +12,7 @@ Widget timelineDate(int index, List<dynamic> pastRecords) {
         decoration: BoxDecoration(
           color: Colors.transparent,
           border: Border.all(
-              color: pastRecords[index][KeyTexts.totalCo2] > 5500
+              color: pastRecords[index][KeyTexts.totalCo2] > averageCo2
                   ? Colors.red
                   : Colors.white,
               width: Get.width / 180),
@@ -22,7 +22,7 @@ Widget timelineDate(int index, List<dynamic> pastRecords) {
           child: Text(
             pastRecords[index][KeyTexts.dateDay].toString().substring(0, 2),
             style: TextStyle(
-                color: pastRecords[index][KeyTexts.totalCo2] > 5500
+                color: pastRecords[index][KeyTexts.totalCo2] > averageCo2
                     ? Colors.red
                     : Colors.white,
                 fontSize: 17),
@@ -32,7 +32,7 @@ Widget timelineDate(int index, List<dynamic> pastRecords) {
       Text(
         months[int.parse(pastRecords[index][KeyTexts.dateMonth]) - 1][0],
         style: TextStyle(
-            color: pastRecords[index][KeyTexts.totalCo2] > 5500
+            color: pastRecords[index][KeyTexts.totalCo2] > averageCo2
                 ? Colors.red
                 : Colors.white,
             fontSize: 15),
