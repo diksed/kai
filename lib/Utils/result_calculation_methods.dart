@@ -2,6 +2,7 @@ import 'package:kai/Screens/RecordScreen/record_controller.dart';
 import 'package:kai/Utils/app_texts.dart';
 
 import '../Screens/CalculationScreen/Widgets/Common/next_back_button.dart';
+import '../Screens/CalculationScreen/Widgets/Common/snack_bar.dart';
 import '../Screens/CalculationScreen/calculation_controller.dart';
 import '../Screens/CalculationScreen/result_controller.dart';
 import 'Firebase/firestore_controller.dart';
@@ -14,7 +15,7 @@ void calculationMethod(
     {RecordController? recordController}) {
   if (type == KeyTexts.electric) {
     if (controller.electricController.text.isEmpty) {
-      controller.showSnackBar();
+      showSnackBar();
     } else {
       if (controller.electricSelectedType.value == KeyTexts.kWh) {
         resultController.electricResultValue.value =

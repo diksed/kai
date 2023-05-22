@@ -9,7 +9,7 @@ import '../../../IntroductionScreen/Widgets/introduction_pages.dart';
 import '../../../MenuScreen/Widgets/menu_background_image.dart';
 import '../../../RecordScreen/record_controller.dart';
 import '../../result_controller.dart';
-import 'calculation_indicator.dart';
+import '../Indicator/animated_indicator.dart';
 import 'next_back_button.dart';
 
 Widget calculationScreen(
@@ -37,8 +37,9 @@ Widget calculationScreen(
               children: [
                 appLogo(),
                 Obx(
-                  () => calculationIndicator(
-                      calculationController.indicatorIndex.value),
+                  () => AnimatedIndicator(
+                      indicatorIndex:
+                          calculationController.indicatorIndex.value),
                 ),
                 SizedBox(
                   height: sizedBoxHeight,

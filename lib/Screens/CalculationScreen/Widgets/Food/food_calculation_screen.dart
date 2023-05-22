@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kai/Screens/CalculationScreen/Widgets/Indicator/animated_indicator.dart';
 import '../../../../Utils/Firebase/firestore_controller.dart';
 import '../../../../Utils/Widgets/app_logo.dart';
 import '../../../../Utils/app_colors.dart';
@@ -9,7 +10,6 @@ import '../../../MenuScreen/Widgets/menu_background_image.dart';
 import '../../../RecordScreen/record_controller.dart';
 import '../../calculation_controller.dart';
 import '../../result_controller.dart';
-import '../Common/calculation_indicator.dart';
 import '../Common/next_back_button.dart';
 
 Widget foodCalculationScreen(
@@ -40,8 +40,9 @@ Widget foodCalculationScreen(
                   SizedBox(height: Get.height / 134.4),
                   appLogo(),
                   Obx(
-                    () => calculationIndicator(
-                        calculationController.indicatorIndex.value),
+                    () => AnimatedIndicator(
+                        indicatorIndex:
+                            calculationController.indicatorIndex.value),
                   ),
                   SizedBox(
                     height: sizedBoxHeight,

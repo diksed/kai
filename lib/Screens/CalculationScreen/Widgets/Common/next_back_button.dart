@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kai/Screens/CalculationScreen/Widgets/Common/snack_bar.dart';
 import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
 import 'package:kai/Screens/CalculationScreen/result_controller.dart';
 import 'package:kai/Screens/RecordScreen/record_controller.dart';
@@ -38,7 +39,7 @@ Widget backNextButton(
                 KeyTexts.electric);
           } else if (controller.currentIndex.value == 1) {
             if (controller.warmingController.text.isEmpty) {
-              controller.showSnackBar();
+              showSnackBar();
             } else {
               if (controller.warmingfuelType.value == KeyTexts.naturalGas) {
                 calculationMethod(controller, resultController,
@@ -54,7 +55,7 @@ Widget backNextButton(
           } else if (controller.currentIndex.value == 2) {
             if (controller.isVehicleUsed.value == false) {
               if (controller.vehicleUseController.text.isEmpty) {
-                controller.showSnackBar();
+                showSnackBar();
               } else {
                 if (controller.vehicleUseType.value == KeyTexts.gasoline) {
                   calculationMethod(controller, resultController,
@@ -75,7 +76,7 @@ Widget backNextButton(
             if (controller.meatController.text.isEmpty ||
                 controller.milkController.text.isEmpty ||
                 controller.greengroceryController.text.isEmpty) {
-              controller.showSnackBar();
+              showSnackBar();
             } else {
               calculationMethod(controller, resultController,
                   firestoreController, KeyTexts.food,

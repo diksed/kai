@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kai/Utils/app_colors.dart';
 
 import '../../Utils/app_texts.dart';
 
@@ -59,50 +58,33 @@ class CalculationController extends GetxController {
   }
 
   void onTextChange(String value) {
-    if (value.isNotEmpty) {
-      if (currentIndex.value == 0) {
-        indicatorIndex.value = 75;
-      } else if (currentIndex.value == 1) {
-        indicatorIndex.value = 150;
-      } else if (currentIndex.value == 2) {
-        indicatorIndex.value = 225;
-      } else if (currentIndex.value == 3) {
-        indicatorIndex.value = 300;
-      } else if (currentIndex.value == 4) {
-        indicatorIndex.value = 375;
-      }
-    } else {
-      if (currentIndex.value == 0) {
-        indicatorIndex.value = 0;
-      } else if (currentIndex.value == 1) {
-        indicatorIndex.value = 75;
-      } else if (currentIndex.value == 2) {
-        indicatorIndex.value = 150;
-      } else if (currentIndex.value == 3) {
-        indicatorIndex.value = 225;
-      } else if (currentIndex.value == 4) {
-        indicatorIndex.value = 300;
-      }
-    }
-  }
+    if (currentIndex.value == 0) {
+      indicatorIndex.value = value.isNotEmpty ? Get.width ~/ 7.2 : 0;
+    } else if (currentIndex.value == 1) {
+      indicatorIndex.value =
+          value.isNotEmpty ? 2 * (Get.width ~/ 7.2) : Get.width ~/ 7.2;
+    } else if (currentIndex.value == 2) {
+      indicatorIndex.value =
+          value.isNotEmpty ? 3 * (Get.width ~/ 7.2) : 2 * (Get.width ~/ 7.2);
+    } else if (currentIndex.value == 3) {
+      int baseWidth = 3 * (Get.width ~/ 7.2);
+      int indicatorWidth = baseWidth;
 
-  showSnackBar() {
-    Get.snackbar(
-      WarningMessages.error,
-      WarningMessages.fillAllFields,
-      backgroundColor: AppColors.snackBarColor,
-      boxShadows: [
-        const BoxShadow(
-            color: Colors.black12,
-            offset: Offset(0, 3),
-            blurRadius: 2,
-            spreadRadius: 2)
-      ],
-      colorText: Colors.white,
-      messageText: const Text(
-        WarningMessages.fillAllFields,
-        style: TextStyle(color: Colors.white),
-      ),
-    );
+      if (meatController.text.isNotEmpty) {
+        indicatorWidth += (Get.width ~/ 7.2);
+      }
+      if (milkController.text.isNotEmpty) {
+        indicatorWidth += (Get.width ~/ 7.2);
+      }
+      if (greengroceryController.text.isNotEmpty) {
+        indicatorWidth += (Get.width ~/ 7.2);
+      }
+
+      if (indicatorWidth > Get.width) {
+        indicatorWidth = Get.width.toInt();
+      }
+
+      indicatorIndex.value = indicatorWidth.toInt();
+    }
   }
 }
