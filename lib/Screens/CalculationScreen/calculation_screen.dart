@@ -90,24 +90,27 @@ class CalculationPageState extends State<CalculationPage> {
                     _resultController,
                     _firestoreController,
                     _recordController),
-                calculationScreen(
-                    ImagesPath.vehicleUse,
-                    Get.height / 4.8,
-                    Get.width / 1.161,
-                    IntroductionText.vehicleUse,
-                    DescriptionTexts.vehicleUse,
-                    inputSizedBox(
-                        _controller,
-                        textFieldContainerRow(
-                            _controller,
-                            _controller.vehicleUseController,
-                            VehicleUseDropdownMenu(controller: _controller),
-                            vehicleUseValueDropdownMenu(_controller)),
-                        KeyTexts.vehicleUse),
-                    _controller,
-                    _resultController,
-                    _firestoreController,
-                    _recordController),
+                Obx(
+                  () => calculationScreen(
+                      ImagesPath.vehicleUse,
+                      Get.height / 4.8,
+                      Get.width / 1.161,
+                      IntroductionText.vehicleUse,
+                      DescriptionTexts.vehicleUse,
+                      inputSizedBox(
+                          _controller,
+                          textFieldContainerRow(
+                              _controller,
+                              _controller.vehicleUseController,
+                              VehicleUseDropdownMenu(controller: _controller),
+                              vehicleUseValueDropdownMenu(_controller),
+                              isVehicleUsed: !_controller.isVehicleUsed.value),
+                          KeyTexts.vehicleUse),
+                      _controller,
+                      _resultController,
+                      _firestoreController,
+                      _recordController),
+                ),
                 foodCalculationScreen(
                     ImagesPath.foodConsumption,
                     Get.height / 4.48,

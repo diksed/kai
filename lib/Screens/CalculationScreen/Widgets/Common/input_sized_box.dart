@@ -32,7 +32,8 @@ Container textFieldContainerRow(
     CalculationController controller,
     TextEditingController textEditController,
     Widget dropdownMenu,
-    Widget valueDropdownMenu) {
+    Widget valueDropdownMenu,
+    {bool isVehicleUsed = true}) {
   return Container(
     color: Colors.transparent,
     height: Get.height / 11.2,
@@ -55,7 +56,8 @@ Container textFieldContainerRow(
                         Get.width / 3.272,
                         6,
                         TextInputAction.done,
-                        Get.height / 11.2),
+                        Get.height / 11.2,
+                        isVehicleUsed),
                     dropdownMenu
                   ],
                 ))),

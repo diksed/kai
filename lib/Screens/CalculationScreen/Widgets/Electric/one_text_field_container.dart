@@ -9,15 +9,15 @@ import '../Common/text_field.dart';
 import 'electric_dropdown_menu.dart';
 
 Container oneTextFieldContainer(
-  CalculationController controller,
-  TextEditingController textEditingController,
-  bool whichOne,
-  String unit,
-  TextInputAction textInputAction,
-  double height,
-  double width,
-  double padding,
-) {
+    CalculationController controller,
+    TextEditingController textEditingController,
+    bool whichOne,
+    String unit,
+    TextInputAction textInputAction,
+    double height,
+    double width,
+    double padding,
+    {bool isVehicleUsed = true}) {
   return Container(
       height: height,
       width: width,
@@ -28,7 +28,7 @@ Container oneTextFieldContainer(
           child: Row(
             children: [
               customTextField(controller, textEditingController,
-                  Get.width / 2.117, 9, textInputAction, height),
+                  Get.width / 2.117, 9, textInputAction, height, isVehicleUsed),
               if (whichOne)
                 ElectricDropdownMenu(
                     electricSelectedType: controller.electricSelectedType)

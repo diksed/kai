@@ -21,6 +21,12 @@ class NotUsingVehicleCheckbox extends StatelessWidget {
             value: controller.isVehicleUsed.value,
             onChanged: (value) {
               controller.isVehicleUsed.value = value!;
+              if (value == true) {
+                controller.vehicleUseController.clear();
+                controller.indicatorIndex.value = 3 * (Get.width ~/ 7.2);
+              } else {
+                controller.onTextChange(controller.vehicleUseController.text);
+              }
             },
             activeColor: Colors.white,
             checkColor: Colors.black,

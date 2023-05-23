@@ -8,7 +8,8 @@ Widget customTextField(
     double sizedBoxWidth,
     int maxLength,
     TextInputAction textInputAction,
-    double sizedBoxHeight) {
+    double sizedBoxHeight,
+    bool isVehicleUsed) {
   return SizedBox(
     height: sizedBoxHeight,
     width: sizedBoxWidth,
@@ -16,6 +17,7 @@ Widget customTextField(
       children: [
         SizedBox(height: Get.height / 96),
         TextField(
+          enabled: isVehicleUsed,
           textInputAction: textInputAction,
           controller: textEditingController,
           onChanged: controller.onTextChange,
