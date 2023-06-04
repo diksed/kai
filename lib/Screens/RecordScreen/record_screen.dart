@@ -53,7 +53,7 @@ class _PastRecordsState extends State<PastRecords> {
                           ),
                         ),
                       ),
-                      SizedBox(height: Get.height / 67.2),
+                      SizedBox(height: Get.height / 85),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
