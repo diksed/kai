@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kai/Screens/MenuScreen/Widgets/info_message.dart';
@@ -20,44 +21,50 @@ class MenuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
-      body: SafeArea(
-        child: Center(
-          child: Stack(
-            children: [
-              const Align(
-                  alignment: Alignment.bottomCenter,
-                  child: BackgroundImage(imagePath: ImagesPath.menuBackground)),
-              Center(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      appLogo(),
-                      MenuButton(
-                          image: ImagesPath.calculateKai,
-                          text: MenuTexts.kaiCalculate,
+      body: WillPopScope(
+        onWillPop: () async {
+          exit(0);
+        },
+        child: SafeArea(
+          child: Center(
+            child: Stack(
+              children: [
+                const Align(
+                    alignment: Alignment.bottomCenter,
+                    child:
+                        BackgroundImage(imagePath: ImagesPath.menuBackground)),
+                Center(
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        appLogo(),
+                        MenuButton(
+                            image: ImagesPath.calculateKai,
+                            text: MenuTexts.kaiCalculate,
+                            onTap: () {
+                              Get.toNamed(RoutesTexts.calculation);
+                              Get.delete<MenuPageController>();
+                            }),
+                        MenuButton(
+                          image: ImagesPath.donate,
+                          text: MenuTexts.donate,
                           onTap: () {
-                            Get.toNamed(RoutesTexts.calculation);
-                            Get.delete<MenuPageController>();
-                          }),
-                      MenuButton(
-                        image: ImagesPath.donate,
-                        text: MenuTexts.donate,
-                        onTap: () {
-                          donateBottomSheet();
-                        },
-                      ),
-                      MenuButton(
-                          image: ImagesPath.pastRecords,
-                          text: MenuTexts.pastRecords,
-                          onTap: () {
-                            Get.toNamed(RoutesTexts.pastRecords);
-                            Get.delete<MenuPageController>();
-                          }),
-                      Obx(() =>
-                          InfoMessage(text: menuController.infoMessage.value)),
-                    ]),
-              ),
-            ],
+                            donateBottomSheet();
+                          },
+                        ),
+                        MenuButton(
+                            image: ImagesPath.pastRecords,
+                            text: MenuTexts.pastRecords,
+                            onTap: () {
+                              Get.toNamed(RoutesTexts.pastRecords);
+                              Get.delete<MenuPageController>();
+                            }),
+                        Obx(() => InfoMessage(
+                            text: menuController.infoMessage.value)),
+                      ]),
+                ),
+              ],
+            ),
           ),
         ),
       ),
