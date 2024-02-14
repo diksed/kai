@@ -24,7 +24,7 @@ Kai, kullanıcıların yıllık karbon ayak izini hesaplamalarına ve takip etme
 ## Katkıda Bulunma
 
 - Herhangi bir hata veya sorunla karşılaşırsanız, [GitHub Issues](https://github.com/diksed/kai/issues) üzerinden bildirebilirsiniz.
-- Yeni özellik talepleri veya geliştirme önerileri için [Pull Request](https://github.com/diksed/kai/issues) gönderebilirsiniz.
+- Yeni özellik talepleri veya geliştirme önerileri için [Pull Request](https://github.com/diksed/kai/pulls) gönderebilirsiniz.
 
 ## Ekran Görüntüleri
 <img src="https://github.com/diksed/kai/assets/73336635/7720fad8-ed66-43fd-925f-d6136beab9bf" alt="kai 1" width="170" height="340" />
