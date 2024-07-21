@@ -9,10 +9,13 @@ Kai, kullanıcıların yıllık karbon ayak izini hesaplamalarına ve takip etme
 - Hesaplanan karbon ayak izinin ağaç sayısına dönüştürülerek fidan bağışı imkanı
 - Kullanıcı dostu arayüz ve kolay kullanım
 
-## Kurulum
+## Kullanılan Teknolojiler
 
-1. Uygulamayı indirmek için [Play Store](https://play.google.com/store/apps/details?id=com.SedatKavak.kai) adresini ziyaret edin.
-2. Uygulamayı cihazınıza yükleyin.
+- Firebase Cloud Firestore
+- GetX
+- GetX Storage
+- FL Chart
+- Timelines
 
 ## Kullanım
 
@@ -20,11 +23,6 @@ Kai, kullanıcıların yıllık karbon ayak izini hesaplamalarına ve takip etme
 2. Kullanım bilgilerini girerek karbon ayak izinizi hesaplayın.
 3. Hesaplamalarınızı kaydedin ve istediğiniz zaman görüntüleyin.
 4. Hesaplanan karbon ayak izinin fidan sayısına dönüştürülmesi için "Fidan Bağışı" bölümünü kullanın.
-
-## Katkıda Bulunma
-
-- Herhangi bir hata veya sorunla karşılaşırsanız, [GitHub Issues](https://github.com/diksed/kai/issues) üzerinden bildirebilirsiniz.
-- Yeni özellik talepleri veya geliştirme önerileri için [Pull Request](https://github.com/diksed/kai/issues) gönderebilirsiniz.
 
 ## Ekran Görüntüleri
 <img src="https://github.com/diksed/kai/assets/73336635/7720fad8-ed66-43fd-925f-d6136beab9bf" alt="kai 1" width="170" height="340" />
