@@ -4,10 +4,16 @@ import 'package:get/get.dart';
 import '../../../../Utils/app_colors.dart';
 import '../../../../Utils/app_texts.dart';
 
-showSnackBar() {
+showSnackBar(
+    {String title = WarningMessages.error,
+    String message = WarningMessages.fillAllFields,
+    SnackPosition position = SnackPosition.TOP}) {
   Get.snackbar(
-    WarningMessages.error,
-    WarningMessages.fillAllFields,
+    title,
+    message,
+    duration: const Duration(seconds: 2),
+    margin: const EdgeInsets.all(8),
+    snackPosition: position,
     backgroundColor: AppColors.snackBarColor,
     boxShadows: [
       const BoxShadow(
@@ -17,9 +23,9 @@ showSnackBar() {
           spreadRadius: 2)
     ],
     colorText: Colors.white,
-    messageText: const Text(
-      WarningMessages.fillAllFields,
-      style: TextStyle(color: Colors.white),
+    messageText: Text(
+      message,
+      style: const TextStyle(color: Colors.white),
     ),
   );
 }

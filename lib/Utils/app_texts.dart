@@ -100,6 +100,8 @@ class WarningMessages {
   static const String aboveAverage =
       'Ortalama üzerindesiniz. Daha dikkatli olunuz!';
   static const String linkNotWorking = 'link çalıştırılamadı.';
+  static const String exitApp = 'Çıkış Yap';
+  static const String pressAgainToExit = 'Çıkmak için tekrar basın';
 }
 
 class FirebaseConnectionTexts {

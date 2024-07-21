@@ -5,8 +5,7 @@ import 'package:kai/Screens/IntroductionScreen/Widgets/introduction_pages.dart';
 import 'package:kai/Utils/app_texts.dart';
 
 class NotUsingVehicleCheckbox extends StatelessWidget {
-  const NotUsingVehicleCheckbox({Key? key, required this.controller})
-      : super(key: key);
+  const NotUsingVehicleCheckbox({super.key, required this.controller});
 
   final CalculationController controller;
 

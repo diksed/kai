@@ -8,8 +8,7 @@ import '../Common/inner_shadow_effect.dart';
 class AnimatedIndicator extends StatefulWidget {
   final int indicatorIndex;
 
-  const AnimatedIndicator({Key? key, required this.indicatorIndex})
-      : super(key: key);
+  const AnimatedIndicator({super.key, required this.indicatorIndex});
 
   @override
   State<AnimatedIndicator> createState() => _AnimatedIndicatorState();

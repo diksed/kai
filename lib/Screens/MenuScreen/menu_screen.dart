@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kai/Screens/MenuScreen/Widgets/info_message.dart';
@@ -21,10 +20,11 @@ class MenuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
-      body: WillPopScope(
-        onWillPop: () async {
-          exit(0);
+      body: PopScope(
+        onPopInvoked: (didPop) async {
+          menuController.onBackPressed(context);
         },
+        canPop: false,
         child: SafeArea(
           child: Center(
             child: Stack(
