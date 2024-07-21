@@ -30,11 +30,9 @@ class _IntroductionPageState extends State<IntroductionPage> {
             },
             physics: const NeverScrollableScrollPhysics(),
             children: [
-              pageOneThird(
-                  ImagesPath.carboonFootprint, IntroductionText.descriptionOne),
+              pageOneThird(ImagesPath.carboonFootprint, 'descriptionOne'.tr),
               pageTwo(),
-              pageOneThird(
-                  ImagesPath.saveWorld, IntroductionText.descriptionTwo),
+              pageOneThird(ImagesPath.saveWorld, 'descriptionTwo'.tr),
             ],
           ),
           Positioned(

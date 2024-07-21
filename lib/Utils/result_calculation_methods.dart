@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:kai/Screens/RecordScreen/record_controller.dart';
 import 'package:kai/Utils/app_texts.dart';
 
@@ -13,7 +14,7 @@ void calculationMethod(
     FirestoreController firestoreController,
     String type,
     {RecordController? recordController}) {
-  if (type == KeyTexts.electric) {
+  if (type == 'electric'.tr) {
     if (controller.electricController.text.isEmpty) {
       showSnackBar();
     } else {
@@ -31,8 +32,8 @@ void calculationMethod(
     }
     resultController.totalCo2.value +=
         resultController.electricResultValue.value;
-  } else if (type == KeyTexts.naturalGas) {
-    if (controller.warmingfuelUnit.value == KeyTexts.tl) {
+  } else if (type == 'naturalGas'.tr) {
+    if (controller.warmingfuelUnit.value == 'tl'.tr) {
       resultController.warmingResultValue.value =
           (double.parse(controller.warmingController.text) /
               firestoreController.dogalgazTl.value *
@@ -45,8 +46,8 @@ void calculationMethod(
     }
     resultController.totalCo2.value +=
         resultController.warmingResultValue.value;
-  } else if (type == KeyTexts.fuelOil) {
-    if (controller.warmingfuelUnit.value == KeyTexts.tl) {
+  } else if (type == 'fuelOil'.tr) {
+    if (controller.warmingfuelUnit.value == 'tl'.tr) {
       resultController.warmingResultValue.value =
           (double.parse(controller.warmingController.text) /
               firestoreController.fueloilTl.value *
@@ -59,8 +60,8 @@ void calculationMethod(
     }
     resultController.totalCo2.value +=
         resultController.warmingResultValue.value;
-  } else if (type == KeyTexts.coal) {
-    if (controller.warmingfuelUnit.value == KeyTexts.tl) {
+  } else if (type == 'coal'.tr) {
+    if (controller.warmingfuelUnit.value == 'tl'.tr) {
       resultController.warmingResultValue.value =
           (double.parse(controller.warmingController.text) /
               firestoreController.komurTl.value *
@@ -73,8 +74,8 @@ void calculationMethod(
     }
     resultController.totalCo2.value +=
         resultController.warmingResultValue.value;
-  } else if (type == KeyTexts.gasoline) {
-    if (controller.vehicleUseUnit.value == KeyTexts.tl) {
+  } else if (type == 'gasoline'.tr) {
+    if (controller.vehicleUseUnit.value == 'tl'.tr) {
       resultController.fuelResultValue.value =
           (double.parse(controller.vehicleUseController.text) /
               firestoreController.benzinTl.value *
@@ -86,8 +87,8 @@ void calculationMethod(
       nextPageMethod(controller);
     }
     resultController.totalCo2.value += resultController.fuelResultValue.value;
-  } else if (type == KeyTexts.diesel) {
-    if (controller.vehicleUseUnit.value == KeyTexts.tl) {
+  } else if (type == 'diesel'.tr) {
+    if (controller.vehicleUseUnit.value == 'tl'.tr) {
       resultController.fuelResultValue.value =
           (double.parse(controller.vehicleUseController.text) /
               firestoreController.benzinTl.value *
@@ -99,8 +100,8 @@ void calculationMethod(
       nextPageMethod(controller);
     }
     resultController.totalCo2.value += resultController.fuelResultValue.value;
-  } else if (type == KeyTexts.lpg) {
-    if (controller.vehicleUseUnit.value == KeyTexts.tl) {
+  } else if (type == 'lpg'.tr) {
+    if (controller.vehicleUseUnit.value == 'tl'.tr) {
       resultController.fuelResultValue.value =
           (double.parse(controller.vehicleUseController.text) /
               firestoreController.benzinTl.value *

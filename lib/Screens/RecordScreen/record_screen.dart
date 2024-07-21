@@ -41,7 +41,7 @@ class _PastRecordsState extends State<PastRecords> {
                   child: Column(
                     children: [
                       appLogo(),
-                      const Text(IntroductionText.pastRecords,
+                      Text('pastRecords'.tr,
                           style: titleStyle, textAlign: TextAlign.center),
                       SizedBox(
                         height: Get.height / 1.8,

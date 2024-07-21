@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kai/Screens/CalculationScreen/Widgets/Electric/one_text_field_container.dart';
-import 'package:kai/Utils/app_texts.dart';
-
 import '../../../IntroductionScreen/Widgets/introduction_pages.dart';
 import '../../calculation_controller.dart';
 
@@ -13,37 +11,37 @@ Widget foodInputSizedBox(CalculationController controller) {
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        const Text(MenuTexts.totalMeatConsumption, style: bodyStyle),
+        Text('menuTotalMeatConsumption'.tr, style: bodyStyle),
         SizedBox(height: Get.height / 134.4),
         oneTextFieldContainer(
             controller,
             controller.meatController,
             false,
-            KeyTexts.kg,
+            'kg'.tr,
             TextInputAction.next,
             Get.height / 11.2,
             Get.width / 1.714,
             Get.height / 33.6),
         SizedBox(height: Get.height / 67.2),
-        const Text(MenuTexts.totalMilkConsumption, style: bodyStyle),
+        Text('menuTotalMilkConsumption'.tr, style: bodyStyle),
         SizedBox(height: Get.height / 134.4),
         oneTextFieldContainer(
             controller,
             controller.milkController,
             false,
-            KeyTexts.liter,
+            'liter'.tr,
             TextInputAction.next,
             Get.height / 11.2,
             Get.width / 1.714,
             Get.height / 33.6),
         SizedBox(height: Get.height / 67.2),
-        const Text(MenuTexts.totalGreengroceryConsumption, style: bodyStyle),
+        Text('menuTotalGreengroceryConsumption'.tr, style: bodyStyle),
         SizedBox(height: Get.height / 134.4),
         oneTextFieldContainer(
             controller,
             controller.greengroceryController,
             false,
-            KeyTexts.kg,
+            'kg'.tr,
             TextInputAction.done,
             Get.height / 11.2,
             Get.width / 1.714,

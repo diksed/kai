@@ -20,29 +20,25 @@ class CalculationController extends GetxController {
   final TextEditingController warmingController = TextEditingController();
   final TextEditingController vehicleUseController = TextEditingController();
   var electricSelectedType = KeyTexts.kWh.obs;
-  var vehicleUseType = KeyTexts.gasoline.obs;
-  var vehicleUseUnit = KeyTexts.liter.obs;
-  var warmingfuelType = KeyTexts.naturalGas.obs;
-  var warmingfuelUnit = KeyTexts.m3.obs;
-  final List<String> vehicleFuelTypes = [
-    KeyTexts.gasoline,
-    KeyTexts.diesel,
-    KeyTexts.lpg
-  ];
+  var vehicleUseType = 'gasoline'.tr.obs;
+  var vehicleUseUnit = 'liter'.tr.obs;
+  var warmingfuelType = 'naturalGas'.tr.obs;
+  var warmingfuelUnit = 'm3'.tr.obs;
+  final List<String> vehicleFuelTypes = ['gasoline'.tr, 'diesel'.tr, 'lpg'.tr];
   final Map<String, List<String>> vehicleFuelUnits = {
-    KeyTexts.gasoline: [KeyTexts.liter, KeyTexts.tl],
-    KeyTexts.diesel: [KeyTexts.liter, KeyTexts.tl],
-    KeyTexts.lpg: [KeyTexts.liter, KeyTexts.tl],
+    'gasoline'.tr: ['liter'.tr, 'tl'.tr],
+    'diesel'.tr: ['liter'.tr, 'tl'.tr],
+    'lpg'.tr: ['liter'.tr, 'tl'.tr],
   };
   final List<String> warmingFuelTypes = [
-    KeyTexts.naturalGas,
-    KeyTexts.fuelOil,
-    KeyTexts.coal
+    'naturalGas'.tr,
+    'fuelOil'.tr,
+    'coal'.tr
   ];
   final Map<String, List<String>> warmingFuelUnits = {
-    KeyTexts.naturalGas: [KeyTexts.m3, KeyTexts.tl],
-    KeyTexts.fuelOil: [KeyTexts.liter, KeyTexts.tl],
-    KeyTexts.coal: [KeyTexts.kg, KeyTexts.tl],
+    'naturalGas'.tr: ['m3'.tr, 'tl'.tr],
+    'fuelOil'.tr: ['liter'.tr, 'tl'.tr],
+    'coal'.tr: ['kg'.tr, 'tl'.tr],
   };
 
   void updateSelectedFuelType(String newType, String whichType) {

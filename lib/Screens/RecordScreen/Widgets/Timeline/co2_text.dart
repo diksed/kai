@@ -17,7 +17,7 @@ Widget co2Text(int index, List<dynamic> pastRecords) {
                   : AppColors.backgroundColor),
           SizedBox(width: Get.width / 36),
           Text(
-            '${(pastRecords[index][KeyTexts.totalCo2] / 1000).toString().substring(0, 4)} ${KeyTexts.tonne}',
+            '${(pastRecords[index][KeyTexts.totalCo2] / 1000).toString().substring(0, 4)} ${'tonne'.tr}',
             style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w500,
@@ -45,10 +45,10 @@ Widget warningMessage() {
         const Icon(Icons.warning_amber_rounded, color: Colors.white),
         SizedBox(
           width: Get.width / 3.6,
-          child: const Text(
-            WarningMessages.aboveAverage,
+          child: Text(
+            'aboveAverage'.tr,
             textAlign: TextAlign.start,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.white, fontSize: 10, fontWeight: FontWeight.w400),
           ),
         )

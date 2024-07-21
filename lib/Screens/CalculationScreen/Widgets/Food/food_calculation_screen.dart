@@ -4,7 +4,6 @@ import 'package:kai/Screens/CalculationScreen/Widgets/Indicator/animated_indicat
 import '../../../../Utils/Firebase/firestore_controller.dart';
 import '../../../../Utils/Widgets/app_logo.dart';
 import '../../../../Utils/app_colors.dart';
-import '../../../../Utils/app_texts.dart';
 import '../../../IntroductionScreen/Widgets/introduction_pages.dart';
 import '../../../MenuScreen/Widgets/menu_background_image.dart';
 import '../../../RecordScreen/record_controller.dart';
@@ -67,7 +66,7 @@ Widget foodCalculationScreen(
                         backNextButton(
                             calculationController,
                             calculationController.onLastPage.value,
-                            DefaultTexts.back,
+                            'back'.tr,
                             resultController,
                             firestoreController,
                             recordController),
@@ -75,7 +74,7 @@ Widget foodCalculationScreen(
                           () => backNextButton(
                               calculationController,
                               calculationController.onLastPage.value,
-                              DefaultTexts.next,
+                              'next'.tr,
                               resultController,
                               firestoreController,
                               recordController),

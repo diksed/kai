@@ -40,21 +40,21 @@ class MenuPage extends StatelessWidget {
                         appLogo(),
                         MenuButton(
                             image: ImagesPath.calculateKai,
-                            text: MenuTexts.kaiCalculate,
+                            text: 'menuKaiCalculate'.tr,
                             onTap: () {
                               Get.toNamed(RoutesTexts.calculation);
                               Get.delete<MenuPageController>();
                             }),
                         MenuButton(
                           image: ImagesPath.donate,
-                          text: MenuTexts.donate,
+                          text: 'menuDonate'.tr,
                           onTap: () {
                             donateBottomSheet();
                           },
                         ),
                         MenuButton(
                             image: ImagesPath.pastRecords,
-                            text: MenuTexts.pastRecords,
+                            text: 'menuPastRecords'.tr,
                             onTap: () {
                               Get.toNamed(RoutesTexts.pastRecords);
                               Get.delete<MenuPageController>();

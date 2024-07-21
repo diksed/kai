@@ -57,7 +57,7 @@ class RecordController extends GetxController {
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
     } else {
-      throw '$url ${WarningMessages.linkNotWorking}';
+      throw '$url ${'linkNotWorking'.tr}';
     }
   }
 }

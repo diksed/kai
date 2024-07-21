@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../Utils/app_colors.dart';
-import '../../../../Utils/app_texts.dart';
 
 showSnackBar(
-    {String title = WarningMessages.error,
-    String message = WarningMessages.fillAllFields,
+    {String title = 'error',
+    String message = 'fillAllFields',
     SnackPosition position = SnackPosition.TOP}) {
   Get.snackbar(
-    title,
-    message,
+    title.tr,
+    message.tr,
     duration: const Duration(seconds: 2),
     margin: const EdgeInsets.all(8),
     snackPosition: position,
@@ -24,7 +22,7 @@ showSnackBar(
     ],
     colorText: Colors.white,
     messageText: Text(
-      message,
+      message.tr,
       style: const TextStyle(color: Colors.white),
     ),
   );

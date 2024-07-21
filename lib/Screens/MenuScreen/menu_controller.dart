@@ -5,25 +5,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:kai/Screens/CalculationScreen/Widgets/Common/snack_bar.dart';
+import 'package:kai/main.dart';
 import '../../Utils/app_texts.dart';
 
 class MenuPageController extends GetxController {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  var infoMessage = WarningMessages.loading.obs;
+  var infoMessage = 'loading'.tr.obs;
   DateTime? _lastPressedAt;
 
   Future<void> getRandomInfoMessage() async {
     try {
-      final DocumentReference docRef =
-          firestore.collection(KeyTexts.info).doc(KeyTexts.infoMessages);
+      final DocumentReference docRef = firestore.collection(KeyTexts.info).doc(
+          languageCode == 'tr'
+              ? KeyTexts.infoMessages
+              : KeyTexts.infoMessagesEn);
       final docSnapshot = await docRef.get();
       final data = docSnapshot.data() as Map<String, dynamic>;
       final fields = data.values.toList();
       final randomIndex = Random().nextInt(fields.length);
       infoMessage.value = fields[randomIndex];
     } catch (e) {
-      infoMessage.value = WarningMessages.anErrorOccurred;
+      infoMessage.value = 'anErrorOccurred'.tr;
     }
   }
 
@@ -33,8 +36,8 @@ class MenuPageController extends GetxController {
             const Duration(seconds: 2)) {
       _lastPressedAt = DateTime.now();
       showSnackBar(
-          title: WarningMessages.exitApp,
-          message: WarningMessages.pressAgainToExit,
+          title: 'exitApp',
+          message: 'pressAgainToExit',
           position: SnackPosition.BOTTOM);
       return;
     }

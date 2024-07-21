@@ -16,8 +16,8 @@ class WarmingDropdownMenu extends StatelessWidget {
       width: Get.width / 3.130,
       child: Obx(
         () => DropdownButton(
-          icon:
-              const Icon(Icons.keyboard_arrow_down_sharp, color: Colors.white),
+          icon: const Icon(Icons.keyboard_arrow_down_sharp,
+              color: Colors.white, size: 20),
           iconSize: 30,
           elevation: 20,
           style: const TextStyle(color: Colors.white, fontSize: 20),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kai/main.dart';
 
 import '../../../../Utils/app_texts.dart';
 
@@ -30,7 +31,7 @@ Widget timelineDate(int index, List<dynamic> pastRecords) {
         ),
       ),
       Text(
-        months[int.parse(pastRecords[index][KeyTexts.dateMonth]) - 1][0],
+        months[int.parse(pastRecords[index]['dateMonth']!) - 1][languageCode]!,
         style: TextStyle(
             color: pastRecords[index][KeyTexts.totalCo2] > averageCo2
                 ? Colors.red

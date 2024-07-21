@@ -61,26 +61,22 @@ Widget pageTwo() {
     body: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text(IntroductionText.titleSecond,
-            style: titleStyle, textAlign: TextAlign.center),
+        Text('titleSecond'.tr, style: titleStyle, textAlign: TextAlign.center),
         SizedBox(height: Get.height / 16.8),
-        const IntroductionRow(
+        IntroductionRow(
             image: ImagesPath.electricConsumption,
-            text: IntroductionText.electricConsumption),
+            text: 'electricConsumption'.tr),
         SizedBox(height: Get.height / 33.6),
-        const IntroductionRow(
-            image: ImagesPath.fuelConsumption,
-            text: IntroductionText.fuelConsumption),
+        IntroductionRow(
+            image: ImagesPath.fuelConsumption, text: 'fuelConsum'.tr),
         SizedBox(height: Get.height / 33.6),
-        const IntroductionRowWater(
-            image: ImagesPath.waterConsumption,
-            text: IntroductionText.waterConsumption),
+        IntroductionRowWater(
+            image: ImagesPath.waterConsumption, text: 'waterConsum'.tr),
         SizedBox(height: Get.height / 33.6),
-        const IntroductionRow(
-            image: ImagesPath.foodConsumption,
-            text: IntroductionText.foodConsumption),
+        IntroductionRow(
+            image: ImagesPath.foodConsumption, text: 'foodConsum'.tr),
         SizedBox(height: Get.height / 33.6),
-        const Text(DefaultTexts.andMore, style: bodyStyle),
+        Text('andMore'.tr, style: bodyStyle),
       ],
     ),
   );

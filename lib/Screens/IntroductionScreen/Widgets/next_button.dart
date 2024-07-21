@@ -14,7 +14,7 @@ Widget nextButton(
       onPressed: () async {
         onLastPage
             ? {
-                await box.write(IntroductionText.isIntroShown, true),
+                await box.write('isIntroShown', true),
                 Get.toNamed(RoutesTexts.menu)
               }
             : controller.currentIndex.value++;
@@ -23,7 +23,7 @@ Widget nextButton(
       },
       style: buttonStyle(),
       child: Text(
-        onLastPage ? DefaultTexts.letsBegin : DefaultTexts.next,
+        onLastPage ? 'letsBegin'.tr : 'next'.tr,
         style: buttonTextStyle(),
       ),
     ),

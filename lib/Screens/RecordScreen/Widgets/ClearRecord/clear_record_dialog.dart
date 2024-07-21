@@ -7,12 +7,12 @@ import '../../../../Utils/app_texts.dart';
 
 Future<dynamic> clearRecordDialog(RecordController recordController) {
   return Get.defaultDialog(
-      title: DefaultTexts.clearRecord,
+      title: 'clearRecord'.tr,
       titleStyle: const TextStyle(color: AppColors.backgroundColor),
-      middleText: DefaultTexts.clearRecordText,
+      middleText: 'clearRecordText'.tr,
       middleTextStyle: const TextStyle(color: AppColors.backgroundColor),
-      textConfirm: DefaultTexts.yes,
-      textCancel: DefaultTexts.no,
+      textConfirm: 'yes'.tr,
+      textCancel: 'no'.tr,
       confirmTextColor: Colors.white,
       buttonColor: AppColors.indicatorBackground,
       cancelTextColor: AppColors.indicatorBackground,

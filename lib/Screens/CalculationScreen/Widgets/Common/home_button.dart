@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../../Utils/app_colors.dart';
-import '../../../../Utils/app_texts.dart';
 import '../../../IntroductionScreen/Widgets/introduction_pages.dart';
 
 class HomeButton extends StatelessWidget {
@@ -32,11 +30,11 @@ class HomeButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          whichButton == DefaultTexts.back
+          whichButton == 'back'.tr
               ? const Icon(Icons.arrow_back_ios, color: Colors.white, size: 12)
               : const SizedBox(),
           Text(onLastPage ? '' : whichButton, style: bodyStyle),
-          whichButton == DefaultTexts.back
+          whichButton == 'back'.tr
               ? const SizedBox()
               : Icon(onLastPage ? Icons.home : Icons.arrow_forward_ios,
                   color: Colors.white, size: onLastPage ? 20 : 12),

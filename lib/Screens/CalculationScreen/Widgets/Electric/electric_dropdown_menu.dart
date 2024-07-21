@@ -27,7 +27,7 @@ class ElectricDropdownMenu extends StatelessWidget {
           onChanged: (newValue) {
             electricSelectedType.value = newValue!;
           },
-          items: <String>[KeyTexts.kWh, KeyTexts.tl]
+          items: <String>[KeyTexts.kWh, 'tl'.tr]
               .map<DropdownMenuItem<String>>((String value) {
             return DropdownMenuItem(
               value: value,

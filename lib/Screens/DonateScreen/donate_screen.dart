@@ -21,9 +21,8 @@ void donateBottomSheet() {
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Center(
-              child:
-                  Text(DefaultTexts.donateSapling, style: notWhiteTitleStyle),
+            Center(
+              child: Text('donateSapling'.tr, style: notWhiteTitleStyle),
             ),
             Center(
               child: SizedBox(
@@ -32,13 +31,13 @@ void donateBottomSheet() {
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: 20, color: Colors.black),
                   TextSpan(
-                    text: DefaultTexts.lastAction,
+                    text: 'lastAction'.tr,
                     children: [
                       TextSpan(
                         text: '${recordController.resultTree()}',
                         style: const TextStyle(color: Colors.red),
                       ),
-                      const TextSpan(text: DefaultTexts.withDonateSapling),
+                      TextSpan(text: 'withDonateSapling'.tr),
                     ],
                   ),
                 ),
@@ -51,13 +50,13 @@ void donateBottomSheet() {
                 children: [
                   BottomSheetButton(
                       buttonBgColor: Colors.red[400],
-                      buttonText: DefaultTexts.giveUp,
+                      buttonText: 'giveUp'.tr,
                       onPressed: () {
                         Get.back();
                       }),
                   BottomSheetButton(
                       onPressed: () => recordController.launchURL(),
-                      buttonText: DefaultTexts.donate,
+                      buttonText: 'donate'.tr,
                       buttonBgColor: AppColors.backgroundColor)
                 ],
               ),

@@ -53,8 +53,8 @@ class CalculationPageState extends State<CalculationPage> {
                     ImagesPath.electricConsumption,
                     Get.height / 5.169,
                     Get.width / 1.161,
-                    IntroductionText.electricConsumption,
-                    DescriptionTexts.electricConsumption,
+                    'electricConsumption'.tr,
+                    'descElectricConsumption'.tr,
                     inputSizedBox(
                         _controller,
                         oneTextFieldContainer(
@@ -76,8 +76,8 @@ class CalculationPageState extends State<CalculationPage> {
                     ImagesPath.warmingConsumption,
                     Get.height / 4.8,
                     Get.width / 1.125,
-                    IntroductionText.warmingValues,
-                    DescriptionTexts.warmingConsumption,
+                    'warmingValues'.tr,
+                    'descWarmingConsumption'.tr,
                     inputSizedBox(
                         _controller,
                         textFieldContainerRow(
@@ -95,8 +95,8 @@ class CalculationPageState extends State<CalculationPage> {
                       ImagesPath.vehicleUse,
                       Get.height / 4.8,
                       Get.width / 1.161,
-                      IntroductionText.vehicleUse,
-                      DescriptionTexts.vehicleUse,
+                      'vehicleUse'.tr,
+                      'descVehicleUse'.tr,
                       inputSizedBox(
                           _controller,
                           textFieldContainerRow(
@@ -115,8 +115,8 @@ class CalculationPageState extends State<CalculationPage> {
                     ImagesPath.foodConsumption,
                     Get.height / 4.48,
                     Get.width,
-                    IntroductionText.foodConsumption,
-                    DescriptionTexts.foodConsumption,
+                    'foodConsumption'.tr,
+                    'descFoodConsumption'.tr,
                     foodInputSizedBox(_controller),
                     _controller,
                     _resultController,
@@ -126,8 +126,8 @@ class CalculationPageState extends State<CalculationPage> {
                     ImagesPath.saveWorld,
                     Get.height / 4.8,
                     Get.width,
-                    IntroductionText.result,
-                    DescriptionTexts.resultDescription,
+                    'result'.tr,
+                    'descResult'.tr,
                     Obx(
                       () => (resultInput(
                           (_resultController.electricResultValue.value),

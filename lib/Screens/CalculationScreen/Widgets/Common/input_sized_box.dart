@@ -17,7 +17,7 @@ Widget inputSizedBox(
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text(MenuTexts.totalConsumption, style: titleStyle),
+        Text('menuTotalConsumption'.tr, style: titleStyle),
         rowContainer,
         if (whichOne == KeyTexts.vehicleUse)
           NotUsingVehicleCheckbox(controller: controller)
