@@ -1,15 +1,15 @@
 # Kai
 
-Kai, kullanıcıların yıllık karbon ayak izini hesaplamalarına ve takip etmelerine yardımcı olan bir mobil uygulamadır.
+Kai is a mobile application that helps users calculate and track their annual carbon footprint.
 
-## Özellikler
+## Features
 
-- Yıllık karbon ayak izini hesaplama ve kaydetme
-- Hesaplamaların kaydedilmesi ve sonradan görüntülenmesi
-- Hesaplanan karbon ayak izinin ağaç sayısına dönüştürülerek fidan bağışı imkanı
-- Kullanıcı dostu arayüz ve kolay kullanım
+- Calculate and save your annual carbon footprint
+- Store and view past calculations
+- Convert your carbon footprint into the number of trees and make sapling donation
+- User-friendly interface and easy to use
 
-## Kullanılan Teknolojiler
+## Technologies Used
 
 - Firebase Cloud Firestore
 - GetX
@@ -17,14 +17,14 @@ Kai, kullanıcıların yıllık karbon ayak izini hesaplamalarına ve takip etme
 - FL Chart
 - Timelines
 
-## Kullanım
+## Usage
 
-1. Uygulamayı açın.
-2. Kullanım bilgilerini girerek karbon ayak izinizi hesaplayın.
-3. Hesaplamalarınızı kaydedin ve istediğiniz zaman görüntüleyin.
-4. Hesaplanan karbon ayak izinin fidan sayısına dönüştürülmesi için "Fidan Bağışı" bölümünü kullanın.
+1. Open the app.
+2. Enter your usage data to calculate your carbon footprint.
+3. Save your calculations and view them anytime.
+4. Use the "Sapling Donation" section to convert your carbon footprint into the number of trees.
 
-## Ekran Görüntüleri
+## Screenshots
 <img src="https://github.com/diksed/kai/assets/73336635/7720fad8-ed66-43fd-925f-d6136beab9bf" alt="kai 1" width="170" height="340" />
 <img src="https://github.com/diksed/kai/assets/73336635/a036b370-a59c-49a2-8c92-577b7ad63582" alt="kai 2" width="170" height="340" />
 <img src="https://github.com/diksed/kai/assets/73336635/aa93e302-7c66-4a5c-98f6-f79674e3f9c5" alt="kai 3" width="170" height="340" />
@@ -33,5 +33,3 @@ Kai, kullanıcıların yıllık karbon ayak izini hesaplamalarına ve takip etme
 <img src="https://github.com/diksed/kai/assets/73336635/10184f46-7b56-4a60-bdfb-73825214c66b" alt="kai 6" width="170" height="340" />
 <img src="https://github.com/diksed/kai/assets/73336635/c0453a2d-c293-44b0-a569-a691665dff6e" alt="kai 7" width="170" height="340" />
 <img src="https://github.com/diksed/kai/assets/73336635/2aa3199a-ec94-4f23-9fd4-125038638dae" alt="kai 8" width="170" height="340" />
-
-
