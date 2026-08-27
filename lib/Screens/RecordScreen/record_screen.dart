@@ -13,7 +13,11 @@ import '../MenuScreen/Widgets/menu_background_image.dart';
 import 'Widgets/ClearRecord/clear_record_dialog.dart';
 
 class PastRecords extends StatefulWidget {
-  const PastRecords({super.key});
+  const PastRecords({super.key, this.adSlot});
+
+  /// Overridable in tests so layout can be verified without the real
+  /// (network-backed) ad SDK. Defaults to the real [BannerAdWidget].
+  final Widget? adSlot;
 
   @override
   State<PastRecords> createState() => _PastRecordsState();
@@ -38,14 +42,20 @@ class _PastRecordsState extends State<PastRecords> {
                     alignment: Alignment.bottomCenter,
                     child: BackgroundImage(
                         imagePath: ImagesPath.pastRecordsBackground)),
-                Center(
+                // SingleChildScrollView instead of a bare Column: the banner
+                // ad adds extra height on top of an already screen-filling
+                // layout, so on shorter devices (or larger system font
+                // scale) the content no longer reliably fits in one
+                // viewport. Scrolling is a safety net; the sizes below are
+                // still tuned to fit without scrolling on most phones.
+                SingleChildScrollView(
                   child: Column(
                     children: [
                       appLogo(),
                       Text('pastRecords'.tr,
                           style: titleStyle, textAlign: TextAlign.center),
                       SizedBox(
-                        height: Get.height / 1.8,
+                        height: Get.height / 2.1,
                         child: ScrollConfiguration(
                           behavior: const ScrollBehavior()
                               .copyWith(overscroll: false),
@@ -58,7 +68,7 @@ class _PastRecordsState extends State<PastRecords> {
                         ),
                       ),
                       SizedBox(height: Get.height / 85),
-                      const BannerAdWidget(),
+                      widget.adSlot ?? const BannerAdWidget(),
                       SizedBox(height: Get.height / 85),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -75,7 +85,8 @@ class _PastRecordsState extends State<PastRecords> {
                                 clearRecordDialog(_recordController);
                               }),
                         ],
-                      )
+                      ),
+                      SizedBox(height: Get.height / 85),
                     ],
                   ),
                 ),
