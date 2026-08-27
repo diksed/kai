@@ -39,11 +39,11 @@ dependencies:
   get_storage:
   smooth_page_indicator:
   fl_chart:
-  timelines:
-  flutter_shapes:
   url_launcher:
-  # Note: firebase_core/cloud_firestore were removed — the carbon-footprint
-  # calculation no longer needs a live backend to work.
+  # Note: firebase_core/cloud_firestore, the abandoned `timelines` package,
+  # and the unused `flutter_shapes` package were removed — see README/commit
+  # message for why. The carbon-footprint calculation and the past-records
+  # timeline no longer need any of them.
 
 
 dev_dependencies:

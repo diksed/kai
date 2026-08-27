@@ -74,6 +74,8 @@ class Languages extends Translations {
           'kg': 'Kg.',
           'electric': 'Elektrik',
           'tonne': 'Ton',
+          'deleteRecord': 'Kaydı Sil',
+          'deleteRecordText': 'Bu kaydı silmek istediğinize emin misiniz?',
         },
         'en_US': {
           'descriptionOne':
@@ -146,6 +148,8 @@ class Languages extends Translations {
           'kg': 'Kg.',
           'electric': 'Electric',
           'tonne': 'Ton',
+          'deleteRecord': 'Delete Record',
+          'deleteRecordText': 'Are you sure you want to delete this record?',
         }
       };
 }

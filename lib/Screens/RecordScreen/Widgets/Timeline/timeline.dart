@@ -1,37 +1,78 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:kai/Screens/RecordScreen/Widgets/Timeline/timeline_co2.dart';
 import 'package:kai/Screens/RecordScreen/Widgets/Timeline/timeline_date.dart';
-import 'package:timelines/timelines.dart';
-import '../../../../Utils/app_texts.dart';
+
 import '../../record_controller.dart';
 
-Widget timelineStyle(RecordController recordController) {
-  final box = GetStorage();
-  final List<dynamic> pastRecords =
-      box.read(KeyTexts.recordKey)?.toList()?.reversed?.toList() ?? [];
+/// A small, dependency-free vertical timeline: a dot-and-line column next to
+/// a date bubble and a CO2 summary card, newest record first.
+///
+/// This used to be built with the `timelines` package, which was abandoned
+/// upstream and stopped compiling on current Dart/Flutter (it called APIs
+/// Dart removed years ago). Rebuilding it in-house also made it trivial to
+/// add per-record delete, which "clear everything" didn't offer before.
+///
+/// [onChanged] is called after a record is deleted so the caller can rebuild
+/// (GetStorage isn't reactive on its own).
+Widget timelineStyle(RecordController recordController, VoidCallback onChanged) {
+  final List<Map<String, dynamic>> pastRecords =
+      recordController.getRecords().reversed.toList();
 
-  return FixedTimeline.tileBuilder(
-    theme: TimelineThemeData(
-        indicatorTheme: const IndicatorThemeData(size: 20, color: Colors.white),
-        connectorTheme:
-            const ConnectorThemeData(thickness: 5, color: Colors.white)),
-    builder: TimelineTileBuilder.connectedFromStyle(
-        contentsAlign: ContentsAlign.basic,
-        oppositeContentsBuilder: (context, index) => Padding(
+  if (pastRecords.isEmpty) {
+    return SizedBox(
+      height: Get.height / 6,
+      child: Center(
+        child: Text(
+          'pastRecords'.tr,
+          style: const TextStyle(color: Colors.white70),
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );
+  }
+
+  return ListView.builder(
+    physics: const NeverScrollableScrollPhysics(),
+    shrinkWrap: true,
+    itemCount: pastRecords.length,
+    itemBuilder: (context, index) {
+      final record = pastRecords[index];
+      final isLast = index == pastRecords.length - 1;
+      return SizedBox(
+        height: 120,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
               padding:
                   EdgeInsets.fromLTRB(0, Get.width / 10, Get.width / 36, 0),
-              child: timelineDate(index, pastRecords),
+              child: timelineDate(record),
             ),
-        contentsBuilder: (context, index) => Padding(
-              padding: EdgeInsets.all(Get.width / 24),
-              child: timelineCo2(index, pastRecords),
+            Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(top: Get.width / 10),
+                  width: 14,
+                  height: 14,
+                  decoration: const BoxDecoration(
+                      color: Colors.white, shape: BoxShape.circle),
+                ),
+                if (!isLast)
+                  const Expanded(
+                    child: VerticalDivider(color: Colors.white, thickness: 3),
+                  ),
+              ],
             ),
-        nodePositionBuilder: (context, index) => 0.2,
-        connectorStyleBuilder: (context, index) => ConnectorStyle.solidLine,
-        indicatorStyleBuilder: (context, index) => IndicatorStyle.dot,
-        itemCount: pastRecords.length,
-        itemExtent: 120),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.all(Get.width / 24),
+                child: timelineCo2(record, recordController, onChanged),
+              ),
+            ),
+          ],
+        ),
+      );
+    },
   );
 }

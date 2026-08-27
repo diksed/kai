@@ -4,7 +4,12 @@ import 'package:kai/main.dart';
 
 import '../../../../Utils/app_texts.dart';
 
-Widget timelineDate(int index, List<dynamic> pastRecords) {
+Widget timelineDate(Map<String, dynamic> record) {
+  final totalCo2 = (record[KeyTexts.totalCo2] as num?)?.toDouble() ?? 0;
+  final aboveAverage = totalCo2 > averageCo2;
+  final day = (record[KeyTexts.dateDay] ?? '').toString();
+  final monthIndex = int.tryParse((record[KeyTexts.dateMonth] ?? '').toString());
+
   return Column(
     children: [
       Container(
@@ -13,31 +18,24 @@ Widget timelineDate(int index, List<dynamic> pastRecords) {
         decoration: BoxDecoration(
           color: Colors.transparent,
           border: Border.all(
-              color: pastRecords[index][KeyTexts.totalCo2] > averageCo2
-                  ? Colors.red
-                  : Colors.white,
+              color: aboveAverage ? Colors.red : Colors.white,
               width: Get.width / 180),
           shape: BoxShape.circle,
         ),
         child: Center(
           child: Text(
-            pastRecords[index][KeyTexts.dateDay].toString().substring(0, 2),
+            day.length >= 2 ? day.substring(0, 2) : day,
             style: TextStyle(
-                color: pastRecords[index][KeyTexts.totalCo2] > averageCo2
-                    ? Colors.red
-                    : Colors.white,
-                fontSize: 17),
+                color: aboveAverage ? Colors.red : Colors.white, fontSize: 17),
           ),
         ),
       ),
-      Text(
-        months[int.parse(pastRecords[index]['dateMonth']!) - 1][languageCode]!,
-        style: TextStyle(
-            color: pastRecords[index][KeyTexts.totalCo2] > averageCo2
-                ? Colors.red
-                : Colors.white,
-            fontSize: 15),
-      )
+      if (monthIndex != null && monthIndex >= 1 && monthIndex <= 12)
+        Text(
+          months[monthIndex - 1][languageCode]!,
+          style: TextStyle(
+              color: aboveAverage ? Colors.red : Colors.white, fontSize: 15),
+        ),
     ],
   );
 }

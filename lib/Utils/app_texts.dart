@@ -1,4 +1,8 @@
 class KeyTexts {
+  // Bump this if the shape of a stored record ever changes again, so old
+  // entries can be migrated/ignored gracefully instead of crashing the UI.
+  static const int recordSchemaVersion = 2;
+
   static const String recordKey = 'past_records';
   static const String kWh = 'kWh';
   static const String vehicleUse = 'vehicleUse';
@@ -7,9 +11,15 @@ class KeyTexts {
   static const String info = 'info';
   static const String infoMessages = 'infoMessages';
   static const String infoMessagesEn = 'infoMessagesEn';
+  static const String recordId = 'id';
   static const String totalCo2 = 'totalCo2';
+  static const String electricCo2 = 'electricCo2';
+  static const String warmingCo2 = 'warmingCo2';
+  static const String fuelCo2 = 'fuelCo2';
+  static const String foodCo2 = 'foodCo2';
   static const String dateDay = 'dateDay';
   static const String dateMonth = 'dateMonth';
+  static const String dateYear = 'dateYear';
   static const String url = 'https://www.tema.org.tr/tek-seferlik-genel-bagis';
 }
 

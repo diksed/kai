@@ -49,7 +49,10 @@ class _PastRecordsState extends State<PastRecords> {
                           behavior: const ScrollBehavior()
                               .copyWith(overscroll: false),
                           child: ListView(
-                            children: [timelineStyle(_recordController)],
+                            children: [
+                              timelineStyle(
+                                  _recordController, () => setState(() {})),
+                            ],
                           ),
                         ),
                       ),
