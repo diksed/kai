@@ -7,6 +7,7 @@ import 'package:kai/Screens/RecordScreen/record_controller.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
 import '../../Utils/Widgets/app_logo.dart';
+import '../../Utils/Widgets/banner_ad_widget.dart';
 import '../IntroductionScreen/Widgets/introduction_pages.dart';
 import '../MenuScreen/Widgets/menu_background_image.dart';
 import 'Widgets/ClearRecord/clear_record_dialog.dart';
@@ -56,6 +57,8 @@ class _PastRecordsState extends State<PastRecords> {
                           ),
                         ),
                       ),
+                      SizedBox(height: Get.height / 85),
+                      const BannerAdWidget(),
                       SizedBox(height: Get.height / 85),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -40,6 +40,7 @@ dependencies:
   smooth_page_indicator:
   fl_chart:
   url_launcher:
+  google_mobile_ads: ^9.1.0
   # Note: firebase_core/cloud_firestore, the abandoned `timelines` package,
   # and the unused `flutter_shapes` package were removed — see README/commit
   # message for why. The carbon-footprint calculation and the past-records
