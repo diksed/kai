@@ -25,10 +25,15 @@ class CalculationController extends GetxController {
   var warmingfuelType = 'naturalGas'.tr.obs;
   var warmingfuelUnit = 'm3'.tr.obs;
   final List<String> vehicleFuelTypes = ['gasoline'.tr, 'diesel'.tr, 'lpg'.tr];
+  // Only the physical unit is offered now — money-spent (TL) input used to
+  // be converted to a quantity via a live Firestore price lookup, which made
+  // the footprint calculation depend on prices staying up to date and on
+  // Firebase being reachable at all. Entering the quantity directly is both
+  // more accurate and works fully offline.
   final Map<String, List<String>> vehicleFuelUnits = {
-    'gasoline'.tr: ['liter'.tr, 'tl'.tr],
-    'diesel'.tr: ['liter'.tr, 'tl'.tr],
-    'lpg'.tr: ['liter'.tr, 'tl'.tr],
+    'gasoline'.tr: ['liter'.tr],
+    'diesel'.tr: ['liter'.tr],
+    'lpg'.tr: ['liter'.tr],
   };
   final List<String> warmingFuelTypes = [
     'naturalGas'.tr,
@@ -36,9 +41,9 @@ class CalculationController extends GetxController {
     'coal'.tr
   ];
   final Map<String, List<String>> warmingFuelUnits = {
-    'naturalGas'.tr: ['m3'.tr, 'tl'.tr],
-    'fuelOil'.tr: ['liter'.tr, 'tl'.tr],
-    'coal'.tr: ['kg'.tr, 'tl'.tr],
+    'naturalGas'.tr: ['m3'.tr],
+    'fuelOil'.tr: ['liter'.tr],
+    'coal'.tr: ['kg'.tr],
   };
 
   void updateSelectedFuelType(String newType, String whichType) {

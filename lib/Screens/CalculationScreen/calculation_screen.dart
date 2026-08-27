@@ -6,7 +6,6 @@ import 'package:kai/Screens/CalculationScreen/Widgets/Warming/warming_dropdown_m
 import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
 import 'package:kai/Screens/CalculationScreen/result_controller.dart';
 import 'package:kai/Screens/RecordScreen/record_controller.dart';
-import 'package:kai/Utils/Firebase/firestore_controller.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
 import 'Widgets/Electric/one_text_field_container.dart';
@@ -28,7 +27,6 @@ class CalculationPage extends StatefulWidget {
 class CalculationPageState extends State<CalculationPage> {
   final CalculationController _controller = Get.put(CalculationController());
   final ResultController _resultController = Get.put(ResultController());
-  final FirestoreController _firestoreController = Get.find();
   final RecordController _recordController = Get.put(RecordController());
   @override
   Widget build(BuildContext context) {
@@ -70,7 +68,6 @@ class CalculationPageState extends State<CalculationPage> {
                         ''),
                     _controller,
                     _resultController,
-                    _firestoreController,
                     _recordController),
                 calculationScreen(
                     ImagesPath.warmingConsumption,
@@ -88,7 +85,6 @@ class CalculationPageState extends State<CalculationPage> {
                         ''),
                     _controller,
                     _resultController,
-                    _firestoreController,
                     _recordController),
                 Obx(
                   () => calculationScreen(
@@ -108,7 +104,6 @@ class CalculationPageState extends State<CalculationPage> {
                           KeyTexts.vehicleUse),
                       _controller,
                       _resultController,
-                      _firestoreController,
                       _recordController),
                 ),
                 foodCalculationScreen(
@@ -120,7 +115,6 @@ class CalculationPageState extends State<CalculationPage> {
                     foodInputSizedBox(_controller),
                     _controller,
                     _resultController,
-                    _firestoreController,
                     _recordController),
                 resultCalculationScreen(
                     ImagesPath.saveWorld,
@@ -138,7 +132,6 @@ class CalculationPageState extends State<CalculationPage> {
                     ),
                     _controller,
                     _resultController,
-                    _firestoreController,
                     _recordController)
               ],
             ),

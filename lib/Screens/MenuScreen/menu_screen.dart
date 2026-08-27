@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:kai/Screens/MenuScreen/Widgets/info_message.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
-import '../../Utils/Firebase/firestore_controller.dart';
 import '../../Utils/Widgets/app_logo.dart';
 import '../DonateScreen/donate_screen.dart';
 import 'Widgets/menu_background_image.dart';
@@ -12,8 +11,6 @@ import 'menu_controller.dart';
 
 class MenuPage extends StatelessWidget {
   MenuPage({super.key});
-  final FirestoreController firestoreController =
-      Get.put(FirestoreController());
   final MenuPageController menuController = Get.put(MenuPageController());
 
   @override

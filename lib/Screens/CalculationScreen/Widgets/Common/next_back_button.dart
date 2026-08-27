@@ -4,7 +4,6 @@ import 'package:kai/Screens/CalculationScreen/Widgets/Common/snack_bar.dart';
 import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
 import 'package:kai/Screens/CalculationScreen/result_controller.dart';
 import 'package:kai/Screens/RecordScreen/record_controller.dart';
-import 'package:kai/Utils/Firebase/firestore_controller.dart';
 import 'package:kai/Utils/app_texts.dart';
 
 import '../../../../Utils/result_calculation_methods.dart';
@@ -15,12 +14,13 @@ Widget backNextButton(
     bool onLastPage,
     String whichButton,
     ResultController resultController,
-    FirestoreController firestoreController,
     RecordController recordController) {
   return GestureDetector(
     onTap: () async {
       if (whichButton == 'back'.tr) {
         if (controller.currentIndex.value == 0) {
+          Get.delete<CalculationController>();
+          Get.delete<ResultController>();
           Get.offAndToNamed(RoutesTexts.menu);
         } else {
           controller.currentIndex.value--;
@@ -34,21 +34,18 @@ Widget backNextButton(
           Get.delete<ResultController>();
         } else {
           if (controller.currentIndex.value == 0) {
-            calculationMethod(controller, resultController, firestoreController,
-                'electric'.tr);
+            calculationMethod(controller, resultController, 'electric'.tr);
           } else if (controller.currentIndex.value == 1) {
             if (controller.warmingController.text.isEmpty) {
               showSnackBar();
             } else {
               if (controller.warmingfuelType.value == 'naturalGas'.tr) {
-                calculationMethod(controller, resultController,
-                    firestoreController, 'naturalGas'.tr);
+                calculationMethod(
+                    controller, resultController, 'naturalGas'.tr);
               } else if (controller.warmingfuelType.value == 'fuelOil'.tr) {
-                calculationMethod(controller, resultController,
-                    firestoreController, 'fuelOil'.tr);
+                calculationMethod(controller, resultController, 'fuelOil'.tr);
               } else {
-                calculationMethod(controller, resultController,
-                    firestoreController, 'coal'.tr);
+                calculationMethod(controller, resultController, 'coal'.tr);
               }
             }
           } else if (controller.currentIndex.value == 2) {
@@ -57,14 +54,13 @@ Widget backNextButton(
                 showSnackBar();
               } else {
                 if (controller.vehicleUseType.value == 'gasoline'.tr) {
-                  calculationMethod(controller, resultController,
-                      firestoreController, 'gasoline'.tr);
+                  calculationMethod(
+                      controller, resultController, 'gasoline'.tr);
                 } else if (controller.vehicleUseType.value == 'diesel'.tr) {
-                  calculationMethod(controller, resultController,
-                      firestoreController, 'diesel'.tr);
+                  calculationMethod(
+                      controller, resultController, 'diesel'.tr);
                 } else {
-                  calculationMethod(controller, resultController,
-                      firestoreController, 'lpg'.tr);
+                  calculationMethod(controller, resultController, 'lpg'.tr);
                 }
               }
             } else {
@@ -77,8 +73,7 @@ Widget backNextButton(
                 controller.greengroceryController.text.isEmpty) {
               showSnackBar();
             } else {
-              calculationMethod(controller, resultController,
-                  firestoreController, KeyTexts.food,
+              calculationMethod(controller, resultController, KeyTexts.food,
                   recordController: recordController);
             }
           }

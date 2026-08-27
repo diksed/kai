@@ -1,17 +1,3 @@
-class FirebaseConnectionTexts {
-  static const String electric = 'elektrik';
-  static const String data = 'data';
-  static const String naturalGas = 'dogalgaz';
-  static const String warming = 'isinma';
-  static const String fuelOil = 'fueloil';
-  static const String coal = 'komur';
-  static const String gasoline = 'benzin';
-  static const String diesel = 'dizel';
-  static const String vehicleLpg = 'aracLpg';
-  static const String lpg = 'lpg';
-  static const String fuel = 'yakit';
-}
-
 class KeyTexts {
   static const String recordKey = 'past_records';
   static const String kWh = 'kWh';

@@ -39,11 +39,11 @@ dependencies:
   get_storage:
   smooth_page_indicator:
   fl_chart:
-  firebase_core:
-  cloud_firestore: ^5.1.0
   timelines:
   flutter_shapes:
   url_launcher:
+  # Note: firebase_core/cloud_firestore were removed — the carbon-footprint
+  # calculation no longer needs a live backend to work.
 
 
 dev_dependencies:

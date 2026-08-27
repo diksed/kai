@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../Utils/Firebase/firestore_controller.dart';
 import '../../../../Utils/Widgets/app_logo.dart';
 import '../../../../Utils/app_colors.dart';
 import '../../../IntroductionScreen/Widgets/introduction_pages.dart';
@@ -19,7 +18,6 @@ Widget resultCalculationScreen(
     Widget input,
     CalculationController calculationController,
     ResultController resultController,
-    FirestoreController firestoreController,
     RecordController recordController) {
   return Scaffold(
     backgroundColor: AppColors.backgroundColor,
@@ -61,7 +59,6 @@ Widget resultCalculationScreen(
                             calculationController.onLastPage.value,
                             'back'.tr,
                             resultController,
-                            firestoreController,
                             recordController),
                         Obx(
                           () => backNextButton(
@@ -69,7 +66,6 @@ Widget resultCalculationScreen(
                               calculationController.onLastPage.value,
                               'next'.tr,
                               resultController,
-                              firestoreController,
                               recordController),
                         ),
                       ],

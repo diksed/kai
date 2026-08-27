@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kai/Screens/CalculationScreen/Widgets/Indicator/animated_indicator.dart';
-import '../../../../Utils/Firebase/firestore_controller.dart';
 import '../../../../Utils/Widgets/app_logo.dart';
 import '../../../../Utils/app_colors.dart';
 import '../../../IntroductionScreen/Widgets/introduction_pages.dart';
@@ -20,7 +19,6 @@ Widget foodCalculationScreen(
     Widget input,
     CalculationController calculationController,
     ResultController resultController,
-    FirestoreController firestoreController,
     RecordController recordController) {
   return Scaffold(
     backgroundColor: AppColors.backgroundColor,
@@ -68,7 +66,6 @@ Widget foodCalculationScreen(
                             calculationController.onLastPage.value,
                             'back'.tr,
                             resultController,
-                            firestoreController,
                             recordController),
                         Obx(
                           () => backNextButton(
@@ -76,7 +73,6 @@ Widget foodCalculationScreen(
                               calculationController.onLastPage.value,
                               'next'.tr,
                               resultController,
-                              firestoreController,
                               recordController),
                         ),
                       ],
