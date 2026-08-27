@@ -4,6 +4,7 @@ import 'package:kai/Screens/MenuScreen/Widgets/info_message.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
 import '../../Utils/Widgets/app_logo.dart';
+import '../../Utils/Widgets/support_link.dart';
 import '../DonateScreen/donate_screen.dart';
 import 'Widgets/menu_background_image.dart';
 import 'Widgets/menu_button.dart';
@@ -58,6 +59,8 @@ class MenuPage extends StatelessWidget {
                             }),
                         Obx(() => InfoMessage(
                             text: menuController.infoMessage.value)),
+                        const SizedBox(height: 4),
+                        const SupportLink(),
                       ]),
                 ),
               ],

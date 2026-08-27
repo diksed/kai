@@ -74,6 +74,7 @@ class Languages extends Translations {
           'kg': 'Kg.',
           'electric': 'Elektrik',
           'tonne': 'Ton',
+          'supportMe': 'Beni Destekle',
           'deleteRecord': 'Kaydı Sil',
           'deleteRecordText': 'Bu kaydı silmek istediğinize emin misiniz?',
         },
@@ -148,6 +149,7 @@ class Languages extends Translations {
           'kg': 'Kg.',
           'electric': 'Electric',
           'tonne': 'Ton',
+          'supportMe': 'Support Me',
           'deleteRecord': 'Delete Record',
           'deleteRecordText': 'Are you sure you want to delete this record?',
         }

@@ -21,6 +21,7 @@ class KeyTexts {
   static const String dateMonth = 'dateMonth';
   static const String dateYear = 'dateYear';
   static const String url = 'https://www.tema.org.tr/tek-seferlik-genel-bagis';
+  static const String supportUrl = 'https://buymeacoffee.com/diksed';
 }
 
 final List<Map<String, String>> months = [
