@@ -33,7 +33,8 @@ Container textFieldContainerRow(
     TextEditingController textEditController,
     Widget dropdownMenu,
     Widget valueDropdownMenu,
-    {bool isVehicleUsed = true}) {
+    {bool isVehicleUsed = true,
+    VoidCallback? onSubmitted}) {
   return Container(
     color: Colors.transparent,
     height: Get.height / 11.2,
@@ -55,9 +56,10 @@ Container textFieldContainerRow(
                         textEditController,
                         Get.width / 3.272,
                         6,
-                        TextInputAction.done,
+                        TextInputAction.next,
                         Get.height / 11.2,
-                        isVehicleUsed),
+                        isVehicleUsed,
+                        onSubmitted: onSubmitted),
                     dropdownMenu
                   ],
                 ))),

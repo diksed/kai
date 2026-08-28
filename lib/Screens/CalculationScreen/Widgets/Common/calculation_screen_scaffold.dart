@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kai/Screens/CalculationScreen/calculation_controller.dart';
 import 'package:kai/Utils/app_colors.dart';
+import 'package:kai/Utils/layout.dart';
 import '../../../../Utils/Widgets/app_logo.dart';
 import '../../../IntroductionScreen/Widgets/introduction_pages.dart';
 import '../../../MenuScreen/Widgets/menu_background_image.dart';
@@ -38,16 +39,24 @@ Widget calculationScreen(
                       indicatorIndex:
                           calculationController.indicatorIndex.value),
                 ),
-                SizedBox(
-                  height: sizedBoxHeight,
-                  width: sizedBoxWidth,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text(title, style: titleStyle),
-                      Text(description,
-                          style: bodyStyle, textAlign: TextAlign.center)
-                    ],
+                // sizedBoxWidth used to be passed straight through as this
+                // box's width — on the food/result screens that was the
+                // full screen width, so the description text ran flush to
+                // both edges. A fixed horizontal margin instead, applied
+                // consistently across every calculation screen.
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: kScreenHPadding),
+                  child: SizedBox(
+                    height: sizedBoxHeight,
+                    width: double.infinity,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text(title, style: titleStyle),
+                        Text(description,
+                            style: bodyStyle, textAlign: TextAlign.center)
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(height: Get.height / 33.6),

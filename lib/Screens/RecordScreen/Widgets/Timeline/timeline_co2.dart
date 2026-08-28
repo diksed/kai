@@ -1,43 +1,84 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kai/Screens/RecordScreen/Widgets/ClearRecord/delete_record_dialog.dart';
-import 'package:kai/Screens/RecordScreen/Widgets/Timeline/co2_text.dart';
+import 'package:kai/Screens/RecordScreen/Widgets/Timeline/timeline_date.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
+import 'package:kai/Utils/number_format.dart';
 
 import '../../record_controller.dart';
 
-Widget timelineCo2(Map<String, dynamic> record,
+/// One past-record card: date badge, tonnes with a status icon, and a
+/// delete affordance — a flat, elevated card instead of the old
+/// dot-and-connector timeline row, which read as cluttered and made a
+/// record's width jump around depending on its value.
+Widget recordCard(Map<String, dynamic> record,
     RecordController recordController, VoidCallback onChanged) {
   final totalCo2 = (record[KeyTexts.totalCo2] as num?)?.toDouble() ?? 0;
   final aboveAverage = totalCo2 > averageCo2;
   final recordId = record[KeyTexts.recordId]?.toString();
+  final statusColor = aboveAverage ? Colors.red[400]! : AppColors.backgroundColor;
 
   return Container(
-    height: Get.height / 9.6,
-    width: aboveAverage ? Get.width / 1.565 : Get.width / 3,
+    margin: const EdgeInsets.only(bottom: 14),
+    padding: const EdgeInsets.all(12),
     decoration: BoxDecoration(
-        color: aboveAverage ? Colors.red : Colors.white,
-        borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(15),
-            topRight: Radius.circular(15),
-            bottomLeft: Radius.circular(0),
-            bottomRight: Radius.circular(15))),
-    child: Stack(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(16),
+      boxShadow: [
+        BoxShadow(
+            color: Colors.black.withValues(alpha: 0.1),
+            blurRadius: 8,
+            offset: const Offset(0, 3)),
+      ],
+    ),
+    child: Row(
       children: [
-        co2Text(record),
+        recordDateBlock(record),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                children: [
+                  Icon(
+                      aboveAverage
+                          ? Icons.warning_amber_rounded
+                          : Icons.eco_outlined,
+                      color: statusColor,
+                      size: 18),
+                  const SizedBox(width: 6),
+                  Flexible(
+                    child: Text(
+                      '${formatCo2Value(totalCo2 / 1000, maxDecimals: 2)} ${'tonne'.tr}',
+                      style: TextStyle(
+                          fontSize: 17,
+                          fontWeight: FontWeight.w700,
+                          color: statusColor),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
+              ),
+              if (aboveAverage) ...[
+                const SizedBox(height: 2),
+                Text(
+                  'aboveAverage'.tr,
+                  style: TextStyle(fontSize: 11.5, color: Colors.red[300]),
+                ),
+              ],
+            ],
+          ),
+        ),
         if (recordId != null)
-          Positioned(
-            top: 0,
-            right: 0,
-            child: GestureDetector(
-              onTap: () =>
-                  deleteRecordDialog(recordController, recordId, onChanged),
-              child: Icon(Icons.close,
-                  size: 16,
-                  color: aboveAverage
-                      ? Colors.white70
-                      : AppColors.backgroundColor.withValues(alpha: 0.5)),
+          GestureDetector(
+            onTap: () =>
+                deleteRecordDialog(recordController, recordId, onChanged),
+            child: const Padding(
+              padding: EdgeInsets.all(4),
+              child: Icon(Icons.close_rounded, size: 20, color: Colors.black26),
             ),
           ),
       ],

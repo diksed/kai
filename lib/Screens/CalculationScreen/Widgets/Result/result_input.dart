@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kai/Screens/CalculationScreen/Widgets/Result/single_result_container.dart';
 import 'package:kai/Utils/app_texts.dart';
+import 'package:kai/Utils/number_format.dart';
 
 import 'circle_chart.dart';
 
@@ -22,20 +23,20 @@ Widget resultInput(double electricResult, double warmingResult,
         resultContainer(
             ImagesPath.electricConsumption,
             'electricConsumption'.tr,
-            electricResult.toStringAsFixed(1),
+            formatCo2Value(electricResult),
             'kg'.tr),
         SizedBox(height: Get.height / 67.2),
         resultContainer(ImagesPath.warmingConsumption, 'warmingValues'.tr,
-            warmingResult.toStringAsFixed(1), 'kg'.tr),
+            formatCo2Value(warmingResult), 'kg'.tr),
         SizedBox(height: Get.height / 67.2),
         resultContainer(ImagesPath.fuelConsumption, 'fuelConsum'.tr,
-            fuelResult.toStringAsFixed(1), 'kg'.tr),
+            formatCo2Value(fuelResult), 'kg'.tr),
         SizedBox(height: Get.height / 67.2),
         resultContainer(ImagesPath.foodConsumption, 'foodConsum'.tr,
-            foodResult.toStringAsFixed(1), 'kg'.tr),
+            formatCo2Value(foodResult), 'kg'.tr),
         SizedBox(height: Get.height / 67.2),
         resultContainer(ImagesPath.carboonFootprint, 'totalco2'.tr,
-            (totalCo2 / 1000).toStringAsFixed(2), 'tonne'.tr),
+            formatCo2Value(totalCo2 / 1000, maxDecimals: 2), 'tonne'.tr),
       ],
     ),
   );

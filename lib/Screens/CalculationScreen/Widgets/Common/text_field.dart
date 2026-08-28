@@ -9,7 +9,8 @@ Widget customTextField(
     int maxLength,
     TextInputAction textInputAction,
     double sizedBoxHeight,
-    bool isVehicleUsed) {
+    bool isVehicleUsed,
+    {VoidCallback? onSubmitted}) {
   return SizedBox(
     height: sizedBoxHeight,
     width: sizedBoxWidth,
@@ -21,6 +22,17 @@ Widget customTextField(
           textInputAction: textInputAction,
           controller: textEditingController,
           onChanged: controller.onTextChange,
+          // Wires the keyboard's own action key to the same thing tapping
+          // the on-screen "İleri" button does. Only passed for a screen's
+          // last field, which is also given textInputAction: .next so the
+          // key itself reads "Next" instead of "Done" — it does advance the
+          // whole flow, just to the next *screen* rather than the next
+          // field, so the default .next behavior (move focus to the next
+          // field) is swapped for a plain unfocus instead.
+          onSubmitted: onSubmitted == null ? null : (_) => onSubmitted(),
+          onEditingComplete: onSubmitted == null
+              ? null
+              : () => FocusManager.instance.primaryFocus?.unfocus(),
           maxLength: maxLength,
           decoration: InputDecoration(
               border: InputBorder.none,

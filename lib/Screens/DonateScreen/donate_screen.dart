@@ -5,63 +5,94 @@ import 'package:kai/Utils/app_colors.dart';
 
 import '../../Utils/app_texts.dart';
 import '../MenuScreen/Widgets/menu_background_image.dart';
+import '../MenuScreen/menu_controller.dart';
 import '../RecordScreen/record_controller.dart';
 import 'Widgets/bottom_sheet_button.dart';
 
 void donateBottomSheet() {
   final RecordController recordController = Get.put(RecordController());
+  final hasRecord = recordController.getLastRecord() != null;
 
   Get.bottomSheet(
     SizedBox(
-      height: Get.height / 2.5,
+      // A bit taller when there's no record yet — that case stacks two
+      // buttons instead of one.
+      height: hasRecord ? Get.height / 2.5 : Get.height / 2.05,
       child: Stack(children: [
         const Align(
             alignment: Alignment.bottomCenter,
             child: BackgroundImage(imagePath: ImagesPath.menuBackground)),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Center(
-              child: Text('donateSapling'.tr, style: notWhiteTitleStyle),
-            ),
-            Center(
-              child: SizedBox(
-                width: Get.width / 1.2,
-                child: Text.rich(
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 20, color: Colors.black),
-                  TextSpan(
-                    text: 'lastAction'.tr,
-                    children: [
+        // A single close icon replaces the old "Vazgeç" button — cramming
+        // 2-3 buttons into one row either overflowed on narrow screens or
+        // just looked crowded. Dismissing is a corner tap now, and the
+        // remaining action(s) get full width to breathe.
+        Positioned(
+          top: Get.height / 100,
+          right: Get.width / 60,
+          child: IconButton(
+            onPressed: () => Get.back(),
+            icon: const Icon(Icons.close, color: Colors.black54),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.fromLTRB(
+              Get.width / 12, Get.height / 24, Get.width / 12, Get.height / 30),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text('donateSapling'.tr, style: notWhiteTitleStyle),
+              hasRecord
+                  ? Text.rich(
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(fontSize: 20, color: Colors.black),
                       TextSpan(
-                        text: '${recordController.resultTree()}',
-                        style: const TextStyle(color: Colors.red),
+                        text: 'lastAction'.tr,
+                        children: [
+                          TextSpan(
+                            text: '${recordController.resultTree()}',
+                            style: const TextStyle(color: Colors.red),
+                          ),
+                          TextSpan(text: 'withDonateSapling'.tr),
+                        ],
                       ),
-                      TextSpan(text: 'withDonateSapling'.tr),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(bottom: Get.height / 39.05),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    )
+                  // No calculation yet — "your debt to nature is 0 trees"
+                  // reads as nonsense, so this case gets its own,
+                  // encouraging message instead of a fake zero.
+                  : Text(
+                      'noRecordDonateMessage'.tr,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(fontSize: 18, color: Colors.black),
+                    ),
+              Column(
                 children: [
-                  BottomSheetButton(
-                      buttonBgColor: Colors.red[400],
-                      buttonText: 'giveUp'.tr,
-                      onPressed: () {
-                        Get.back();
-                      }),
-                  BottomSheetButton(
-                      onPressed: () => recordController.launchURL(),
-                      buttonText: 'donate'.tr,
-                      buttonBgColor: AppColors.backgroundColor)
+                  // No past calculation to base a tree count on — offer a
+                  // direct way to go make one instead of just "donate blind".
+                  if (!hasRecord) ...[
+                    SizedBox(
+                      width: double.infinity,
+                      child: BottomSheetButton(
+                          buttonBgColor: AppColors.indicatorBackground,
+                          buttonText: 'calculateNow'.tr,
+                          onPressed: () {
+                            Get.back();
+                            Get.toNamed(RoutesTexts.calculation);
+                            Get.delete<MenuPageController>();
+                          }),
+                    ),
+                    SizedBox(height: Get.height / 90),
+                  ],
+                  SizedBox(
+                    width: double.infinity,
+                    child: BottomSheetButton(
+                        onPressed: () => recordController.launchURL(),
+                        buttonText: 'donate'.tr,
+                        buttonBgColor: AppColors.backgroundColor),
+                  ),
                 ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ]),
     ),

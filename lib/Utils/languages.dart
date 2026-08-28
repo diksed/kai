@@ -77,6 +77,12 @@ class Languages extends Translations {
           'supportMe': 'Beni Destekle',
           'deleteRecord': 'Kaydı Sil',
           'deleteRecordText': 'Bu kaydı silmek istediğinize emin misiniz?',
+          'noRecordDonateMessage':
+              'Henüz bir hesaplama yapmadınız.\n\nKarbon ayak izinizi hesaplayarak bir yıl için kaç fidan bağışlamanız gerektiğini buradan görebilirsiniz.',
+          'calculateNow': 'Hesapla',
+          'emptyRecordsTitle': 'Henüz Kayıt Yok',
+          'emptyRecordsSubtitle':
+              'Karbon ayak izini hesapladıkça geçmiş kayıtların burada birikecek.',
         },
         'en_US': {
           'descriptionOne':
@@ -152,6 +158,12 @@ class Languages extends Translations {
           'supportMe': 'Support Me',
           'deleteRecord': 'Delete Record',
           'deleteRecordText': 'Are you sure you want to delete this record?',
+          'noRecordDonateMessage':
+              'You haven\'t calculated your carbon footprint yet.\n\nCalculate it to see how many saplings you should donate for a year.',
+          'calculateNow': 'Calculate',
+          'emptyRecordsTitle': 'No Records Yet',
+          'emptyRecordsSubtitle':
+              'As you calculate your carbon footprint, your past records will show up here.',
         }
       };
 }

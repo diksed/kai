@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kai/Screens/CalculationScreen/Widgets/Common/home_button.dart';
+import 'package:kai/Screens/RecordScreen/Widgets/Timeline/empty_records_view.dart';
 import 'package:kai/Screens/RecordScreen/Widgets/Timeline/timeline.dart';
 import 'package:kai/Screens/RecordScreen/Widgets/ClearRecord/clear_record_button.dart';
 import 'package:kai/Screens/RecordScreen/record_controller.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
+import 'package:kai/Utils/layout.dart';
 import '../../Utils/Widgets/app_logo.dart';
 import '../../Utils/Widgets/banner_ad_widget.dart';
 import '../IntroductionScreen/Widgets/introduction_pages.dart';
@@ -58,15 +60,24 @@ class _PastRecordsState extends State<PastRecords> {
                   Text('pastRecords'.tr,
                       style: titleStyle, textAlign: TextAlign.center),
                   Expanded(
-                    child: ScrollConfiguration(
-                      behavior:
-                          const ScrollBehavior().copyWith(overscroll: false),
-                      child: ListView(
-                        children: [
-                          timelineStyle(
-                              _recordController, () => setState(() {})),
-                        ],
-                      ),
+                    // Rendered outside the ListView (not just as its empty
+                    // branch) so it can actually be centered in the
+                    // available space instead of stuck at the top.
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: kScreenHPadding),
+                      child: _recordController.getRecords().isEmpty
+                          ? const EmptyRecordsView()
+                          : ScrollConfiguration(
+                              behavior: const ScrollBehavior()
+                                  .copyWith(overscroll: false),
+                              child: ListView(
+                                children: [
+                                  timelineStyle(_recordController,
+                                      () => setState(() {})),
+                                ],
+                              ),
+                            ),
                     ),
                   ),
                   SizedBox(height: Get.height / 85),
@@ -79,11 +90,15 @@ class _PastRecordsState extends State<PastRecords> {
                           onTap: () {
                             Get.offAndToNamed(RoutesTexts.menu);
                           }),
-                      GestureDetector(
-                          child: const ClearRecordButton(),
-                          onTap: () {
-                            clearRecordDialog(_recordController);
-                          }),
+                      // Nothing to clear when there are no records — showing
+                      // it anyway just invites tapping "clear everything" on
+                      // an already-empty list.
+                      if (_recordController.getRecords().isNotEmpty)
+                        GestureDetector(
+                            child: const ClearRecordButton(),
+                            onTap: () {
+                              clearRecordDialog(_recordController);
+                            }),
                     ],
                   ),
                   SizedBox(height: Get.height / 85),

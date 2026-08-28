@@ -17,7 +17,8 @@ Container oneTextFieldContainer(
     double height,
     double width,
     double padding,
-    {bool isVehicleUsed = true}) {
+    {bool isVehicleUsed = true,
+    VoidCallback? onSubmitted}) {
   return Container(
       height: height,
       width: width,
@@ -27,8 +28,15 @@ Container oneTextFieldContainer(
           width: width,
           child: Row(
             children: [
-              customTextField(controller, textEditingController,
-                  Get.width / 2.117, 9, textInputAction, height, isVehicleUsed),
+              customTextField(
+                  controller,
+                  textEditingController,
+                  Get.width / 2.117,
+                  9,
+                  textInputAction,
+                  height,
+                  isVehicleUsed,
+                  onSubmitted: onSubmitted),
               if (whichOne)
                 ElectricDropdownMenu(
                     electricSelectedType: controller.electricSelectedType)

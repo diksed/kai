@@ -1,41 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:kai/main.dart';
 
+import '../../../../Utils/app_colors.dart';
 import '../../../../Utils/app_texts.dart';
 
-Widget timelineDate(Map<String, dynamic> record) {
-  final totalCo2 = (record[KeyTexts.totalCo2] as num?)?.toDouble() ?? 0;
-  final aboveAverage = totalCo2 > averageCo2;
+/// Compact date badge for a record card: day number large, three-letter
+/// month underneath, on a solid rounded background.
+Widget recordDateBlock(Map<String, dynamic> record) {
   final day = (record[KeyTexts.dateDay] ?? '').toString();
   final monthIndex = int.tryParse((record[KeyTexts.dateMonth] ?? '').toString());
+  final monthLabel =
+      (monthIndex != null && monthIndex >= 1 && monthIndex <= 12)
+          ? months[monthIndex - 1][languageCode]!
+              .substring(0, 3)
+              .toUpperCase()
+          : '';
 
-  return Column(
-    children: [
-      Container(
-        width: Get.width / 9,
-        height: Get.height / 16.8,
-        decoration: BoxDecoration(
-          color: Colors.transparent,
-          border: Border.all(
-              color: aboveAverage ? Colors.red : Colors.white,
-              width: Get.width / 180),
-          shape: BoxShape.circle,
-        ),
-        child: Center(
-          child: Text(
-            day.length >= 2 ? day.substring(0, 2) : day,
-            style: TextStyle(
-                color: aboveAverage ? Colors.red : Colors.white, fontSize: 17),
-          ),
-        ),
-      ),
-      if (monthIndex != null && monthIndex >= 1 && monthIndex <= 12)
+  return Container(
+    width: 56,
+    padding: const EdgeInsets.symmetric(vertical: 10),
+    decoration: BoxDecoration(
+      color: AppColors.indicatorBackground,
+      borderRadius: BorderRadius.circular(14),
+    ),
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
         Text(
-          months[monthIndex - 1][languageCode]!,
-          style: TextStyle(
-              color: aboveAverage ? Colors.red : Colors.white, fontSize: 15),
+          day,
+          style: const TextStyle(
+              color: Colors.white, fontSize: 20, fontWeight: FontWeight.w700),
         ),
-    ],
+        if (monthLabel.isNotEmpty)
+          Text(
+            monthLabel,
+            style: const TextStyle(
+                color: Colors.white70,
+                fontSize: 11,
+                fontWeight: FontWeight.w600,
+                letterSpacing: 0.4),
+          ),
+      ],
+    ),
   );
 }

@@ -9,6 +9,7 @@ import 'package:kai/Screens/RecordScreen/record_controller.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
 import 'package:kai/Utils/interstitial_ad_manager.dart';
+import 'Widgets/Common/next_back_button.dart';
 import 'Widgets/Electric/one_text_field_container.dart';
 import 'Widgets/Food/food_calculation_screen.dart';
 import 'Widgets/Food/food_input_sized_box.dart';
@@ -70,10 +71,12 @@ class CalculationPageState extends State<CalculationPage> {
                           _controller.electricController,
                           true,
                           '',
-                          TextInputAction.done,
+                          TextInputAction.next,
                           Get.height / 11.2,
                           Get.width / 1.44,
                           0,
+                          onSubmitted: () => advanceCalculation(
+                              _controller, _resultController, _recordController),
                         ),
                         ''),
                     _controller,
@@ -91,7 +94,9 @@ class CalculationPageState extends State<CalculationPage> {
                             _controller,
                             _controller.warmingController,
                             WarmingDropdownMenu(controller: _controller),
-                            warmingValueDropdownMenu(_controller)),
+                            warmingValueDropdownMenu(_controller),
+                            onSubmitted: () => advanceCalculation(_controller,
+                                _resultController, _recordController)),
                         ''),
                     _controller,
                     _resultController,
@@ -110,7 +115,9 @@ class CalculationPageState extends State<CalculationPage> {
                               _controller.vehicleUseController,
                               VehicleUseDropdownMenu(controller: _controller),
                               vehicleUseValueDropdownMenu(_controller),
-                              isVehicleUsed: !_controller.isVehicleUsed.value),
+                              isVehicleUsed: !_controller.isVehicleUsed.value,
+                              onSubmitted: () => advanceCalculation(_controller,
+                                  _resultController, _recordController)),
                           KeyTexts.vehicleUse),
                       _controller,
                       _resultController,
@@ -122,7 +129,8 @@ class CalculationPageState extends State<CalculationPage> {
                     Get.width,
                     'foodConsumption'.tr,
                     'descFoodConsumption'.tr,
-                    foodInputSizedBox(_controller),
+                    foodInputSizedBox(
+                        _controller, _resultController, _recordController),
                     _controller,
                     _resultController,
                     _recordController),

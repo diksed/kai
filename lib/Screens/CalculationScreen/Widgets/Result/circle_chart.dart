@@ -1,6 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kai/Utils/number_format.dart';
 import 'circle_indicator.dart';
 import 'circle_text_style.dart';
 
@@ -37,7 +38,7 @@ class CircleGraphicState extends State<CircleGraphic> {
                     child: Padding(
                       padding: EdgeInsets.only(right: Get.width / 78.4),
                       child: Text(
-                          '${(widget.totalCo2 / 1000).toStringAsFixed(2)}\nTon',
+                          '${formatCo2Value(widget.totalCo2 / 1000, maxDecimals: 2)}\nTon',
                           style: const TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
