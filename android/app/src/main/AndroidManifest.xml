@@ -12,14 +12,14 @@
         android:label="Kai"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-        <!-- AdMob app ID. This is Google's public TEST app ID — it always
-             serves test ads and is safe to ship, but you must replace it
-             with your real AdMob app ID (from apps.admob.com) before
-             release, and flip AdsConfig.useTestAds to false in
-             lib/Utils/ads_config.dart at the same time. -->
+        <!-- Real AdMob app ID (Kai / Android). Ad requests still use
+             Google's public TEST ad unit ID until AdsConfig.useTestAds is
+             flipped to false in lib/Utils/ads_config.dart — using the real
+             app ID with test ad units during development is expected and
+             fine per Google's own guidance. -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="ca-app-pub-2524103324784592~1300273213"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

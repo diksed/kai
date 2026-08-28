@@ -6,7 +6,7 @@ import '../Screens/CalculationScreen/calculation_screen.dart';
 import '../Screens/IntroductionScreen/introduction_screen.dart';
 import '../Utils/app_texts.dart';
 
-appRoutes() => [
+List<GetPage<dynamic>> appRoutes() => [
       GetPage(
           name: RoutesTexts.splash,
           page: () => const SplashPage(),

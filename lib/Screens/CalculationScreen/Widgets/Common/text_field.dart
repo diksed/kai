@@ -37,9 +37,6 @@ Widget customTextField(
   );
 }
 
-textFieldTextStyle() {
-  return const TextStyle(
-    color: Colors.white,
-    fontSize: 25,
-  );
+TextStyle textFieldTextStyle() {
+  return const TextStyle(color: Colors.white, fontSize: 25);
 }

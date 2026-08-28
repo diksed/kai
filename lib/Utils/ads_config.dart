@@ -25,15 +25,36 @@ class AdsConfig {
       'ca-app-pub-3940256099942544/6300978111';
   static const String _testIosBannerUnitId =
       'ca-app-pub-3940256099942544/2934735716';
+  static const String _testAndroidInterstitialUnitId =
+      'ca-app-pub-3940256099942544/1033173712';
+  static const String _testIosInterstitialUnitId =
+      'ca-app-pub-3940256099942544/4411468910';
 
-  // TODO: replace with your real ad unit IDs (see step 3 above).
-  static const String _androidBannerUnitId = 'ca-app-pub-3940256099942544/6300978111';
+  // Real banner ad unit ID (Kai / Android, "Past Records Banner").
+  static const String _androidBannerUnitId =
+      'ca-app-pub-2524103324784592/6509658866';
+  // TODO: still a placeholder — replace once an iOS AdMob app/unit exists.
   static const String _iosBannerUnitId = 'ca-app-pub-3940256099942544/2934735716';
+  // Real interstitial ad unit ID (Kai / Android).
+  static const String _androidInterstitialUnitId =
+      'ca-app-pub-2524103324784592/3527387822';
+  // TODO: still a placeholder — replace once an iOS AdMob app/unit exists.
+  static const String _iosInterstitialUnitId =
+      'ca-app-pub-3940256099942544/4411468910';
 
   static String get bannerAdUnitId {
     if (useTestAds) {
       return Platform.isIOS ? _testIosBannerUnitId : _testAndroidBannerUnitId;
     }
     return Platform.isIOS ? _iosBannerUnitId : _androidBannerUnitId;
+  }
+
+  static String get interstitialAdUnitId {
+    if (useTestAds) {
+      return Platform.isIOS
+          ? _testIosInterstitialUnitId
+          : _testAndroidInterstitialUnitId;
+    }
+    return Platform.isIOS ? _iosInterstitialUnitId : _androidInterstitialUnitId;
   }
 }

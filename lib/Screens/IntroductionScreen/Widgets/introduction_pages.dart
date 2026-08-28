@@ -37,7 +37,7 @@ Widget pageOneThird(String image, String text) {
         children: [
           Image.asset(image,
               height: Get.height / 2.688,
-              color: Colors.white.withOpacity(0.4),
+              color: Colors.white.withValues(alpha: 0.4),
               colorBlendMode: BlendMode.modulate),
           SizedBox(height: Get.height / 13.44),
           Center(

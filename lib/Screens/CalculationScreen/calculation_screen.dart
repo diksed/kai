@@ -8,6 +8,7 @@ import 'package:kai/Screens/CalculationScreen/result_controller.dart';
 import 'package:kai/Screens/RecordScreen/record_controller.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
+import 'package:kai/Utils/interstitial_ad_manager.dart';
 import 'Widgets/Electric/one_text_field_container.dart';
 import 'Widgets/Food/food_calculation_screen.dart';
 import 'Widgets/Food/food_input_sized_box.dart';
@@ -28,6 +29,15 @@ class CalculationPageState extends State<CalculationPage> {
   final CalculationController _controller = Get.put(CalculationController());
   final ResultController _resultController = Get.put(ResultController());
   final RecordController _recordController = Get.put(RecordController());
+
+  @override
+  void initState() {
+    super.initState();
+    // Start loading now: there's several input screens' worth of typing
+    // ahead before the food → result transition where this gets shown.
+    InterstitialAdManager.instance.load();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ScaffoldMessenger(

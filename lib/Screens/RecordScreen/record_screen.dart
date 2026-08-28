@@ -29,69 +29,67 @@ class _PastRecordsState extends State<PastRecords> {
   @override
   Widget build(BuildContext context) {
     return ScaffoldMessenger(
-      child: SafeArea(
-        child: Scaffold(
-          backgroundColor: AppColors.backgroundColor,
-          resizeToAvoidBottomInset: true,
-          body: SizedBox(
-            height: Get.height,
-            width: Get.width,
-            child: Stack(
-              children: [
-                const Align(
-                    alignment: Alignment.bottomCenter,
-                    child: BackgroundImage(
-                        imagePath: ImagesPath.pastRecordsBackground)),
-                // SingleChildScrollView instead of a bare Column: the banner
-                // ad adds extra height on top of an already screen-filling
-                // layout, so on shorter devices (or larger system font
-                // scale) the content no longer reliably fits in one
-                // viewport. Scrolling is a safety net; the sizes below are
-                // still tuned to fit without scrolling on most phones.
-                SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      appLogo(),
-                      Text('pastRecords'.tr,
-                          style: titleStyle, textAlign: TextAlign.center),
-                      SizedBox(
-                        height: Get.height / 2.1,
-                        child: ScrollConfiguration(
-                          behavior: const ScrollBehavior()
-                              .copyWith(overscroll: false),
-                          child: ListView(
-                            children: [
-                              timelineStyle(
-                                  _recordController, () => setState(() {})),
-                            ],
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: Get.height / 85),
-                      widget.adSlot ?? const BannerAdWidget(),
-                      SizedBox(height: Get.height / 85),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: Scaffold(
+        backgroundColor: AppColors.backgroundColor,
+        resizeToAvoidBottomInset: true,
+        // Pinned to the true bottom edge of the screen, full width, outside
+        // the body entirely — nothing above it can push it around or clip
+        // it, and it never eats into the body's own space.
+        bottomNavigationBar: widget.adSlot ?? const BannerAdWidget(),
+        // SafeArea wraps the body only, not bottomNavigationBar — so the
+        // banner ad can sit flush at the true bottom edge while the body's
+        // own content still avoids notches/gesture areas.
+        body: SafeArea(
+          child: Stack(
+            children: [
+              const Align(
+                  alignment: Alignment.bottomCenter,
+                  child: BackgroundImage(
+                      imagePath: ImagesPath.pastRecordsBackground)),
+              // A Column with an Expanded list — instead of fixed
+              // Get.height fractions — so the logo/title/buttons always get
+              // their natural size first and the record list simply takes
+              // whatever's left. That's what actually guarantees the button
+              // row is never clipped, regardless of the bottom banner's
+              // height or the device's screen size.
+              Column(
+                children: [
+                  appLogo(),
+                  Text('pastRecords'.tr,
+                      style: titleStyle, textAlign: TextAlign.center),
+                  Expanded(
+                    child: ScrollConfiguration(
+                      behavior:
+                          const ScrollBehavior().copyWith(overscroll: false),
+                      child: ListView(
                         children: [
-                          GestureDetector(
-                              child: const HomeButton(
-                                  whichButton: '', onLastPage: true),
-                              onTap: () {
-                                Get.offAndToNamed(RoutesTexts.menu);
-                              }),
-                          GestureDetector(
-                              child: const ClearRecordButton(),
-                              onTap: () {
-                                clearRecordDialog(_recordController);
-                              }),
+                          timelineStyle(
+                              _recordController, () => setState(() {})),
                         ],
                       ),
-                      SizedBox(height: Get.height / 85),
+                    ),
+                  ),
+                  SizedBox(height: Get.height / 85),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      GestureDetector(
+                          child: const HomeButton(
+                              whichButton: '', onLastPage: true),
+                          onTap: () {
+                            Get.offAndToNamed(RoutesTexts.menu);
+                          }),
+                      GestureDetector(
+                          child: const ClearRecordButton(),
+                          onTap: () {
+                            clearRecordDialog(_recordController);
+                          }),
                     ],
                   ),
-                ),
-              ],
-            ),
+                  SizedBox(height: Get.height / 85),
+                ],
+              ),
+            ],
           ),
         ),
       ),

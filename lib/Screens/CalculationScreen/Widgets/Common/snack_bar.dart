@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../Utils/app_colors.dart';
 
-showSnackBar(
+void showSnackBar(
     {String title = 'error',
     String message = 'fillAllFields',
     SnackPosition position = SnackPosition.TOP}) {

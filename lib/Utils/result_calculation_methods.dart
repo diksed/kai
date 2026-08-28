@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:kai/Screens/RecordScreen/record_controller.dart';
 import 'package:kai/Utils/app_texts.dart';
 import 'package:kai/Utils/emission_factors.dart';
+import 'package:kai/Utils/interstitial_ad_manager.dart';
 
 import '../Screens/CalculationScreen/Widgets/Common/next_back_button.dart';
 import '../Screens/CalculationScreen/Widgets/Common/snack_bar.dart';
@@ -86,5 +87,9 @@ void calculationMethod(
       foodCo2: resultController.foodResultValue.value,
       totalCo2: resultController.totalCo2.value,
     );
+    // Last input screen → result screen: show the preloaded interstitial,
+    // if it's ready. It was requested back when the calculation flow
+    // started, so it's had the whole flow's worth of typing time to load.
+    InterstitialAdManager.instance.showIfReady();
   }
 }

@@ -4,6 +4,7 @@ import 'package:kai/Screens/MenuScreen/Widgets/info_message.dart';
 import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
 import '../../Utils/Widgets/app_logo.dart';
+import '../../Utils/Widgets/banner_ad_widget.dart';
 import '../../Utils/Widgets/support_link.dart';
 import '../DonateScreen/donate_screen.dart';
 import 'Widgets/menu_background_image.dart';
@@ -18,8 +19,9 @@ class MenuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
+      bottomNavigationBar: const BannerAdWidget(),
       body: PopScope(
-        onPopInvoked: (didPop) async {
+        onPopInvokedWithResult: (didPop, result) async {
           menuController.onBackPressed(context);
         },
         canPop: false,

@@ -72,7 +72,7 @@ class RecordController extends GetxController {
     return treeCount.toStringAsFixed(0);
   }
 
-  launchURL() async {
+  Future<void> launchURL() async {
     const url = KeyTexts.url;
     final uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
