@@ -12,11 +12,10 @@
         android:label="Kai"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
-        <!-- Real AdMob app ID (Kai / Android). Ad requests still use
-             Google's public TEST ad unit ID until AdsConfig.useTestAds is
-             flipped to false in lib/Utils/ads_config.dart — using the real
-             app ID with test ad units during development is expected and
-             fine per Google's own guidance. -->
+        <!-- Real AdMob app ID (Kai / Android). Ad requests use the real
+             banner/interstitial ad units too now that
+             AdsConfig.useTestAds is false (see lib/Utils/ads_config.dart)
+             and ConsentManager gathers UMP consent before any ad request. -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-2524103324784592~1300273213"/>

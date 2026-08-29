@@ -1,13 +1,12 @@
-import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:kai/Routes/routes.dart';
 import 'package:kai/Screens/SplashScreen/splash_screen.dart';
 
+import 'Utils/consent_manager.dart';
 import 'Utils/languages.dart';
 
 void main() async {
@@ -17,9 +16,11 @@ void main() async {
   await SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await GetStorage.init();
-  // Fire-and-forget: ad SDK init shouldn't block app startup, and the app
-  // must still work fine if it's slow or fails (e.g. no network yet).
-  unawaited(MobileAds.instance.initialize());
+  // Fire-and-forget: gathers GDPR/US-state consent as required, then
+  // initializes the ads SDK once that's cleared. Never blocks app startup,
+  // and the app must still work fine if it's slow or fails (e.g. no
+  // network yet).
+  ConsentManager.instance.gatherConsentAndInitializeAds();
   runApp(const MyApp());
 }
 

@@ -6,9 +6,13 @@ import 'package:get/get.dart';
 import 'package:kai/Screens/CalculationScreen/Widgets/Common/snack_bar.dart';
 import 'package:kai/main.dart';
 import '../../Utils/carbon_facts.dart';
+import '../../Utils/consent_manager.dart';
 
 class MenuPageController extends GetxController {
   var infoMessage = ''.obs;
+  // Only shown once the UMP SDK confirms this user actually needs a way to
+  // revisit their consent choice (e.g. EEA/UK, or some US states).
+  var showPrivacyOptions = false.obs;
   DateTime? _lastPressedAt;
 
   void getRandomInfoMessage() {
@@ -33,6 +37,9 @@ class MenuPageController extends GetxController {
   @override
   void onInit() {
     getRandomInfoMessage();
+    ConsentManager.instance
+        .isPrivacyOptionsRequired()
+        .then((required) => showPrivacyOptions.value = required);
     super.onInit();
   }
 }

@@ -5,6 +5,7 @@ import 'package:kai/Utils/app_colors.dart';
 import 'package:kai/Utils/app_texts.dart';
 import '../../Utils/Widgets/app_logo.dart';
 import '../../Utils/Widgets/banner_ad_widget.dart';
+import '../../Utils/Widgets/privacy_options_link.dart';
 import '../../Utils/Widgets/support_link.dart';
 import '../DonateScreen/donate_screen.dart';
 import 'Widgets/menu_background_image.dart';
@@ -62,7 +63,15 @@ class MenuPage extends StatelessWidget {
                         Obx(() => InfoMessage(
                             text: menuController.infoMessage.value)),
                         const SizedBox(height: 4),
-                        const SupportLink(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const SupportLink(),
+                            Obx(() => menuController.showPrivacyOptions.value
+                                ? const PrivacyOptionsLink()
+                                : const SizedBox.shrink()),
+                          ],
+                        ),
                       ]),
                 ),
               ],

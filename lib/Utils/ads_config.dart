@@ -2,23 +2,20 @@ import 'dart:io';
 
 /// AdMob configuration.
 ///
-/// [useTestAds] defaults to `true` so the app never accidentally serves (or
-/// requests) real ads — and never risks an AdMob policy strike from
-/// developer-device impressions — until you deliberately switch it off.
+/// [useTestAds] is `false` now that a real AdMob app + real Android ad
+/// units are wired up (see the real IDs below) and [ConsentManager] gathers
+/// UMP consent before any ad is ever requested. iOS still has no real
+/// AdMob app/units yet (see the TODOs below), so iOS keeps serving test
+/// creatives regardless of this flag until that's set up.
 ///
-/// Before releasing:
-/// 1. Create an AdMob account + app entry at https://apps.admob.com.
-/// 2. Replace [_androidAppId]/[_iosAppId] AND the matching values in
-///    android/app/src/main/AndroidManifest.xml and ios/Runner/Info.plist
-///    (the manifest/plist values are what the SDK actually reads at
-///    startup — the constants below are only used to build ad requests).
-/// 3. Create a banner ad unit and replace [_androidBannerUnitId] /
-///    [_iosBannerUnitId] below.
-/// 4. Flip [useTestAds] to false.
+/// Flip this back to `true` (or set it per-platform) if you ever need to
+/// test on a real device without touching production ad stats — never
+/// tap/view real ads on your own devices, that risks an AdMob policy
+/// strike.
 class AdsConfig {
   AdsConfig._();
 
-  static const bool useTestAds = true;
+  static const bool useTestAds = false;
 
   // Google's public sample IDs — safe to ship, always return test creatives.
   static const String _testAndroidBannerUnitId =

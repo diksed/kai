@@ -75,6 +75,7 @@ class Languages extends Translations {
           'electric': 'Elektrik',
           'tonne': 'Ton',
           'supportMe': 'Beni Destekle',
+          'privacyOptions': 'Gizlilik Tercihleri',
           'deleteRecord': 'Kaydı Sil',
           'deleteRecordText': 'Bu kaydı silmek istediğinize emin misiniz?',
           'noRecordDonateMessage':
@@ -156,6 +157,7 @@ class Languages extends Translations {
           'electric': 'Electric',
           'tonne': 'Ton',
           'supportMe': 'Support Me',
+          'privacyOptions': 'Privacy Options',
           'deleteRecord': 'Delete Record',
           'deleteRecordText': 'Are you sure you want to delete this record?',
           'noRecordDonateMessage':
